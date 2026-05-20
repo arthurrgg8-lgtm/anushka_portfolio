@@ -1,96 +1,132 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ThemeToggle } from "./theme-toggle";
-import { Menu, X } from "lucide-react";
-import Link from "next/link";
+import { Menu, X, Hammer } from "lucide-react";
 
-export type FilterCategory = "ALL" | "PROJECTS" | "RESEARCH" | "CAPABILITIES" | "CONTACT";
-
-interface NavigationProps {
-  activeFilter: FilterCategory;
-  onFilterChange: (filter: FilterCategory) => void;
+interface NavLink {
+  label: string;
+  targetId: string;
 }
 
-const FILTER_OPTIONS: { label: string; value: FilterCategory }[] = [
-  { label: "All", value: "ALL" },
-  { label: "Projects", value: "PROJECTS" },
-  { label: "Research", value: "RESEARCH" },
-  { label: "Capabilities", value: "CAPABILITIES" },
-  { label: "Contact", value: "CONTACT" },
+const NAV_LINKS: NavLink[] = [
+  { label: "Home", targetId: "hero-sec" },
+  { label: "Projects", targetId: "projects-sec" },
+  { label: "About", targetId: "about-sec" },
+  { label: "Capabilities", targetId: "capabilities-sec" },
+  { label: "Materials", targetId: "materials-sec" },
+  { label: "Contact", targetId: "contact-sec" }
 ];
 
-export function Navigation({ activeFilter, onFilterChange }: NavigationProps) {
+export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero-sec");
 
-  const handleFilterClick = (filter: FilterCategory) => {
-    onFilterChange(filter);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+
+      // Determine active section based on viewport scroll position
+      const scrollPos = window.scrollY + 200;
+      for (const link of NAV_LINKS) {
+        const el = document.getElementById(link.targetId);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            setActiveSection(link.targetId);
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleLinkClick = (e: React.MouseEvent, targetId: string) => {
+    e.preventDefault();
     setIsOpen(false);
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40 shadow-sm">
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          href="/"
-          onClick={() => onFilterChange("ALL")}
-          className="flex items-center gap-2 group cursor-pointer shrink-0"
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? "py-3 bg-background/80 backdrop-blur-md border-b border-border/40 shadow-sm" 
+          : "py-5 bg-transparent"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        {/* Logo block */}
+        <a 
+          href="#hero-sec" 
+          onClick={(e) => handleLinkClick(e, "hero-sec")}
+          className="flex items-center gap-2 group cursor-pointer"
         >
-          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center font-heading font-bold text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all duration-300">
+          <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center font-heading font-bold text-sm hover:scale-105 active:scale-95 transition-all duration-300">
             AR.
           </div>
           <div className="flex flex-col">
-            <span className="font-heading font-bold text-xs sm:text-sm tracking-wider uppercase text-foreground leading-none group-hover:text-primary transition-colors duration-300">
+            <span className="font-heading font-bold text-sm tracking-wider uppercase text-foreground leading-none group-hover:text-primary transition-colors duration-300">
               Anushka Khatri
             </span>
-            <span className="text-[8px] sm:text-[9px] uppercase tracking-widest text-muted-foreground leading-none mt-0.5">
+            <span className="text-[9px] uppercase tracking-widest text-muted-foreground leading-none mt-0.5">
               Architect / Designer
             </span>
           </div>
-        </Link>
+        </a>
 
-        {/* Desktop Filter Tabs */}
-        <nav className="hidden md:flex items-center gap-1">
-          {FILTER_OPTIONS.map((opt) => {
-            const isActive = activeFilter === opt.value;
-            return (
-              <button
-                key={opt.value}
-                onClick={() => handleFilterClick(opt.value)}
-                className={`px-3 lg:px-4 py-1.5 rounded-full text-[10px] lg:text-xs uppercase tracking-widest font-sans font-semibold transition-all duration-300 cursor-pointer ${
-                  isActive
-                    ? "bg-primary text-primary-foreground shadow-sm"
-                    : "text-foreground/65 hover:text-foreground hover:bg-muted/60"
-                }`}
-              >
-                {opt.label}
-              </button>
-            );
-          })}
+        {/* Desktop Links */}
+        <nav className="hidden md:flex items-center gap-8">
+          <ul className="flex items-center gap-7">
+            {NAV_LINKS.map((link) => {
+              const isActive = activeSection === link.targetId;
+              return (
+                <li key={link.targetId}>
+                  <a
+                    href={`#${link.targetId}`}
+                    onClick={(e) => handleLinkClick(e, link.targetId)}
+                    className={`text-xs uppercase tracking-widest font-sans font-medium transition-all duration-300 relative py-1 hover:text-primary ${
+                      isActive 
+                        ? "text-primary" 
+                        : "text-foreground/75"
+                    }`}
+                  >
+                    {link.label}
+                    {/* Sliding active line */}
+                    {isActive && (
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                    )}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+          
+          <div className="border-l border-border/50 pl-6 flex items-center gap-3">
+            <ThemeToggle />
+            <a
+              href="#contact-sec"
+              onClick={(e) => handleLinkClick(e, "contact-sec")}
+              className="text-xs uppercase tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground font-sans font-semibold px-4 py-2 rounded-full cursor-pointer hover:shadow-sm hover:scale-102 active:scale-98 transition-all duration-300"
+            >
+              Inquire
+            </a>
+          </div>
         </nav>
 
-        {/* Desktop actions */}
-        <div className="hidden md:flex items-center gap-3">
-          <Link
-            href="/thesis"
-            className="text-[10px] lg:text-xs uppercase tracking-widest font-sans font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
-          >
-            Thesis
-          </Link>
-          <Link
-            href="/journal"
-            className="text-[10px] lg:text-xs uppercase tracking-widest font-sans font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
-          >
-            Journal
-          </Link>
-          <div className="border-l border-border/50 pl-3">
-            <ThemeToggle />
-          </div>
-        </div>
-
-        {/* Mobile controls */}
-        <div className="flex items-center gap-2 md:hidden">
+        {/* Mobile controls bar */}
+        <div className="flex items-center gap-3 md:hidden">
           <ThemeToggle />
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -102,62 +138,44 @@ export function Navigation({ activeFilter, onFilterChange }: NavigationProps) {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      <div
-        className={`fixed inset-0 top-[52px] z-40 bg-background/95 backdrop-blur-md md:hidden transition-all duration-400 ${
+      {/* Mobile Drawer Overlay */}
+      <div 
+        className={`fixed inset-0 top-[60px] z-40 bg-background/95 backdrop-blur-md md:hidden transition-all duration-500 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <nav className="h-full flex flex-col justify-between px-6 py-8">
-          <ul className="flex flex-col gap-3">
-            {FILTER_OPTIONS.map((opt) => {
-              const isActive = activeFilter === opt.value;
+        <nav className="h-full flex flex-col justify-between px-8 py-12">
+          <ul className="flex flex-col gap-6">
+            {NAV_LINKS.map((link) => {
+              const isActive = activeSection === link.targetId;
               return (
-                <li key={opt.value}>
-                  <button
-                    onClick={() => handleFilterClick(opt.value)}
-                    className={`w-full text-left text-base uppercase tracking-widest font-heading font-semibold py-2 px-3 rounded-lg transition-all duration-300 cursor-pointer ${
-                      isActive
-                        ? "text-primary bg-primary/10 border-l-2 border-primary"
-                        : "text-foreground/80 hover:bg-muted/40"
+                <li key={link.targetId}>
+                  <a
+                    href={`#${link.targetId}`}
+                    onClick={(e) => handleLinkClick(e, link.targetId)}
+                    className={`text-lg uppercase tracking-widest font-heading font-semibold block transition-colors duration-300 ${
+                      isActive ? "text-primary pl-2 border-l-2 border-primary" : "text-foreground/80"
                     }`}
                   >
-                    {opt.label}
-                  </button>
+                    {link.label}
+                  </a>
                 </li>
               );
             })}
-            <li className="mt-4 border-t border-border/40 pt-4">
-              <Link
-                href="/thesis"
-                onClick={() => setIsOpen(false)}
-                className="block w-full text-left text-base uppercase tracking-widest font-heading font-semibold py-2 px-3 rounded-lg text-foreground/80 hover:bg-muted/40 transition-all duration-300"
-              >
-                Thesis
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/journal"
-                onClick={() => setIsOpen(false)}
-                className="block w-full text-left text-base uppercase tracking-widest font-heading font-semibold py-2 px-3 rounded-lg text-foreground/80 hover:bg-muted/40 transition-all duration-300"
-              >
-                Journal
-              </Link>
-            </li>
           </ul>
 
-          <div className="border-t border-border/60 pt-6 flex flex-col gap-3">
+          <div className="border-t border-border/60 pt-8 flex flex-col gap-4">
             <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
               <span>NEC LICENSE</span>
-              <span className="text-foreground font-semibold">REG NO: 94879</span>
+              <span className="text-foreground font-semibold">AR. LICENSE REGISTERED</span>
             </div>
-            <button
-              onClick={() => { onFilterChange("CONTACT"); setIsOpen(false); }}
+            <a
+              href="#contact-sec"
+              onClick={(e) => handleLinkClick(e, "contact-sec")}
               className="text-center text-xs uppercase tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground font-sans font-semibold py-3 rounded-xl cursor-pointer transition-all duration-300"
             >
               Get in Touch
-            </button>
+            </a>
           </div>
         </nav>
       </div>
