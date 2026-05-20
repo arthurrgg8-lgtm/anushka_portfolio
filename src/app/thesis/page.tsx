@@ -1,6 +1,6 @@
 "use client";
 
-import { Navigation } from "@/components/navigation";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { ArrowLeft, BookOpen, Layers, Compass, Award, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
@@ -76,9 +76,18 @@ export default function Thesis() {
 
   return (
     <>
-      <Navigation />
-      
-      <main className="min-h-screen bg-background pt-24 pb-16 px-6">
+      {/* Minimal standalone header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40 shadow-sm">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center font-heading font-bold text-xs sm:text-sm">AR.</div>
+            <span className="font-heading font-bold text-xs sm:text-sm tracking-wider uppercase text-foreground group-hover:text-primary transition-colors">Anushka Khatri</span>
+          </Link>
+          <ThemeToggle />
+        </div>
+      </header>
+
+      <main className="min-h-screen bg-background pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           {/* Back button */}
           <Link 
