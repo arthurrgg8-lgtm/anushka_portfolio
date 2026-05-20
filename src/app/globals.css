@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfbf7;
+  --foreground: #22252a;
+  --card: #efefef;
+  --card-foreground: #22252a;
+  --primary: #c85a32;
+  --primary-foreground: #fdfbf7;
+  --muted: #e6e3dd;
+  --muted-foreground: #5a5f67;
+  --border: #dfdcd6;
+  
+  --grid-dot: rgba(200, 90, 50, 0.38); /* terracotta dots (clearly visible but refined) */
+  --grid-line: rgba(34, 37, 42, 0.12); /* fine dark-gray line grid */
+
+  --font-cormorant: var(--font-cormorant);
+  --font-inter: var(--font-inter);
 }
 
-@theme inline {
+[data-theme='dark'] {
+  --background: #121316;
+  --foreground: #f3f1ec;
+  --card: #1c1e22;
+  --card-foreground: #f3f1ec;
+  --primary: #d16c45;
+  --primary-foreground: #121316;
+  --muted: #2a2c31;
+  --muted-foreground: #a6a8ae;
+  --border: #2a2c31;
+  
+  --grid-dot: rgba(209, 108, 69, 0.65); /* warm burnt sienna glow dots */
+  --grid-line: rgba(243, 241, 236, 0.20); /* fine light-gray line grid */
+}
+
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  
+  --font-heading: var(--font-cormorant);
+  --font-sans: var(--font-inter);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* Custom scroll snap styling */
+.snap-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.snap-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100vh;
+  width: 100%;
+}
+
