@@ -540,8 +540,11 @@ export default function Home() {
           </div>
 
           {/* Footer baseline */}
-          <div className="absolute bottom-4 left-0 right-0 text-center text-[10px] font-mono text-muted-foreground/65">
-            © {new Date().getFullYear()} AR. ANUSHKA KHATRI. ALL RIGHTS REGISTERED (NEC).
+          <div className="absolute bottom-4 left-0 right-0 text-center text-[10px] font-mono text-muted-foreground/65 flex flex-col items-center justify-center gap-1">
+            <span>© {new Date().getFullYear()} AR. ANUSHKA KHATRI. ALL RIGHTS REGISTERED (NEC).</span>
+            <span>
+              Developed by <a href="https://anuditk.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline underline-offset-2">Anudit Khatri</a>
+            </span>
           </div>
         </section>
 
