@@ -12,8 +12,6 @@
   --muted: #e6e3dd;
   --muted-foreground: #5a5f67;
   --border: #dfdcd6;
-  
-  --grid-line: rgba(34, 37, 42, 0.12); /* fine dark-gray line grid */
 
   --font-cormorant: var(--font-cormorant);
   --font-inter: var(--font-inter);
@@ -29,8 +27,6 @@
   --muted: #2a2c31;
   --muted-foreground: #a6a8ae;
   --border: #2a2c31;
-  
-  --grid-line: rgba(243, 241, 236, 0.20); /* fine light-gray line grid */
 }
 
 @theme {
