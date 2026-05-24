@@ -13,7 +13,6 @@
   --muted-foreground: #5a5f67;
   --border: #dfdcd6;
   
-  --grid-dot: rgba(200, 90, 50, 0.38); /* terracotta dots (clearly visible but refined) */
   --grid-line: rgba(34, 37, 42, 0.12); /* fine dark-gray line grid */
 
   --font-cormorant: var(--font-cormorant);
@@ -31,7 +30,6 @@
   --muted-foreground: #a6a8ae;
   --border: #2a2c31;
   
-  --grid-dot: rgba(209, 108, 69, 0.65); /* warm burnt sienna glow dots */
   --grid-line: rgba(243, 241, 236, 0.20); /* fine light-gray line grid */
 }
 

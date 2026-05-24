@@ -41,13 +41,10 @@ export default function RootLayout({
         >
           {/* High-end architectural watermark drafting sheet theme background */}
           <div className="fixed inset-0 pointer-events-none z-0 select-none overflow-hidden transition-opacity duration-300">
-            {/* 1. Fine dot grid pattern in background */}
-            <div className="absolute inset-0 bg-[radial-gradient(var(--grid-dot)_1.2px,transparent_1.2px)] bg-[size:24px_24px] bg-center opacity-[1.0] dark:opacity-[0.95]" />
-            
-            {/* 2. Major grid lines pattern */}
+            {/* Major grid lines pattern */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--grid-line)_0.75px,transparent_0.75px),linear-gradient(to_bottom,var(--grid-line)_0.75px,transparent_0.75px)] bg-[size:120px_120px] bg-center opacity-[0.95] dark:opacity-[0.88]" />
 
-            {/* 3. Inset Technical Border / Drafting Sheet Margins */}
+            {/* Inset Technical Border / Drafting Sheet Margins */}
             <div className="absolute inset-6 border border-primary/[0.55] dark:border-primary/[0.60] transition-colors duration-300">
               {/* Corner crosshairs */}
               <div className="absolute -top-3 -left-3 w-6 h-6 flex items-center justify-center text-primary/[0.72] dark:text-primary/[0.80]">
@@ -90,7 +87,7 @@ export default function RootLayout({
               </div>
             </div>
 
-            {/* 4. Large rotating compass/drafting element (increased opacity, refined color) */}
+            {/* Large rotating compass/drafting element */}
             <div className="absolute inset-0 flex items-center justify-center opacity-[0.45] dark:opacity-[0.42] text-primary transition-opacity duration-300">
               <svg 
                 className="w-[120vh] h-[120vh] max-w-none animate-[spin_360s_linear_infinite]" 
@@ -137,7 +134,7 @@ export default function RootLayout({
               </svg>
             </div>
             
-            {/* 5. Additional static watermark blueprint detail in lower left */}
+            {/* Additional static watermark blueprint detail in lower left */}
             <div className="absolute bottom-20 left-20 w-64 h-64 opacity-[0.38] dark:opacity-[0.34] text-primary select-none hidden lg:block transition-opacity duration-300">
               {/* Custom Blueprint Drawing of a Newari Window Timber Frame */}
               <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="0.75" xmlns="http://www.w3.org/2000/svg">
@@ -168,7 +165,7 @@ export default function RootLayout({
               </svg>
             </div>
 
-            {/* 6. Additional static watermark structural detail in lower right */}
+            {/* Additional static watermark structural detail in lower right */}
             <div className="absolute top-32 right-20 w-64 h-64 opacity-[0.36] dark:opacity-[0.30] text-primary select-none hidden xl:block transition-opacity duration-300">
               {/* Custom Structural Detail (Tension Joint) */}
               <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="0.75" xmlns="http://www.w3.org/2000/svg">
