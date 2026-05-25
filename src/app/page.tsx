@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-
+import { useEffect, useState } from "react";
 // ─── Static SVG map arrays (pre-computed for performance) ───
 const compassTicks = Array.from({ length: 24 }, (_, i) => {
   const angle = (i * 15 * Math.PI) / 180;
@@ -37,34 +35,7 @@ export default function Home() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "", sector: "universal" });
 
-  // ─── Mouse Parallax Tracking ───
-  const heroRef = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(0.5);
-  const mouseY = useMotionValue(0.5);
-  const smoothX = useSpring(mouseX, { stiffness: 60, damping: 30 });
-  const smoothY = useSpring(mouseY, { stiffness: 60, damping: 30 });
-
-  // Parallax transforms for different layers
-  const compassRotate = useTransform(smoothX, [0, 1], [-8, 8]);
-  const compassTilt = useTransform(smoothY, [0, 1], [-6, 6]);
-  const float1Offset = useTransform(smoothX, [0, 1], [-12, 12]);
-  const float1OffsetY = useTransform(smoothY, [0, 1], [-8, 8]);
-  const float2Offset = useTransform(smoothX, [0, 1], [10, -10]);
-  const float2OffsetY = useTransform(smoothY, [0, 1], [-6, 6]);
-  const float3Offset = useTransform(smoothX, [0, 1], [-6, 6]);
-  const float3OffsetY = useTransform(smoothY, [0, 1], [-10, 10]);
-  const float4Offset = useTransform(smoothX, [0, 1], [8, -8]);
-  const float4OffsetY = useTransform(smoothY, [0, 1], [5, -5]);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!heroRef.current) return;
-    const rect = heroRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    mouseX.set(x);
-    mouseY.set(y);
-  };
-
+  // ─── Scroll-based Section Tracking ───
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + window.innerHeight / 2;
@@ -141,16 +112,11 @@ export default function Home() {
         {/* SECTION 1: HERO/LANDING — Immersive Architectural Observatory */}
         <section 
           id="hero-sec" 
-          ref={heroRef}
-          onMouseMove={handleMouseMove}
           className="snap-section flex flex-col justify-center items-center relative px-6 overflow-hidden"
         >
           {/* ─── Drafting Grid Overlay ─── */}
-          <motion.div
+          <div
             className="absolute inset-0 pointer-events-none select-none opacity-[0.04] dark:opacity-[0.06]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.04 }}
-            transition={{ duration: 1.5 }}
           >
             <svg className="w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" strokeWidth="0.3" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -160,49 +126,30 @@ export default function Home() {
               </defs>
               <rect width="1200" height="800" fill="url(#grid)" />
             </svg>
-          </motion.div>
+          </div>
 
-          {/* ─── Animated Architectural Compass Background (parallax) ─── */}
-          <motion.div 
-            className="absolute inset-0 pointer-events-none select-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.15 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            style={{
-              x: useTransform(smoothX, [0, 1], [-30, 30]),
-              y: useTransform(smoothY, [0, 1], [-20, 20]),
-            }}
+          {/* ─── Static Architectural Compass Background ─── */}
+          <div 
+            className="absolute inset-0 pointer-events-none select-none opacity-[0.15]"
           >
             <svg className="w-full h-full text-primary" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
               {/* Outer celestial rings */}
               <g>
-                <motion.circle 
+                <circle 
                   cx="600" cy="400" r="420" 
                   strokeWidth="0.3" strokeDasharray="2 14"
-                  animate={{ rotate: 360 }}
-                  transition={{ repeat: Infinity, duration: 180, ease: "linear" }}
-                  style={{ originX: "600px", originY: "400px" }}
                 />
-                <motion.circle 
+                <circle 
                   cx="600" cy="400" r="380" 
                   strokeWidth="0.3" opacity="0.5"
-                  animate={{ rotate: -360 }}
-                  transition={{ repeat: Infinity, duration: 140, ease: "linear" }}
-                  style={{ originX: "600px", originY: "400px" }}
                 />
-                <motion.circle 
+                <circle 
                   cx="600" cy="400" r="340" 
                   strokeWidth="0.4" strokeDasharray="3 6"
-                  animate={{ rotate: 360 }}
-                  transition={{ repeat: Infinity, duration: 110, ease: "linear" }}
-                  style={{ originX: "600px", originY: "400px" }}
                 />
-                <motion.circle 
+                <circle 
                   cx="600" cy="400" r="280" 
                   strokeWidth="0.2" strokeDasharray="1 20"
-                  animate={{ rotate: -360 }}
-                  transition={{ repeat: Infinity, duration: 200, ease: "linear" }}
-                  style={{ originX: "600px", originY: "400px" }}
                 />
               </g>
               {/* Drafting crosshairs & section marks */}
@@ -253,31 +200,22 @@ export default function Home() {
                 />
               ))}
             </svg>
-          </motion.div>
+          </div>
 
           {/* ─── Large Orbital Badge Behind Name ─── */}
-          <motion.div
+          <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
           >
             <svg width="520" height="520" viewBox="0 0 520 520" fill="none" stroke="currentColor" className="text-primary/8 dark:text-primary/10">
               {/* Outermost seal ring */}
-              <motion.circle 
+              <circle 
                 cx="260" cy="260" r="250"
                 strokeWidth="0.5" strokeDasharray="6 8"
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
-                style={{ originX: "260px", originY: "260px" }}
               />
               {/* Dashed intermediate ring */}
-              <motion.circle 
+              <circle 
                 cx="260" cy="260" r="220"
                 strokeWidth="0.4" strokeDasharray="2 10"
-                animate={{ rotate: -360 }}
-                transition={{ repeat: Infinity, duration: 45, ease: "linear" }}
-                style={{ originX: "260px", originY: "260px" }}
               />
               {/* Solid inner ring */}
               <circle cx="260" cy="260" r="190" strokeWidth="0.3" opacity="0.5" />
@@ -294,42 +232,28 @@ export default function Home() {
                 />
               ))}
               {/* Interlocking ellipses */}
-              <motion.ellipse
+              <ellipse
                 cx="260" cy="260" rx="140" ry="80"
                 strokeWidth="0.3" strokeDasharray="3 5"
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
-                style={{ originX: "260px", originY: "260px" }}
               />
-              <motion.ellipse
+              <ellipse
                 cx="260" cy="260" rx="80" ry="140"
                 strokeWidth="0.3" strokeDasharray="2 6"
-                animate={{ rotate: -360 }}
-                transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-                style={{ originX: "260px", originY: "260px" }}
               />
             </svg>
-          </motion.div>
+          </div>
 
-          {/* ─── Floating Architectural Elements (parallax) ─── */}
+          {/* ─── Floating Architectural Elements ─── */}
           {/* Element 1: Section elevation fragment */}
-          <motion.div 
+          <div 
             className="absolute top-16 left-12 md:left-32 opacity-[0.08] dark:opacity-[0.1] pointer-events-none select-none"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 0.08, y: 0 }}
-            transition={{ delay: 0.8, duration: 1 }}
-            style={{ x: float1Offset, y: float1OffsetY }}
           >
             <svg width="80" height="130" viewBox="0 0 80 130" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary">
-              <motion.polygon 
+              <polygon 
                 points="40,10 10,45 70,45" 
-                animate={{ y: [0, -3, 0] }}
-                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 0 }}
               />
-              <motion.rect 
+              <rect 
                 x="18" y="45" width="44" height="70" rx="1"
-                animate={{ y: [0, -3, 0] }}
-                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 0 }}
               />
               <rect x="30" y="65" width="20" height="50" strokeWidth="0.5" />
               <circle cx="40" cy="75" r="4" strokeWidth="0.3" />
@@ -340,21 +264,15 @@ export default function Home() {
               {/* Hatching */}
               <line x1="10" y1="120" x2="70" y2="120" strokeWidth="0.2" strokeDasharray="1 3" opacity="0.5" />
             </svg>
-          </motion.div>
+          </div>
 
           {/* Element 2: Multi-story facade */}
-          <motion.div 
+          <div 
             className="absolute top-24 right-12 md:right-36 opacity-[0.07] dark:opacity-[0.09] pointer-events-none select-none"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 0.07, y: 0 }}
-            transition={{ delay: 1, duration: 1 }}
-            style={{ x: float2Offset, y: float2OffsetY }}
           >
             <svg width="100" height="90" viewBox="0 0 100 90" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary">
-              <motion.rect 
+              <rect 
                 x="5" y="5" width="90" height="75" rx="1"
-                animate={{ y: [0, 2, 0] }}
-                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 0.5 }}
               />
               {/* Floor lines */}
               <line x1="5" y1="30" x2="95" y2="30" strokeWidth="0.4" />
@@ -373,22 +291,15 @@ export default function Home() {
               {/* Roof detail */}
               <line x1="0" y1="5" x2="100" y2="5" strokeWidth="0.2" strokeDasharray="2 3" />
             </svg>
-          </motion.div>
+          </div>
 
           {/* Element 3: Column detail / structural */}
-          <motion.div 
+          <div 
             className="absolute bottom-28 left-16 md:left-48 opacity-[0.07] dark:opacity-[0.09] pointer-events-none select-none"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 0.07, scale: 1 }}
-            transition={{ delay: 1.2, duration: 1 }}
-            style={{ x: float3Offset, y: float3OffsetY }}
           >
             <svg width="70" height="100" viewBox="0 0 70 100" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary">
-              <motion.circle 
+              <circle 
                 cx="35" cy="35" r="30"
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
-                style={{ originX: "35px", originY: "35px" }}
               />
               <circle cx="35" cy="35" r="22" strokeWidth="0.4" strokeDasharray="3 3" />
               <circle cx="35" cy="35" r="14" strokeWidth="0.2" />
@@ -402,21 +313,14 @@ export default function Home() {
               <line x1="35" y1="70" x2="35" y2="92" strokeWidth="0.15" opacity="0.5" />
               <line x1="43" y1="70" x2="43" y2="92" strokeWidth="0.15" opacity="0.5" />
             </svg>
-          </motion.div>
+          </div>
 
           {/* Element 4: Gable roof elevation */}
-          <motion.div 
+          <div 
             className="absolute bottom-32 right-16 md:right-56 opacity-[0.06] dark:opacity-[0.08] pointer-events-none select-none"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 0.06, y: 0 }}
-            transition={{ delay: 1.5, duration: 1 }}
-            style={{ x: float4Offset, y: float4OffsetY }}
           >
             <svg width="70" height="110" viewBox="0 0 70 110" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary">
-              <motion.g
-                animate={{ y: [0, -2, 0] }}
-                transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
-              >
+              <g>
                 {/* Gable roof */}
                 <polyline points="5,55 35,10 65,55" />
                 <line x1="35" y1="10" x2="35" y2="25" strokeWidth="0.3" strokeDasharray="2 2" />
@@ -431,45 +335,29 @@ export default function Home() {
                 <line x1="24" y1="75" x2="46" y2="75" strokeWidth="0.15" />
                 {/* Ground line */}
                 <line x1="0" y1="105" x2="70" y2="105" strokeWidth="0.2" strokeDasharray="2 4" />
-              </motion.g>
+              </g>
             </svg>
-          </motion.div>
+          </div>
 
-          {/* ─── Main Content with Split Text Animation ─── */}
-          <motion.div 
+          {/* ─── Main Content ─── */}
+          <div 
             className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             {/* Tagline Badge */}
-            <motion.span 
+            <span 
               className="text-[10px] uppercase tracking-[0.15em] bg-primary/10 text-primary font-bold px-4 py-1.5 rounded-full mb-6 font-sans inline-flex items-center gap-2"
-              initial={{ opacity: 0, y: -12, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 0.2, type: "spring", stiffness: 120, damping: 15 }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
               Vernacular Modernism & Universal Design
-            </motion.span>
+            </span>
             
-            {/* Name — floating, glowing, animated */}
-            <motion.h1 
+            {/* Name */}
+            <h1 
               className="text-5xl md:text-8xl font-heading font-semibold tracking-tight leading-tight select-all relative"
-              animate={{ y: [0, -6, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 4,
-                ease: "easeInOut",
-                delay: 0.5,
-              }}
             >
               {/* Glow layer behind text */}
-              <motion.div
+              <div
                 className="absolute inset-0 pointer-events-none select-none"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0.3, 0.6, 0.3] }}
-                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut", delay: 0.5 }}
                 style={{
                   background: "radial-gradient(ellipse at center, hsl(var(--primary) / 0.15) 0%, transparent 70%)",
                   filter: "blur(40px)",
@@ -484,166 +372,90 @@ export default function Home() {
                     <span key={wordIdx} className="inline-flex items-baseline">
                       {word.split("").map((char, charIdx) => {
                         const i = baseOffset + charIdx;
-                        const letterDelay = 0.5 + i * 0.04;
                         return (
-                          <motion.span
+                          <span
                             key={charIdx}
                             className="inline-block relative"
-                            initial={{ opacity: 0, y: 80, scale: 0.3, rotateX: -60, filter: "blur(8px)" }}
-                            animate={{ 
-                              opacity: 1, 
-                              y: 0, 
-                              scale: 1, 
-                              rotateX: 0, 
-                              filter: "blur(0px)",
-                            }}
-                            transition={{
-                              delay: letterDelay,
-                              type: "spring",
-                              stiffness: 100 + (i % 5) * 15,
-                              damping: 12,
-                              mass: 0.5 + (i % 3) * 0.1,
-                            }}
-                            whileHover={{
-                              y: -12,
-                              scale: 1.25,
-                              color: "hsl(var(--primary))",
-                              textShadow: "0 0 30px hsl(var(--primary) / 0.5), 0 0 60px hsl(var(--primary) / 0.25)",
-                              filter: "brightness(1.15)",
-                              transition: { 
-                                type: "spring", 
-                                stiffness: 250, 
-                                damping: 7,
-                              },
-                            }}
                           >
                             {char}
-                          </motion.span>
+                          </span>
                         );
                       })}
                     </span>
                   );
                 })}
               </span>
-            </motion.h1>
+            </h1>
             
             {/* Tagline */}
-            <motion.p 
+            <p 
               className="text-lg md:text-2xl font-heading font-medium text-foreground mt-4 italic max-w-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, type: "spring", stiffness: 70, damping: 20 }}
             >
               <span className="relative inline-block">
                 "Designing spaces that speak through emotion, experience & purpose."
-                <motion.span 
-                  className="absolute -bottom-1 left-0 h-[1.5px] bg-primary/40"
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ delay: 1.5, duration: 0.8, ease: "easeOut" }}
+                <span 
+                  className="absolute -bottom-1 left-0 h-[1.5px] bg-primary/40 w-full"
                 />
               </span>
-            </motion.p>
+            </p>
             
             {/* Short Bio Snippet */}
-            <motion.p 
+            <p 
               className="text-sm md:text-base text-muted-foreground font-sans max-w-xl mt-6 leading-relaxed"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65, type: "spring", stiffness: 60, damping: 22 }}
             >
               Architect passionate about creating meaningful, human-centric, and inclusive spaces through intuitive storytelling, construction technologies, and vernacular sustainability.
-            </motion.p>
+            </p>
 
-            {/* Quick CTAs — enhanced with hover effects */}
-            <motion.div 
+            {/* Quick CTAs */}
+            <div 
               className="flex gap-4 mt-8 flex-col sm:flex-row"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, type: "spring", stiffness: 70, damping: 18 }}
             >
-              <motion.button 
+              <button 
                 onClick={() => handleScrollTo("projects-sec")}
                 className="group relative text-xs uppercase tracking-wider bg-primary hover:bg-primary/95 text-primary-foreground font-sans font-bold px-7 py-3.5 rounded-full cursor-pointer flex items-center gap-2 overflow-hidden"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
               >
-                {/* Shimmer overlay */}
-                <motion.span 
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "200%" }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                />
                 <span className="relative z-10">Explore Works</span>
-                <motion.div
+                <div
                   className="relative z-10"
-                  animate={{ y: [0, 3, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                 >
                   <ArrowDown className="w-4 h-4" />
-                </motion.div>
-              </motion.button>
-              <motion.button 
+                </div>
+              </button>
+              <button 
                 onClick={() => handleScrollTo("about-sec")}
                 className="group relative text-xs uppercase tracking-wider border border-border bg-card/50 hover:bg-muted text-foreground font-sans font-semibold px-7 py-3.5 rounded-full cursor-pointer flex items-center gap-2 overflow-hidden"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
               >
-                <motion.span 
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-foreground/[0.03] to-transparent"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "200%" }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                />
                 <span className="relative z-10">Read Profile</span>
-              </motion.button>
-            </motion.div>
-          </motion.div>
+              </button>
+            </div>
+          </div>
 
-          {/* ─── Orbital Scroll Indicator ─── */}
-          <motion.button 
+          {/* ─── Scroll Indicator ─── */}
+          <button 
             onClick={() => handleScrollTo("projects-sec")}
             className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 cursor-pointer group"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
             aria-label="Scroll down"
           >
-            {/* Circular ring with orbital dot */}
+            {/* Circular ring */}
             <div className="relative w-8 h-8 flex items-center justify-center mb-1">
-              <motion.svg 
+              <svg 
                 width="32" height="32" viewBox="0 0 32 32"
                 fill="none" 
                 stroke="currentColor"
                 className="text-muted-foreground/40 group-hover:text-primary/60 transition-colors duration-500"
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 6, ease: "linear" }}
               >
                 <circle cx="16" cy="16" r="14" strokeWidth="0.8" strokeDasharray="2 4" />
-              </motion.svg>
-              <motion.div
-                className="absolute w-1.5 h-1.5 rounded-full bg-primary/60"
-                animate={{
-                  top: [2, 2, 28, 28, 2],
-                  left: [2, 28, 28, 2, 2],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 6,
-                  ease: "linear",
-                  times: [0, 0.25, 0.5, 0.75, 1],
-                }}
+              </svg>
+              <div
+                className="absolute w-1.5 h-1.5 rounded-full bg-primary/60 top-1 left-1"
               />
             </div>
-            <motion.span 
+            <span 
               className="text-[8px] uppercase tracking-[0.2em] font-mono text-muted-foreground/50 group-hover:text-primary transition-colors duration-500"
-              animate={{ opacity: [0.3, 0.8, 0.3] }}
-              transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
             >
               Scroll
-            </motion.span>
-          </motion.button>
+            </span>
+          </button>
         </section>
 
         {/* SECTION 2: PROJECTS ZONE (CATEGORY GALLERY) */}
@@ -689,7 +501,7 @@ export default function Home() {
               {/* CV Download Trigger */}
               <div className="mt-6 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">                  <a
                     href="/portfolio/Latest CV as of bela.pdf"
-                    download="Ar_Anushka_Khatri_CV.pdf"
+                    download="Anushka_s_CV.pdf"
                     className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider bg-card border border-border hover:bg-muted text-foreground font-sans font-semibold px-5 py-3 rounded-full cursor-pointer hover:scale-102 active:scale-98 transition-all duration-300 shadow-sm"
                   >
                     <FileDown className="w-4 h-4 text-primary" />
@@ -768,7 +580,7 @@ export default function Home() {
 
                   <a
                     href="/portfolio/Latest CV as of bela.pdf"
-                    download="Ar_Anushka_Khatri_CV.pdf"
+                    download="Anushka_s_CV.pdf"
                     className="flex items-center justify-between gap-2 p-3 rounded-xl bg-card border border-border/60 hover:border-primary/40 hover:bg-muted transition-all duration-300 group"
                   >
                     <div className="flex items-center gap-3 min-w-0">

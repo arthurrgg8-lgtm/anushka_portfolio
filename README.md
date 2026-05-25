@@ -2,9 +2,9 @@
 
 An elite, highly immersive vertical scroll-snapping vernacular and modern architectural portfolio website crafted for **Ar. Anushka Khatri**. The design combines modern minimalist layout principles with traditional Nepalese architectural heritage, utilizing an **Earth & Concrete** visual palette.
 
-[![Live Site](https://img.shields.io/badge/Live%20Demo-anushkakhatri.vercel.app-C85A32?style=for-the-badge&logo=vercel)](https://anushkakhatri.vercel.app)
+[![Live Site](https://img.shields.io/badge/Live%20Demo-anushkakhatri.workers.dev-F38020?style=for-the-badge&logo=cloudflare)](https://anushkakhatri.workers.dev)
 [![Tech Stack](https://img.shields.io/badge/Next.js%2016-React%2019-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
-[![Styling](https://img.shields.io/badge/Tailwind%20CSS%20v4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
+[![Deployment](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=for-the-badge&logo=cloudflare)](https://workers.cloudflare.com)
 
 ---
 
@@ -86,4 +86,4 @@ npm run build
 ## 💎 Registry Credentials
 *   **Full Name**: Ar. Anushka Khatri
 *   **NEC Registration**: `REG NO: 94879` (Nepal Engineering Council)
-*   **Official Deployment**: [https://anushkakhatri.vercel.app](https://anushkakhatri.vercel.app)
+*   **Official Deployment**: [https://anushkakhatri.workers.dev](https://anushkakhatri.workers.dev)

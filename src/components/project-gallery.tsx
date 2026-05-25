@@ -98,6 +98,7 @@ interface Project {
   categoryId: string;
   showSlider?: boolean;
   videoUrl?: string;
+  embedUrl?: string;
 }
 
 /* ─── Image Lightbox Component ─── */
@@ -219,7 +220,7 @@ function ImageLightbox({
   );
 }
 
-/* ─── Project Video Player ─── */
+/* ─── Project Video Player (direct file) ─── */
 function ProjectVideo({ videoUrl, categoryId }: { videoUrl: string; categoryId: string }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const fullUrl = `/projects/${categoryId}/${encodeURIComponent(videoUrl)}`;
@@ -256,7 +257,7 @@ function ProjectVideo({ videoUrl, categoryId }: { videoUrl: string; categoryId: 
             {/* Label */}
             <div className="absolute bottom-4 left-4 right-4 text-center">
               <p className="text-xs text-foreground/60 font-mono">
-                Architectural Walkthrough &middot; {Math.round(157 / 60)} min
+                Architectural Walkthrough &middot; ~2 min
               </p>
             </div>
           </div>
@@ -270,6 +271,60 @@ function ProjectVideo({ videoUrl, categoryId }: { videoUrl: string; categoryId: 
             <source src={fullUrl} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
+/* ─── Project YouTube Embed ─── */
+function ProjectYouTubeEmbed({ embedId }: { embedId: string }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.4, type: "spring", stiffness: 80, damping: 18 }}
+      className="space-y-3"
+    >
+      <span className="text-[10px] uppercase tracking-widest text-primary font-bold font-mono block">
+        Walkthrough Video
+      </span>
+
+      <div className="relative rounded-xl overflow-hidden border border-border/50 bg-black/5 group aspect-video">
+        {!isPlaying ? (
+          <button
+            onClick={() => setIsPlaying(true)}
+            className="relative w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-900/20 to-sky-800/10 cursor-pointer group"
+            aria-label="Play walkthrough video"
+          >
+            {/* YouTube thumbnail */}
+            <img
+              src={`https://img.youtube.com/vi/${embedId}/hqdefault.jpg`}
+              alt="Video thumbnail"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/30" />
+            {/* Play button */}
+            <div className="relative z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-red-600 hover:bg-red-700 shadow-lg shadow-red-600/30 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95">
+              <Play className="w-6 h-6 sm:w-7 sm:h-7 text-white ml-1" />
+            </div>
+            {/* Label */}
+            <div className="absolute bottom-4 left-4 right-4 text-center z-10">
+              <p className="text-xs text-white/80 font-mono">
+                Architectural Walkthrough &middot; ~2 min
+              </p>
+            </div>
+          </button>
+        ) : (
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src={`https://www.youtube.com/embed/${embedId}?autoplay=1&rel=0`}
+            title="Architectural Walkthrough"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         )}
       </div>
     </motion.div>
@@ -389,7 +444,7 @@ const CATEGORIES: Category[] = [
     projects: [
       {
         id: "res-01",
-        title: "Aushala Box Design Architecture",
+        title: "Gaushala Box Design Architecture",
         location: "Kathmandu, Nepal",
         year: "2025",
         description: "A modular box-design residence featuring contemporary architectural forms with traditional Nepalese spatial sensibilities. The design integrates open courtyards, green rooftop spaces, and responsive facade treatment that negotiates privacy with natural ventilation.",
@@ -409,7 +464,6 @@ const CATEGORIES: Category[] = [
           "greenhousetop in gaushaalaresidence.jpeg"
         ],
         categoryId: "residential",
-        showSlider: true
       },
       {
         id: "res-02",
@@ -431,6 +485,64 @@ const CATEGORIES: Category[] = [
           "rabibhawanresidential3.jpeg",
           "rabibhawanresidential4.jpeg",
           "rabibhawanresidential5.jpeg"
+        ],
+        categoryId: "residential"
+      },
+      {
+        id: "res-03",
+        title: "Goldhunga Triangle Residence",
+        location: "Nepal",
+        year: "2025",
+        description: "A distinctive triangular-plan residence at Goldhunga featuring bold geometric forms and panoramic views. The design leverages its unique site geometry to create dramatic interior volumes, with expansive glazing framing the surrounding landscape and a material palette that balances raw concrete with warm timber accents.",
+        details: [
+          "Triangular-plan site geometry",
+          "Expansive glazing with landscape views",
+          "Raw concrete + warm timber palette",
+          "Dramatic interior volumes",
+          "Contextual hillside response"
+        ],
+        gradient: "from-amber-900/30 to-yellow-800/20",
+        images: [
+          "goldhunga-1.png",
+          "goldhunga-4.png",
+          "goldhunga-5.png",
+          "goldhunga-6.png",
+          "goldhunga-8.png",
+          "goldhunga-9.png",
+          "goldhunga-10.png",
+          "goldhunga-11.png",
+          "goldhunga-d.png",
+          "goldhunga-dd.png",
+          "goldhunga-ddd.png",
+          "goldhunga-og.png",
+          "goldhunga-og1.png"
+        ],
+        categoryId: "residential"
+      },
+      {
+        id: "res-04",
+        title: "Ramesh Dangol Residence",
+        location: "Nepal",
+        year: "2025",
+        description: "A considered residential design for Ramesh Dangol featuring a refined composition of forms and volumes. The design works with its site contours to create layered living spaces, with careful attention to indoor-outdoor connectivity, natural ventilation, and a restrained material expression rooted in Nepalese architectural traditions.",
+        details: [
+          "Site-responsive layered volumes",
+          "Indoor-outdoor connectivity",
+          "Natural cross-ventilation",
+          "Restrained material expression",
+          "Contemporary Nepalese detailing"
+        ],
+        gradient: "from-amber-800/25 to-orange-700/15",
+        images: [
+          "ramesh-dangol-a.jpg",
+          "ramesh-dangol-aa.jpg",
+          "ramesh-dangol-b.jpg",
+          "ramesh-dangol-bb.jpg",
+          "ramesh-dangol-bw.jpg",
+          "ramesh-dangol-c.jpg",
+          "ramesh-dangol-cc.jpg",
+          "ramesh-dangol-d.jpg",
+          "ramesh-dangol-dd.jpg"
         ],
         categoryId: "residential"
       }
@@ -526,7 +638,7 @@ const CATEGORIES: Category[] = [
           "vis1.jpeg"
         ],
         categoryId: "institutional",
-        videoUrl: "school for visually impaired.mp4"
+        embedUrl: "YPEmVOK_m28"
       }
     ]
   },
@@ -539,36 +651,122 @@ const CATEGORIES: Category[] = [
     projects: [
       {
         id: "int-01",
-        title: "Restaurant Interior — Bhojan Griha",
-        location: "Durbar Square, Kathmandu",
+        title: "Foreign Quarters Interior",
+        location: "Nepal",
         year: "2025",
-        description: "Interior redesign of a traditional Newari restaurant, blending exposed brick, brass accents, and Lokta paper lighting for an immersive dining atmosphere.",
+        description: "Complete interior design of foreign quarters featuring a coherent spatial language across living, kitchen, study, bedroom, and corridor spaces. The design includes a fully documented floor plan (ACD), demonstrating systematic space planning and material coordination throughout the quarters.",
         details: [
-          "60-cover dining + private rooms",
-          "Custom brass lattice partitions",
-          "Handmade paper pendant lights",
-          "Acoustic ceiling baffles",
-          "Universal access washroom"
+          "Complete ACD with full floor plan",
+          "Living, kitchen, study, and bedroom zones",
+          "Coherent material palette throughout",
+          "Laundry and corridor integration",
+          "Space-efficient layout planning"
         ],
         gradient: "from-emerald-900/30 to-teal-800/20",
-        images: [],
+        images: [
+          "foreign-quarters-0--full-plan-jpg.jpg",
+          "foreign-quarters-1--living-room-jpg.jpg",
+          "foreign-quarters-2--living-room-jpg.jpg",
+          "foreign-quarters-3--living-room-jpg.jpg",
+          "foreign-quarters-4--kitchen-jpg.jpg",
+          "foreign-quarters-5--kitchen-jpg.jpg",
+          "foreign-quarters-6--kitchen-jpg.jpg",
+          "foreign-quarters-7--laundary-room-jpg.jpg",
+          "foreign-quarters-8--study-room-jpg.jpg",
+          "foreign-quarters-9--study-room-jpg.jpg",
+          "foreign-quarters-10--study-room-jpg.jpg",
+          "foreign-quarters-11--study-room-jpg.jpg",
+          "foreign-quarters-12--bedroom-jpg.jpg",
+          "foreign-quarters-13--bedroom-jpg.jpg",
+          "foreign-quarters-14--master-bedroom-jpg.jpg",
+          "foreign-quarters-15--master-bedroom-jpg.jpg",
+          "foreign-quarters-16--master-bedroom-jpg.jpg",
+          "foreign-quarters-16-1--master-bedroom-jpg.jpg",
+          "foreign-quarters-17--corridor-jpg.jpg",
+          "foreign-quarters-18--corridor-jpg.jpg"
+        ],
         categoryId: "interior"
       },
       {
         id: "int-02",
-        title: "Apartment Interior — Lazimpat",
-        location: "Lazimpat, Kathmandu",
-        year: "2024",
-        description: "Full interior fit-out of a 3-BHK apartment with minimalist detailing, warm wood joinery, and smart storage solutions.",
+        title: "Interior at Dhungedhara",
+        location: "Dhungedhara, Nepal",
+        year: "2025",
+        description: "A refined residential interior project in Dhungedhara featuring carefully composed living, lounge, and spatial volumes with a restrained material palette. The design prioritises natural light, spatial flow, and a calm, lived-in atmosphere rooted in contemporary Nepalese sensibilities.",
         details: [
-          "1,500 sq.ft. apartment",
-          "Walnut veneer + matte lacquer finishes",
-          "Built-in modular storage",
-          "Integrated LED lighting design",
-          "Barrier-free bathroom design"
+          "Multiple lounge and living configurations",
+          "Natural light optimisation",
+          "Restrained material palette",
+          "Seamless spatial flow",
+          "Contemporary Nepalese aesthetic"
+        ],
+        gradient: "from-emerald-800/25 to-teal-700/15",
+        images: [
+          "dhungedhara-1.png",
+          "dhungedhara-2.png",
+          "dhungedhara-3.png",
+          "dhungedhara-4.png",
+          "dhungedhara-11.png",
+          "dhungedhara-22.png",
+          "dhungedhara-33.png",
+          "dhungedhara-44.png",
+          "dhungedhara-april-30.png",
+          "dhungedhara-LR1.png",
+          "dhungedhara-LR2.png",
+          "dhungedhara-LR3.png",
+          "dhungedhara-LR4.png"
+        ],
+        categoryId: "interior"
+      },
+      {
+        id: "int-03",
+        title: "Rudra Kitchen Interior",
+        location: "Nepal",
+        year: "2025",
+        description: "A focused kitchen interior design featuring a functional yet warm culinary space. The layout integrates efficient storage, ergonomic work zones, and a seamless dining connection, combining practicality with refined detailing.",
+        details: [
+          "Custom cabinetry and storage",
+          "Ergonomic kitchen work triangle",
+          "Integrated dining space",
+          "Warm material finishes",
+          "Efficient space utilisation"
         ],
         gradient: "from-emerald-800/25 to-green-700/15",
-        images: [],
+        images: [
+          "rudra-kitchen-cupboard-view-2.png",
+          "rudra-kitchen-dining-view.png",
+          "rudra-kitchen-stove-counter-view-1.png"
+        ],
+        categoryId: "interior"
+      },
+      {
+        id: "int-04",
+        title: "Sabitri Pandey Residence Interior",
+        location: "Nepal",
+        year: "2025",
+        description: "A comprehensive ground-floor residence interior comprising living, kitchen, bedroom, and bathroom spaces. The design establishes a cohesive interior language across all rooms, balancing comfort with clean architectural lines.",
+        details: [
+          "Ground-floor living and kitchen",
+          "Master bedroom and additional bedrooms",
+          "Bathroom design",
+          "Cohesive interior language",
+          "Comfort-driven spatial planning"
+        ],
+        gradient: "from-emerald-800/25 to-teal-700/15",
+        images: [
+          "sabitri-gf-b1.png",
+          "sabitri-gf-b2.png",
+          "sabitri-gf-b3.png",
+          "sabitri-gf-k1.png",
+          "sabitri-gf-k2.png",
+          "sabitri-gf-k3.png",
+          "sabitri-gf-lr-1.png",
+          "sabitri-gf-lr-2.png",
+          "sabitri-gf-lr-3.png",
+          "sabitri-gf-lr-4.png",
+          "sabitri-gf-mb1.png",
+          "sabitri-gf-mb2.png"
+        ],
         categoryId: "interior"
       }
     ]
@@ -984,7 +1182,12 @@ function ProjectDetail({ project }: {
           </div>
 
           {/* Video walkthrough */}
-          {project.videoUrl && (
+          {project.embedUrl && (
+            <ProjectYouTubeEmbed
+              embedId={project.embedUrl}
+            />
+          )}
+          {project.videoUrl && !project.embedUrl && (
             <ProjectVideo
               videoUrl={project.videoUrl}
               categoryId={project.categoryId}
