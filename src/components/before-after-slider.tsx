@@ -3,19 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { MoveHorizontal } from "lucide-react";
 
-interface BeforeAfterSliderProps {
-  title?: string;
-  category?: string;
-  location?: string;
-  year?: string;
-}
-
-export function BeforeAfterSlider({
-  title = "Universal Accessibility Pavilion",
-  category = "Inclusive / Experiential Design",
-  location = "Kathmandu, Nepal",
-  year = "2025"
-}: BeforeAfterSliderProps) {
+export function BeforeAfterSlider() {
   const [sliderPosition, setSliderPosition] = useState(50); // percentage (0 to 100)
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -230,28 +218,6 @@ export function BeforeAfterSlider({
 
   return (
     <div className="w-full flex flex-col items-center">
-      {/* Project Metadata Header */}
-      <div className="w-full max-w-4xl mb-4 flex flex-col md:flex-row md:items-end justify-between px-2">
-        <div>
-          <span className="text-xs uppercase tracking-widest text-primary font-semibold font-sans">
-            {category}
-          </span>
-          <h3 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mt-1">
-            {title}
-          </h3>
-        </div>
-        <div className="flex gap-4 mt-2 md:mt-0 text-sm font-sans text-muted-foreground border-t border-border/30 md:border-none pt-2 md:pt-0">
-          <div>
-            <span className="block text-[10px] uppercase tracking-wider text-muted-foreground/60">Location</span>
-            <span className="font-medium text-foreground">{location}</span>
-          </div>
-          <div className="border-l border-border/50 pl-4">
-            <span className="block text-[10px] uppercase tracking-wider text-muted-foreground/60">Year</span>
-            <span className="font-medium text-foreground">{year}</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Interactive Slider Box */}
       <div 
         ref={containerRef}

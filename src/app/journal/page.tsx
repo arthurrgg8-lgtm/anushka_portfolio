@@ -3,6 +3,31 @@
 import { Navigation } from "@/components/navigation";
 import { ArrowLeft, BookOpen, Clock, Tag } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+/* ─── Scroll-reveal animation variants ─── */
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
+};
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: -30 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" as const } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.1 }
+  }
+};
+
+const articleItem = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
+};
 
 interface Article {
   id: string;
@@ -16,6 +41,21 @@ interface Article {
 }
 
 const ARTICLES: Article[] = [
+  {
+    id: "line-work-internship",
+    title: "From Concept to Site: Architectural Internship at Line Work Architects",
+    excerpt: "A reflective account of my internship at Line Work Architects (2023–2024), where I learned to bridge the gap between academic design theory and the reality of construction documentation, client meetings, and site supervision in Kathmandu.",
+    date: "June 2, 2026",
+    readTime: "5 min read",
+    tag: "Professional Experience",
+    category: "Practice & Learning",
+    content: [
+      "My internship at Line Work Architects marked my first real immersion into professional architectural practice. Walking into a working studio in Kathmandu, I quickly realized that architecture school teaches you how to think like a designer — but it takes a practice environment to teach you how to deliver a buildable project.",
+      "Over the course of nearly a year, I was involved in every phase of project delivery: participating in initial client consultations to understand spatial requirements and budget constraints; producing detailed AutoCAD drawings for municipal permit submissions; building 3D models in SketchUp for design reviews; and — most crucially — making regular site visits to coordinate with contractors and resolve on-site conflicts between the drawings and the physical reality.",
+      "One of the most valuable lessons was learning to communicate design intent across different audiences. A client presentation requires visual storytelling and conceptual clarity, while a site meeting demands precise technical language about reinforcement schedules, door frame clearances, and MEP coordination. Navigating these different registers of architectural communication shaped me into a more versatile and adaptable professional.",
+      "The experience also deepened my commitment to universal accessibility. Observing how even simple design decisions — a raised threshold here, a narrow corridor there — could exclude users made me realize that inclusive design isn't an optional add-on; it's a fundamental responsibility that begins at the first sketch."
+    ]
+  },
   {
     id: "bela-panels",
     title: "Prefabrication & Sustainability: Prefabricated Panel Systems in Modern Nepal",
@@ -54,16 +94,29 @@ export default function Journal() {
       <main className="min-h-screen bg-background pt-24 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
           {/* Back button */}
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold font-sans hover:translate-x-[-4px] transition-transform duration-300 mb-8"
+          <motion.div
+            variants={fadeLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Return to Portfolio</span>
-          </Link>
+            <Link 
+              href="/" 
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold font-sans hover:translate-x-[-4px] transition-transform duration-300 mb-8"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Return to Portfolio</span>
+            </Link>
+          </motion.div>
 
           {/* Header section */}
-          <div className="border-b border-border/40 pb-8 mb-12">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            className="border-b border-border/40 pb-8 mb-12"
+          >
             <span className="text-xs uppercase tracking-widest bg-primary/10 text-primary font-bold px-3 py-1 rounded-full font-sans">
               Insights & Editorial
             </span>
@@ -73,13 +126,20 @@ export default function Journal() {
             <p className="text-sm text-muted-foreground mt-2 max-w-xl font-sans leading-relaxed">
               Research essays and site logs investigating construction prefabrication, spatial accessibility standards, and modern vernacular aesthetics in the built environment.
             </p>
-          </div>
+          </motion.div>
 
           {/* Articles list */}
-          <div className="space-y-12">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="space-y-12"
+          >
             {ARTICLES.map((article) => (
-              <article 
+              <motion.article
                 key={article.id}
+                variants={articleItem}
                 className="bg-card/40 border border-border/60 rounded-2xl p-6 sm:p-8 hover:border-primary/40 hover:shadow-sm transition-all duration-300"
               >
                 <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-muted-foreground mb-3">
@@ -115,9 +175,9 @@ export default function Journal() {
                   <span>CATEGORY: {article.category.toUpperCase()}</span>
                   <span>BY AR. ANUSHKA KHATRI</span>
                 </div>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
 
         </div>
       </main>

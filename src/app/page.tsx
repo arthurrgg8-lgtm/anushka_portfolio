@@ -28,7 +28,8 @@ import {
   ExternalLink,
   ChevronDown,
   CheckCircle,
-  FileDown
+  FileDown,
+  MessageCircle
 } from "lucide-react";
 
 export default function Home() {
@@ -678,7 +679,7 @@ export default function Home() {
                   As a working architect, I believe architecture should go far beyond plain aesthetics. Built forms are stories waiting to be told — they shape the way people feel, move, and connect within a space.
                 </p>
                 <p>
-                  My experience in the **panel construction and design industry** (specifically at Bela Nepal Industries) has given me strong site coordination exposure and a practical understanding of translating complex architectural details into rapid, sustainable, and affordable prefab wall panels.
+                  My professional journey spans three distinct roles: as an <strong>Architectural Draftsman at Ajira Engineering Pvt. Ltd.</strong> (2024–2025) where I honed precision in AutoCAD structural drawings and 3D modeling; as an <strong>Architecture Intern at Line Work Architects</strong> (2023–2024) where I engaged in full-cycle design from client concepts to site supervision; and currently as a <strong>Design & Site Coordinator at Bela Nepal Industries</strong> (2025–present), where I translate complex architectural details into rapid, sustainable prefab wall panel systems with hands-on site coordination.
                 </p>
                 <p>
                   Inspired by Bjarke Ingels' pragmatic utopianism, I value strong conceptual imagination grounded in site feasibility, universal accessibility, and rich sensory interaction.
@@ -686,15 +687,106 @@ export default function Home() {
               </div>
 
               {/* CV Download Trigger */}
-              <div className="mt-6 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-                <a
-                  href="/home/lazzy/Desktop/AnuditCV.pdf"
-                  download="Ar_Anushka_Khatri_CV.pdf"
-                  className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider bg-card border border-border hover:bg-muted text-foreground font-sans font-semibold px-5 py-3 rounded-full cursor-pointer hover:scale-102 active:scale-98 transition-all duration-300 shadow-sm"
-                >
-                  <FileDown className="w-4 h-4 text-primary" />
-                  <span>Download Curriculum Vitae</span>
-                </a>
+              <div className="mt-6 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">                  <a
+                    href="/portfolio/Latest CV as of bela.pdf"
+                    download="Ar_Anushka_Khatri_CV.pdf"
+                    className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider bg-card border border-border hover:bg-muted text-foreground font-sans font-semibold px-5 py-3 rounded-full cursor-pointer hover:scale-102 active:scale-98 transition-all duration-300 shadow-sm"
+                  >
+                    <FileDown className="w-4 h-4 text-primary" />
+                    <span>Download Curriculum Vitae</span>
+                  </a>
+              </div>
+
+              {/* Portfolio Downloads */}
+              <div className="mt-8 border-t border-border/40 pt-6">
+                <span className="block text-[10px] font-bold uppercase tracking-widest text-primary font-sans mb-4">
+                  Portfolio &amp; Report Downloads
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <a
+                    href="/portfolio/01 Undergrad portfolio.pdf"
+                    download="Ar_Anushka_Khatri_Undergrad_Portfolio.pdf"
+                    className="flex items-center justify-between gap-2 p-3 rounded-xl bg-card border border-border/60 hover:border-primary/40 hover:bg-muted transition-all duration-300 group"
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                        <FileDown className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="block text-xs font-sans font-semibold text-foreground truncate group-hover:text-primary transition-colors duration-300">
+                          Undergrad Portfolio
+                        </span>
+                        <span className="block text-[10px] font-mono text-muted-foreground">
+                          5.7 MB &middot; B.Arch Projects
+                        </span>
+                      </div>
+                    </div>
+                    <FileDown className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary shrink-0 transition-colors duration-300" />
+                  </a>
+
+                  <a
+                    href="/portfolio/02 architecture internship report.pdf"
+                    download="Ar_Anushka_Khatri_Internship_Report.pdf"
+                    className="flex items-center justify-between gap-2 p-3 rounded-xl bg-card border border-border/60 hover:border-primary/40 hover:bg-muted transition-all duration-300 group"
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                        <FileDown className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="block text-xs font-sans font-semibold text-foreground truncate group-hover:text-primary transition-colors duration-300">
+                          Internship Report
+                        </span>
+                        <span className="block text-[10px] font-mono text-muted-foreground">
+                          9.4 MB &middot; Line Work Architects
+                        </span>
+                      </div>
+                    </div>
+                    <FileDown className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary shrink-0 transition-colors duration-300" />
+                  </a>
+
+                  <a
+                    href="/portfolio/03 Thesis project report.pdf"
+                    download="Ar_Anushka_Khatri_Thesis_Report.pdf"
+                    className="flex items-center justify-between gap-2 p-3 rounded-xl bg-card border border-border/60 hover:border-primary/40 hover:bg-muted transition-all duration-300 group"
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                        <FileDown className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="block text-xs font-sans font-semibold text-foreground truncate group-hover:text-primary transition-colors duration-300">
+                          Thesis Project Report
+                        </span>
+                        <span className="block text-[10px] font-mono text-muted-foreground">
+                          25 MB &middot; School for Visually Impaired
+                        </span>
+                      </div>
+                    </div>
+                    <FileDown className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary shrink-0 transition-colors duration-300" />
+                  </a>
+
+                  <a
+                    href="/portfolio/Latest CV as of bela.pdf"
+                    download="Ar_Anushka_Khatri_CV.pdf"
+                    className="flex items-center justify-between gap-2 p-3 rounded-xl bg-card border border-border/60 hover:border-primary/40 hover:bg-muted transition-all duration-300 group"
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                        <FileDown className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="block text-xs font-sans font-semibold text-foreground truncate group-hover:text-primary transition-colors duration-300">
+                          Curriculum Vitae
+                        </span>
+                        <span className="block text-[10px] font-mono text-muted-foreground">
+                          56 KB &middot; Latest Version
+                        </span>
+                      </div>
+                    </div>
+                    <FileDown className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary shrink-0 transition-colors duration-300" />
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -819,11 +911,13 @@ export default function Home() {
               <div className="flex flex-wrap justify-center gap-3">
                 {[
                   { name: "AutoCAD", usage: "Drafting" },
+                  { name: "Revit", usage: "BIM Modeling" },
                   { name: "SketchUp", usage: "3D Modeling" },
                   { name: "Lumion", usage: "Visualization" },
                   { name: "V-Ray", usage: "Renders" },
                   { name: "Enscape", usage: "Real-time" },
                   { name: "Photoshop", usage: "Post-prod" },
+                  { name: "Illustrator", usage: "Graphics" },
                   { name: "InDesign", usage: "Editorial Layout" }
                 ].map((tool, index) => (
                   <div 
@@ -899,6 +993,15 @@ export default function Home() {
                     <Phone className="w-4 h-4 text-primary" />
                     <span>+977 9861288860</span>
                   </a>
+                  <a 
+                    href="https://wa.me/9779861288860"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 rounded-lg bg-background border border-border/60 text-xs font-sans font-medium text-foreground hover:border-green-500/50 hover:bg-green-500/5 transition-all duration-300"
+                  >
+                    <MessageCircle className="w-4 h-4 text-green-500" />
+                    <span>WhatsApp: +977 986-1288860</span>
+                  </a>
                 </div>
               </div>
 
@@ -909,10 +1012,11 @@ export default function Home() {
                 </span>
                 <div className="grid grid-cols-2 gap-2">
                   {[
+                    { name: "Facebook", href: "https://www.facebook.com/Anushka.khatri6" },
                     { name: "LinkedIn", href: "https://linkedin.com" },
                     { name: "Behance", href: "https://behance.net" },
                     { name: "Pinterest", href: "https://pinterest.com" },
-                    { name: "Instagram", href: "https://instagram.com" }
+                    { name: "Instagram", href: "https://www.instagram.com/aee_k47/" }
                   ].map((network, index) => (
                     <a
                       key={index}
@@ -1025,7 +1129,7 @@ export default function Home() {
           <div className="absolute bottom-4 left-0 right-0 text-center text-[10px] font-mono text-muted-foreground/65 flex flex-col items-center justify-center gap-1">
             <span>© {new Date().getFullYear()} AR. ANUSHKA KHATRI. ALL RIGHTS REGISTERED (NEC).</span>
             <span>
-              Developed by <a href="https://anuditk.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline underline-offset-2">Anudit Khatri</a>
+              Developed by <span className="text-primary font-semibold tracking-wide">LazZy</span>
             </span>
           </div>
         </section>

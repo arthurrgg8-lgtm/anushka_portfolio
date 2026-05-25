@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "./theme-toggle";
-import { Menu, X, Hammer } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 interface NavLink {
   label: string;
