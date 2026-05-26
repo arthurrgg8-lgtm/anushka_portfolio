@@ -350,15 +350,6 @@ export default function Home() {
           <div 
             className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center"
           >
-            {/* Small Logo */}
-            <div className="w-16 h-16 rounded-full overflow-hidden border border-primary/20 mb-6 shadow-sm flex items-center justify-center bg-card/50 backdrop-blur-sm group hover:scale-105 hover:border-primary/50 transition-all duration-500">
-              <img
-                src="/logo.jpeg"
-                alt="Ar. Anushka Khatri Logo"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-
             {/* Tagline Badge */}
             <span 
               className="text-[10px] uppercase tracking-[0.15em] bg-primary/10 text-primary font-bold px-4 py-1.5 rounded-full mb-6 font-sans inline-flex items-center gap-2"
@@ -381,7 +372,15 @@ export default function Home() {
                 }}
               />
 
-              <span className="inline-flex flex-wrap justify-center gap-x-[0.24em] relative z-10 text-foreground">
+              <span className="inline-flex flex-wrap justify-center items-center gap-x-[0.24em] relative z-10 text-foreground">
+                {/* Small circular logo inline with name */}
+                <div className="w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-primary/20 shadow-sm flex items-center justify-center bg-card/50 backdrop-blur-sm group hover:scale-105 hover:border-primary/50 transition-all duration-500 mr-1 sm:mr-2 shrink-0">
+                  <img
+                    src="/logo.jpeg"
+                    alt="Ar. Anushka Khatri Logo"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
                 {"AR. ANUSHKA KHATRI".split(" ").map((word, wordIdx, words) => {
                   const baseOffset = words.slice(0, wordIdx).reduce((sum, w) => sum + w.length, 0) + wordIdx;
                   return (
