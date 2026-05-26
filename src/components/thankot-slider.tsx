@@ -91,10 +91,10 @@ export function ThankotSlider() {
 
         {/* Dynamic labels */}
         <div className="absolute bottom-2.5 left-2.5 pointer-events-none bg-background/80 backdrop-blur-sm text-foreground px-2 py-0.5 rounded text-[8px] font-mono border border-border/40 transition-opacity duration-300 opacity-80 group-hover:opacity-100 shadow-sm">
-          BEFORE
+          REALITY
         </div>
         <div className="absolute bottom-2.5 right-2.5 pointer-events-none bg-background/80 backdrop-blur-sm text-foreground px-2 py-0.5 rounded text-[8px] font-mono border border-border/40 transition-opacity duration-300 opacity-80 group-hover:opacity-100 shadow-sm">
-          AFTER
+          3D DESIGN
         </div>
 
         {/* Drag Handle line & circle */}
@@ -109,7 +109,7 @@ export function ThankotSlider() {
       </div>
       <span className="text-[9px] text-muted-foreground mt-2 italic font-sans flex items-center gap-1">
         <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
-        Interactive study of Thankot House: Drag handle to compare.
+        Interactive study of Thankot House: Compare reality with the 3D design.
       </span>
     </div>
   );
