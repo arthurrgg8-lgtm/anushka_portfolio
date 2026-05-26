@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Layers, Flame, Trees, Sparkles, Box, FileText, ChevronRight } from "lucide-react";
+import { Layers, Flame, Trees, Sparkles, Box, FileText, ChevronRight, Construction } from "lucide-react";
 
 interface MaterialItem {
   id: string;
@@ -15,6 +15,7 @@ interface MaterialItem {
   philosophy: string;
   details: string[];
   icon: any;
+  image?: string;
 }
 
 const MATERIALS: MaterialItem[] = [
@@ -23,6 +24,7 @@ const MATERIALS: MaterialItem[] = [
     name: "Terracotta Brick",
     nepaliName: "माटोको इँटा (Mato ko Ita)",
     subtitle: "Clay / Earth Sourced",
+    image: "/projects/materials/terracota_brick.jpeg",
     category: "Earth",
     colorClass: "bg-[#c85a32] text-[#fdfbf7]",
     bgHex: "#c85a32",
@@ -49,6 +51,7 @@ const MATERIALS: MaterialItem[] = [
     name: "Raw Cast Concrete",
     nepaliName: "ढलाइ कंक्रिट (Dhalai Concrete)",
     subtitle: "Industrial / Monolithic",
+    image: "/projects/materials/conrete.jpeg",
     category: "Concrete",
     colorClass: "bg-[#8a9199] text-[#22252a]",
     bgHex: "#8a9199",
@@ -95,6 +98,34 @@ const MATERIALS: MaterialItem[] = [
     philosophy: "Light is a building material. Using Lokta paper in screen partitions allows light to filter in a soft, non-glaring way, casting natural textures and creating sensory serenity.",
     details: ["100% biodegradable", "Fibrous rich texture", "Filters UV glare", "Hand-pulled using mountain water"],
     icon: FileText
+  },
+  {
+    id: "eps",
+    name: "EPS Sandwich Panel",
+    nepaliName: "ईपीएस स्यान्डविच प्यानल (EPS Sandwich Panel)",
+    subtitle: "Insulated / Prefabricated",
+    category: "Modern",
+    colorClass: "bg-[#4a90d9] text-[#fdfbf7]",
+    bgHex: "#4a90d9",
+    image: "/projects/materials/EPS_sandwichpanel.jpeg",
+    description: "A lightweight, insulated building panel comprising two structural facings bonded to an expanded polystyrene (EPS) core. Ideal for rapid construction with superior thermal performance and minimal site disruption.",
+    philosophy: "Speed and efficiency should never compromise quality. EPS panels demonstrate how modern prefabrication can achieve high thermal performance, structural integrity, and rapid on-site assembly — a pragmatic solution for Nepal's growing housing needs.",
+    details: ["Superior thermal insulation (R-18)", "Lightweight, rapid assembly", "Fire-resistant EPS core", "Sound attenuation properties", "Cost-effective construction"],
+    icon: Box
+  },
+  {
+    id: "steel",
+    name: "Structural Steel",
+    nepaliName: "संरचनात्मक स्टिल (Sanrachanatmak Steel)",
+    subtitle: "Structural / Framework",
+    category: "Modern",
+    colorClass: "bg-[#6b7280] text-[#fdfbf7]",
+    bgHex: "#6b7280",
+    image: "/projects/materials/steel.jpeg",
+    description: "High-strength structural steel sections used for long-span frames, seismic-resistant skeletons, and modern architectural expressions. The backbone of contemporary Nepalese construction.",
+    philosophy: "Steel allows architecture to defy gravity. Its strength-to-weight ratio enables column-free spaces, cantilevered forms, and earthquake resilience — essential for Nepal's seismic context while enabling bold architectural expression.",
+    details: ["High strength-to-weight ratio", "Seismic-resistant frames", "100% recyclable material", "Long-span capability", "Prefabricated connections"],
+    icon: Construction
   }
 ];
 
@@ -139,18 +170,29 @@ export function MaterialBoard() {
               >
                 {/* Visual texture representation block */}
                 <div className={`w-full aspect-[4/3] rounded-lg mb-2 sm:mb-4 ${material.colorClass} opacity-90 flex items-center justify-center relative overflow-hidden transition-all duration-500 shadow-inner group-hover:scale-105`}>
-                  {/* Subtle vector lines for abstract material texture */}
-                  <div className="absolute inset-0 opacity-10 pointer-events-none">
-                    <svg width="100%" height="100%">
-                      <defs>
-                        <pattern id={`pat-${material.id}`} width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                          <line x1="0" y1="0" x2="0" y2="10" stroke="currentColor" strokeWidth="1" />
-                        </pattern>
-                      </defs>
-                      <rect width="100%" height="100%" fill={`url(#pat-${material.id})`} />
-                    </svg>
-                  </div>
-                  <MaterialIcon className="w-8 h-8 opacity-85" />
+                  {/* Material image or abstract texture */}
+                  {material.image ? (
+                    <img
+                      src={material.image}
+                      alt={material.name}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 opacity-10 pointer-events-none">
+                        <svg width="100%" height="100%">
+                          <defs>
+                            <pattern id={`pat-${material.id}`} width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                              <line x1="0" y1="0" x2="0" y2="10" stroke="currentColor" strokeWidth="1" />
+                            </pattern>
+                          </defs>
+                          <rect width="100%" height="100%" fill={`url(#pat-${material.id})`} />
+                        </svg>
+                      </div>
+                      <MaterialIcon className="w-8 h-8 opacity-85" />
+                    </>
+                  )}
                 </div>
 
                 <div>
