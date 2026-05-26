@@ -349,6 +349,15 @@ export default function Home() {
           <div 
             className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center"
           >
+            {/* Small Logo */}
+            <div className="w-16 h-16 rounded-full overflow-hidden border border-primary/20 mb-6 shadow-sm flex items-center justify-center bg-card/50 backdrop-blur-sm group hover:scale-105 hover:border-primary/50 transition-all duration-500">
+              <img
+                src="/logo.jpeg"
+                alt="Ar. Anushka Khatri Logo"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
             {/* Tagline Badge */}
             <span 
               className="text-[10px] uppercase tracking-[0.15em] bg-primary/10 text-primary font-bold px-4 py-1.5 rounded-full mb-6 font-sans inline-flex items-center gap-2"
@@ -377,7 +386,6 @@ export default function Home() {
                   return (
                     <span key={wordIdx} className="inline-flex items-baseline">
                       {word.split("").map((char, charIdx) => {
-                        const i = baseOffset + charIdx;
                         return (
                           <span
                             key={charIdx}
@@ -398,7 +406,7 @@ export default function Home() {
               className="text-base sm:text-lg md:text-2xl font-heading font-medium text-foreground mt-4 italic max-w-2xl"
             >
               <span className="relative inline-block">
-                "Designing spaces that speak through emotion, experience & purpose."
+                &ldquo;Designing spaces that speak through emotion, experience &amp; purpose.&rdquo;
                 <span 
                   className="absolute -bottom-1 left-0 h-[1.5px] bg-primary/40 w-full"
                 />
@@ -500,7 +508,7 @@ export default function Home() {
                   My professional journey spans three distinct roles: as an <strong>Architectural Draftsman at Ajira Engineering Pvt. Ltd.</strong> (2024–2025) where I honed precision in AutoCAD structural drawings and 3D modeling; as an <strong>Architecture Intern at Line Work Architects</strong> (2023–2024) where I engaged in full-cycle design from client concepts to site supervision; and currently as a <strong>Design & Site Coordinator at Bela Nepal Industries</strong> (2025–present), where I translate complex architectural details into rapid, sustainable prefab wall panel systems with hands-on site coordination.
                 </p>
                 <p>
-                  Inspired by Bjarke Ingels' pragmatic utopianism, I value strong conceptual imagination grounded in site feasibility, universal accessibility, and rich sensory interaction.
+                  Inspired by Bjarke Ingels&apos; pragmatic utopianism, I value strong conceptual imagination grounded in site feasibility, universal accessibility, and rich sensory interaction.
                 </p>
               </div>
 

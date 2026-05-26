@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Flame, Trees, Box, ChevronRight, Construction } from "lucide-react";
+import { Flame, Trees, Box, ChevronRight, Construction, type LucideIcon } from "lucide-react";
 
 interface MaterialItem {
   id: string;
@@ -14,7 +14,7 @@ interface MaterialItem {
   description: string;
   philosophy: string;
   details: string[];
-  icon: any;
+  icon: LucideIcon;
   image?: string;
 }
 
@@ -107,7 +107,7 @@ export function MaterialBoard() {
           Interactive Material Board
         </h3>
         <p className="text-sm text-muted-foreground max-w-lg mx-auto mt-2 font-sans">
-          Click any material block in this architectural flat-lay to reveal its vernacular roots, technical properties, and placement in Anushka's spatial layouts.
+          Click any material block in this architectural flat-lay to reveal its vernacular roots, technical properties, and placement in Anushka&apos;s spatial layouts.
         </p>
       </div>
 
@@ -216,10 +216,10 @@ export function MaterialBoard() {
             {/* Philosophy quote */}
             <div className="mt-5 bg-background/50 border-l-2 border-primary rounded-r-lg p-3 italic">
               <span className="block text-[9px] font-bold uppercase tracking-wider text-primary/80 font-sans not-italic">
-                Anushka's Design Thinking:
+                Anushka&apos;s Design Thinking:
               </span>
               <p className="text-xs text-muted-foreground leading-relaxed mt-1 font-sans">
-                "{activeMaterial.philosophy}"
+                &ldquo;{activeMaterial.philosophy}&rdquo;
               </p>
             </div>
           </div>

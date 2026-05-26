@@ -6,6 +6,7 @@ import { MoveHorizontal } from "lucide-react";
 export function BeforeAfterSlider() {
   const [sliderPosition, setSliderPosition] = useState(50); // percentage (0 to 100)
   const [isDragging, setIsDragging] = useState(false);
+  const [containerWidth, setContainerWidth] = useState(800);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMove = (clientX: number) => {
@@ -43,6 +44,17 @@ export function BeforeAfterSlider() {
       window.removeEventListener("touchend", handleMouseUp);
     };
   }, [isDragging]);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const updateWidth = () => {
+      setContainerWidth(el.getBoundingClientRect().width);
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
   // SVG for Blueprint (Technical CAD drawing)
   const renderBlueprint = () => (
@@ -235,7 +247,7 @@ export function BeforeAfterSlider() {
           className="absolute inset-0 w-full h-full overflow-hidden border-r-2 border-primary/90"
           style={{ width: `${sliderPosition}%` }}
         >
-          <div className="absolute inset-0 w-full h-full" style={{ width: containerRef.current?.getBoundingClientRect().width || 800 }}>
+          <div className="absolute inset-0 w-full h-full" style={{ width: containerWidth }}>
             {renderBlueprint()}
           </div>
         </div>
