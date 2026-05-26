@@ -403,41 +403,41 @@ export default function Home() {
             
             {/* Tagline */}
             <p 
-              className="text-base sm:text-lg md:text-2xl font-heading font-medium text-foreground mt-4 italic max-w-2xl"
+              className="text-sm sm:text-base md:text-xl font-heading font-medium text-foreground mt-2 sm:mt-3 italic max-w-xl"
             >
               <span className="relative inline-block">
                 &ldquo;Designing spaces that speak through emotion, experience &amp; purpose.&rdquo;
                 <span 
-                  className="absolute -bottom-1 left-0 h-[1.5px] bg-primary/40 w-full"
+                  className="absolute -bottom-1 left-0 h-[1px] bg-primary/40 w-full"
                 />
               </span>
             </p>
             
             {/* Short Bio Snippet */}
             <p 
-              className="text-xs sm:text-sm md:text-base text-muted-foreground font-sans max-w-xl mt-4 sm:mt-6 leading-relaxed"
+              className="text-[11px] sm:text-xs md:text-sm text-muted-foreground font-sans max-w-lg mt-2 sm:mt-3 leading-relaxed"
             >
               Architect passionate about creating meaningful, human-centric, and inclusive spaces through intuitive storytelling, construction technologies, and vernacular sustainability.
             </p>
 
             {/* Quick CTAs */}
             <div 
-              className="flex gap-4 mt-8 flex-col sm:flex-row"
+              className="flex gap-3 mt-4 sm:mt-5 flex-col sm:flex-row"
             >
               <button 
                 onClick={() => handleScrollTo("projects-sec")}
-                className="group relative text-xs uppercase tracking-wider bg-primary hover:bg-primary/95 text-primary-foreground font-sans font-bold px-7 py-3.5 rounded-full cursor-pointer flex items-center gap-2 overflow-hidden"
+                className="group relative text-[10px] sm:text-xs uppercase tracking-wider bg-primary hover:bg-primary/95 text-primary-foreground font-sans font-bold px-6 py-2.5 sm:py-3 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
               >
                 <span className="relative z-10">Explore Works</span>
                 <div
                   className="relative z-10"
                 >
-                  <ArrowDown className="w-4 h-4" />
+                  <ArrowDown className="w-3.5 h-3.5" />
                 </div>
               </button>
               <button 
                 onClick={() => handleScrollTo("about-sec")}
-                className="group relative text-xs uppercase tracking-wider border border-border bg-card/50 hover:bg-muted text-foreground font-sans font-semibold px-7 py-3.5 rounded-full cursor-pointer flex items-center gap-2 overflow-hidden"
+                className="group relative text-[10px] sm:text-xs uppercase tracking-wider border border-border bg-card/50 hover:bg-muted text-foreground font-sans font-semibold px-6 py-2.5 sm:py-3 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
               >
                 <span className="relative z-10">Read Profile</span>
               </button>
