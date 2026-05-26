@@ -457,11 +457,9 @@ const CATEGORIES: Category[] = [
         ],
         gradient: "from-amber-900/30 to-orange-800/20",
         images: [
-          "aushala: Box design architecture1.jpeg",
-          "aushala: Box design architecture2.jpeg",
-          "aushala: Box design architecture3.jpeg",
-          "aushala: Box design architecture4.jpeg",
-          "greenhousetop in gaushaalaresidence.jpeg"
+          "gaushala-1.jpeg",
+          "gaushala-2.jpeg",
+          "gaushala-3.jpeg"
         ],
         categoryId: "residential",
       },
@@ -545,6 +543,26 @@ const CATEGORIES: Category[] = [
           "ramesh-dangol-dd.jpg"
         ],
         categoryId: "residential"
+      },
+      {
+        id: "res-05",
+        title: "Thankot House",
+        location: "Thankot, Kathmandu, Nepal",
+        year: "2025",
+        description: "A hillside residence in Thankot designed to capture panoramic valley views while responding sensitively to its sloping site. The design balances contemporary form with vernacular warmth, creating layered indoor-outdoor living spaces that connect with the surrounding landscape.",
+        details: [
+          "Hillside site response",
+          "Panoramic valley views",
+          "Natural cross-ventilation",
+          "Indoor-outdoor connectivity",
+          "Contemporary vernacular detailing"
+        ],
+        gradient: "from-amber-800/25 to-yellow-700/15",
+        images: [
+          "thankot-house-1.jpeg",
+          "thankot-house-2.jpeg"
+        ],
+        categoryId: "residential"
       }
     ]
   },
@@ -597,11 +615,10 @@ const CATEGORIES: Category[] = [
           "villa design at chitwan3.jpeg",
           "villa design at chitwan4.jpeg",
           "villa design at chitwan5.jpeg",
-          "villa design at chitwan6.jpeg",
-          "villa design at chitwan7.jpeg",
-          "villa design at chitwan8.jpeg"
+          "villa design at chitwan6.jpeg"
         ],
-        categoryId: "commercial"
+        categoryId: "commercial",
+        embedUrl: "dteAxMTUInI"
       }
     ]
   },
@@ -802,7 +819,8 @@ const CATEGORIES: Category[] = [
           "affordable housing design at Dhanusha 3Bhk unit2.jpeg",
           "affordable housing design at Dhanusha 3Bhk unit3.jpeg"
         ],
-        categoryId: "prefab-steel"
+        categoryId: "prefab-steel",
+        embedUrl: "FJSrLmjnHC8"
       },
       {
         id: "ps-02",
@@ -824,7 +842,8 @@ const CATEGORIES: Category[] = [
           "residence at Dhulikhel3.jpeg",
           "residence at Dhulikhel4.jpeg"
         ],
-        categoryId: "prefab-steel"
+        categoryId: "prefab-steel",
+        embedUrl: "_Sxpne-WsJU"
       }
     ]
   }
