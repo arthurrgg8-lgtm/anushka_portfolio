@@ -348,7 +348,7 @@ export default function Home() {
 
           {/* ─── Main Content ─── */}
           <div 
-            className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center"
+            className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center mt-12 sm:mt-16 md:mt-20"
           >
             {/* Tagline Badge */}
             <span 
