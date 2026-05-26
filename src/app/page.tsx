@@ -460,7 +460,7 @@ export default function Home() {
 
         {/* SECTION 2: PROJECTS ZONE (CATEGORY GALLERY) */}
         <section id="projects-sec" className="snap-section flex flex-col justify-center items-center relative px-4 sm:px-6 bg-muted/20 overflow-y-auto">
-          <div className="w-full max-w-5xl my-auto py-12">
+          <div className="w-full max-w-5xl my-auto pt-8 sm:pt-12 pb-16 sm:pb-12">
             <ProjectGallery />
           </div>
           
@@ -474,8 +474,8 @@ export default function Home() {
         </section>
 
         {/* SECTION 3: ABOUT & CREDENTIALS */}
-        <section id="about-sec" className="snap-section flex flex-col justify-center items-center relative px-6">
-          <div className="max-w-4xl mx-auto my-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center py-12">
+        <section id="about-sec" className="snap-section flex flex-col justify-center items-center relative px-6 overflow-y-auto">
+          <div className="max-w-4xl mx-auto my-auto w-full grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center pt-8 sm:pt-12 pb-20 sm:pb-12">
             
             {/* Left Side: Text Details */}
             <div className="md:col-span-7 flex flex-col justify-center">
@@ -645,8 +645,8 @@ export default function Home() {
         </section>
 
         {/* SECTION 4: CAPABILITIES & TOOLBOX */}
-        <section id="capabilities-sec" className="snap-section flex flex-col justify-center items-center relative px-6 bg-muted/10">
-          <div className="max-w-4xl mx-auto my-auto w-full py-12">
+        <section id="capabilities-sec" className="snap-section flex flex-col justify-center items-center relative px-6 bg-muted/10 overflow-y-auto">
+          <div className="max-w-4xl mx-auto my-auto w-full pt-8 sm:pt-12 pb-16 sm:pb-12">
             
             <div className="text-center mb-8">
               <span className="text-xs uppercase tracking-widest text-primary font-semibold font-sans">
@@ -758,8 +758,8 @@ export default function Home() {
         </section>
 
         {/* SECTION 5: MATERIAL BOARD (EASTER EGG) */}
-        <section id="materials-sec" className="snap-section flex flex-col justify-center items-center relative px-6">
-          <div className="w-full max-w-5xl my-auto py-12">
+        <section id="materials-sec" className="snap-section flex flex-col justify-center items-center relative px-6 overflow-y-auto">
+          <div className="w-full max-w-5xl my-auto pt-8 sm:pt-12 pb-16 sm:pb-12">
             <MaterialBoard />
           </div>
           
@@ -773,9 +773,9 @@ export default function Home() {
         </section>
 
         {/* SECTION 6: CONTACT & INQUIRY FORM */}
-        <section id="contact-sec" className="snap-section flex flex-col justify-center items-center relative px-6 bg-muted/20">
+        <section id="contact-sec" className="snap-section flex flex-col justify-center items-center relative px-6 bg-muted/20 overflow-y-auto">
           
-          <div className="max-w-4xl mx-auto my-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 py-12 items-stretch">
+          <div className="max-w-4xl mx-auto my-auto w-full grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 py-8 sm:py-12 items-stretch">
             
             {/* Left side info channels */}
             <div className="md:col-span-5 flex flex-col justify-between bg-card/50 rounded-2xl border border-border/80 p-6 sm:p-8 shadow-sm">
@@ -938,7 +938,7 @@ export default function Home() {
           </div>
 
           {/* Footer baseline */}
-          <div className="absolute bottom-4 left-0 right-0 text-center text-[10px] font-mono text-muted-foreground/65 flex flex-col items-center justify-center gap-1">
+          <div className="text-center text-[10px] font-mono text-muted-foreground/65 flex flex-col items-center justify-center gap-1 pt-8 pb-4">
             <span>© {new Date().getFullYear()} AR. ANUSHKA KHATRI. ALL RIGHTS REGISTERED (NEC).</span>
             <span>
               Developed by <span className="text-primary font-semibold tracking-wide">LazZy</span>

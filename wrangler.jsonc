@@ -23,5 +23,15 @@
 		// Enable image optimization
 		// see https://opennext.js.org/cloudflare/howtos/image
 		"binding": "IMAGES"
-	}
+	},
+	"routes": [
+		{
+			"pattern": "anushkakhatri.com.np",
+			"custom_domain": true
+		},
+		{
+			"pattern": "www.anushkakhatri.com.np",
+			"custom_domain": true
+		}
+	]
 }
