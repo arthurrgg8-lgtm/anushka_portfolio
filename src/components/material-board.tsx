@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Layers, Flame, Trees, Sparkles, Box, FileText, ChevronRight, Construction } from "lucide-react";
+import { Flame, Trees, Box, ChevronRight, Construction } from "lucide-react";
 
 interface MaterialItem {
   id: string;
@@ -38,6 +38,7 @@ const MATERIALS: MaterialItem[] = [
     name: "Carved Sal Wood",
     nepaliName: "सालको काठ (Sal ko Kath)",
     subtitle: "Organic / Structural",
+    image: "/projects/materials/karsalwood.jpeg",
     category: "Vernacular",
     colorClass: "bg-[#7a553c] text-[#fdfbf7]",
     bgHex: "#7a553c",
@@ -59,45 +60,6 @@ const MATERIALS: MaterialItem[] = [
     philosophy: "Concrete is the modern stone. Leaving it raw reveals the process of its creation — showing the wood-grain texture of the formwork and the structural truth of the building.",
     details: ["High load capacity", "Low maintenance", "Thermal buffer", "Sleek sculptural lines"],
     icon: Box
-  },
-  {
-    id: "slate",
-    name: "Raw Slate Stone",
-    nepaliName: "ढुङ्गाको पाङ्गो (Dhunga ko Pango)",
-    subtitle: "Metamorphic Slate",
-    category: "Earth",
-    colorClass: "bg-[#3e444f] text-[#fdfbf7]",
-    bgHex: "#3e444f",
-    description: "Foliated slate sourced from regional quarries. It stands for natural weather protection, rich layered textures, and deep charcoal aesthetics.",
-    philosophy: "A direct reference to the indigenous slate roofs of mountain settlements. Slate layers capture light dynamically and shield spaces from severe monsoon rains.",
-    details: ["Waterproof naturally", "Monsoon resistant", "Rich gray/blue layers", "Sourced from rural Nepalese quarries"],
-    icon: Layers
-  },
-  {
-    id: "brass",
-    name: "Hammered Brass",
-    nepaliName: "पिटेको पित्तल (Piteko Pittal)",
-    subtitle: "Detail / Metallic Accents",
-    category: "Modern",
-    colorClass: "bg-[#d4af37] text-[#22252a]",
-    bgHex: "#d4af37",
-    description: "Hand-beaten brass details. Crafted locally by artisans in Patan, reflecting metallic details, durability, and reflective highlights.",
-    philosophy: "The joint is the starting point of architectural dialogue. Small brass details, pins, and hinges elevate ordinary materials, celebrating manual craft within modern frameworks.",
-    details: ["Artisanal fabrication", "Warm golden luster", "Naturally antibacterial", "Perfect for door pulls, lighting, and joints"],
-    icon: Sparkles
-  },
-  {
-    id: "lokta",
-    name: "Lokta Paper",
-    nepaliName: "लोक्ता कागज (Lokta Kagaj)",
-    subtitle: "Textile / Screen Screens",
-    category: "Vernacular",
-    colorClass: "bg-[#f5ebd6] text-[#22252a]",
-    bgHex: "#f5ebd6",
-    description: "Handmade paper derived from the bark of the wild Daphne shrub. Lightweight, fibrous, and used as diffusers and screen filters.",
-    philosophy: "Light is a building material. Using Lokta paper in screen partitions allows light to filter in a soft, non-glaring way, casting natural textures and creating sensory serenity.",
-    details: ["100% biodegradable", "Fibrous rich texture", "Filters UV glare", "Hand-pulled using mountain water"],
-    icon: FileText
   },
   {
     id: "eps",

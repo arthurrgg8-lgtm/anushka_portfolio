@@ -33,7 +33,7 @@ import {
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero-sec");
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "", sector: "universal" });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "", sector: "residential" });
 
   // ─── Scroll-based Section Tracking ───
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function Home() {
       setFormSubmitted(true);
       setTimeout(() => {
         setFormSubmitted(false);
-        setFormData({ name: "", email: "", message: "", sector: "universal" });
+        setFormData({ name: "", email: "", message: "", sector: "residential" });
       }, 5000);
     }
   };
@@ -825,9 +825,8 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-2">
                   {[
                     { name: "Facebook", href: "https://www.facebook.com/Anushka.khatri6" },
-                    { name: "LinkedIn", href: "https://linkedin.com" },
-                    { name: "Behance", href: "https://behance.net" },
-                    { name: "Pinterest", href: "https://pinterest.com" },
+                    { name: "LinkedIn", href: "https://www.linkedin.com/in/anushka-khatri-82398a1b9" },
+                    { name: "Pinterest", href: "https://pin.it/2Rwum7yNQ" },
                     { name: "Instagram", href: "https://www.instagram.com/aee_k47/" }
                   ].map((network, index) => (
                     <a
@@ -903,10 +902,11 @@ export default function Home() {
                       onChange={(e) => setFormData({ ...formData, sector: e.target.value })}
                       className="w-full bg-background border border-border/80 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-primary/80 transition-colors font-sans"
                     >
-                      <option value="universal">Universal / Inclusive Design Auditing</option>
-                      <option value="prefab">Prefab Panel Construction detailing</option>
-                      <option value="urban">Urban & Spatial Planning</option>
-                      <option value="interior">Experiential Interiors</option>
+                      <option value="residential">Residential</option>
+                      <option value="commercial">Commercial &amp; Hospitality</option>
+                      <option value="institutional">Institutional</option>
+                      <option value="interior">Interior</option>
+                      <option value="prefab-steel">Prefab Panel &amp; Steel Structure</option>
                     </select>
                   </div>
 
