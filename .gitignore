@@ -40,6 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# test results
+test-results/
+viewport_test.js
+
 # OpenNext
 .open-next
 

@@ -38,7 +38,9 @@ export default function Home() {
   // ─── Scroll-based Section Tracking ───
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPos = window.scrollY + window.innerHeight / 2;
+      const main = document.querySelector("main.snap-container");
+      if (!main) return;
+      const scrollPos = main.scrollTop + main.clientHeight / 2;
       const sections = ["hero-sec", "projects-sec", "about-sec", "capabilities-sec", "materials-sec", "contact-sec"];
       
       for (const section of sections) {
@@ -53,14 +55,18 @@ export default function Home() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const main = document.querySelector("main.snap-container");
+    main?.addEventListener("scroll", handleScroll);
+    return () => main?.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleScrollTo = (targetId: string) => {
     const el = document.getElementById(targetId);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const main = document.querySelector("main.snap-container");
+      if (main) {
+        main.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+      }
     }
   };
 
