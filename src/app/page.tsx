@@ -637,7 +637,7 @@ export default function Home() {
                     Official Certification
                   </span>
                   <h4 className="text-sm sm:text-base font-heading font-bold text-foreground mt-1 leading-tight">
-                    AR. REGISTERED LICENSE
+                    REGISTERED ARCHITECT
                   </h4>
                   <p className="text-[9px] sm:text-[10px] text-muted-foreground font-mono mt-1 uppercase tracking-wider">
                     Nepal Engineering Council (NEC)
