@@ -25,14 +25,17 @@ export function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      const main = document.querySelector("main.snap-container");
+      if (!main) return;
+
+      if (main.scrollTop > 20) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
 
-      // Determine active section based on viewport scroll position
-      const scrollPos = window.scrollY + 200;
+      // Determine active section based on main container scroll position
+      const scrollPos = main.scrollTop + 200;
       for (const link of NAV_LINKS) {
         const el = document.getElementById(link.targetId);
         if (el) {
@@ -45,16 +48,21 @@ export function Navigation() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const main = document.querySelector("main.snap-container");
+    main?.addEventListener("scroll", handleScroll);
+    return () => main?.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleLinkClick = (e: React.MouseEvent, targetId: string) => {
     e.preventDefault();
     setIsOpen(false);
+    setActiveSection(targetId);
     const el = document.getElementById(targetId);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const main = document.querySelector("main.snap-container");
+      if (main) {
+        main.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+      }
     }
   };
 
