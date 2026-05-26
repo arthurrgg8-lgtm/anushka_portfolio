@@ -360,7 +360,7 @@ export default function Home() {
             
             {/* Name */}
             <h1 
-              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-semibold tracking-tight leading-tight select-all relative"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-semibold tracking-tight leading-tight select-all relative"
             >
               {/* Glow layer behind text */}
               <div
@@ -374,7 +374,7 @@ export default function Home() {
 
               <span className="inline-flex flex-wrap justify-center items-center gap-x-[0.24em] relative z-10 text-foreground">
                 {/* Small circular logo inline with name */}
-                <div className="w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-primary/20 shadow-sm flex items-center justify-center bg-card/50 backdrop-blur-sm group hover:scale-105 hover:border-primary/50 transition-all duration-500 mr-1 sm:mr-2 shrink-0">
+                <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden border border-primary/20 shadow-sm flex items-center justify-center bg-card/50 backdrop-blur-sm group hover:scale-105 hover:border-primary/50 transition-all duration-500 mr-2 shrink-0">
                   <img
                     src="/logo.jpeg"
                     alt="Ar. Anushka Khatri Logo"
