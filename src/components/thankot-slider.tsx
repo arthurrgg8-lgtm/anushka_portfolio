@@ -57,7 +57,7 @@ export function ThankotSlider() {
   }, []);
 
   return (
-    <div className="w-full max-w-[360px] sm:max-w-[400px] flex flex-col items-center mt-6 z-20">
+    <div className="w-full max-w-[280px] sm:max-w-[340px] flex flex-col items-center mt-3 sm:mt-4 z-20">
       <div 
         ref={containerRef}
         className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-primary/20 bg-card select-none shadow-sm group cursor-ew-resize hover:shadow-md hover:border-primary/40 transition-all duration-300"
@@ -107,9 +107,9 @@ export function ThankotSlider() {
           </div>
         </div>
       </div>
-      <span className="text-[9px] text-muted-foreground mt-2 italic font-sans flex items-center gap-1">
+      <span className="text-[8px] text-muted-foreground mt-1.5 italic font-sans flex items-center gap-1">
         <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
-        Interactive study of Thankot House: Compare reality with the 3D design.
+        Thankot House: Reality vs 3D Design
       </span>
     </div>
   );

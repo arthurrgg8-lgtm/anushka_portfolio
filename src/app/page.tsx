@@ -119,7 +119,7 @@ export default function Home() {
         {/* SECTION 1: HERO/LANDING — Immersive Architectural Observatory */}
         <section 
           id="hero-sec" 
-          className="snap-section flex flex-col justify-center items-center relative px-6 pt-24 sm:pt-28 md:pt-32 overflow-hidden"
+          className="snap-section flex flex-col justify-center items-center relative px-6 pt-16 sm:pt-20 md:pt-24 overflow-x-hidden"
         >
           {/* ─── Drafting Grid Overlay ─── */}
           <div
@@ -211,7 +211,7 @@ export default function Home() {
 
           {/* ─── Large Orbital Badge Behind Name ─── */}
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[520px] md:h-[520px]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[400px] md:h-[400px]"
           >
             <svg width="100%" height="100%" viewBox="0 0 520 520" fill="none" stroke="currentColor" className="text-primary/8 dark:text-primary/10">
               {/* Outermost seal ring */}
@@ -253,7 +253,7 @@ export default function Home() {
           {/* ─── Floating Architectural Elements ─── */}
           {/* Element 1: Section elevation fragment */}
           <div 
-            className="absolute top-12 md:top-16 left-4 sm:left-12 md:left-32 opacity-[0.08] dark:opacity-[0.1] pointer-events-none select-none hidden sm:block"
+            className="absolute top-12 md:top-16 left-4 sm:left-12 md:left-32 opacity-[0.08] dark:opacity-[0.1] pointer-events-none select-none hidden lg:block"
           >
             <svg width="80" height="130" viewBox="0 0 80 130" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary">
               <polygon 
@@ -275,7 +275,7 @@ export default function Home() {
 
           {/* Element 2: Multi-story facade */}
           <div 
-            className="absolute top-20 md:top-24 right-4 sm:right-12 md:right-36 opacity-[0.07] dark:opacity-[0.09] pointer-events-none select-none hidden sm:block"
+            className="absolute top-20 md:top-24 right-4 sm:right-12 md:right-36 opacity-[0.07] dark:opacity-[0.09] pointer-events-none select-none hidden lg:block"
           >
             <svg width="100" height="90" viewBox="0 0 100 90" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary">
               <rect 
@@ -302,7 +302,7 @@ export default function Home() {
 
           {/* Element 3: Column detail / structural */}
           <div 
-            className="absolute bottom-20 md:bottom-28 left-4 sm:left-16 md:left-48 opacity-[0.07] dark:opacity-[0.09] pointer-events-none select-none hidden sm:block"
+            className="absolute bottom-20 md:bottom-28 left-4 sm:left-16 md:left-48 opacity-[0.07] dark:opacity-[0.09] pointer-events-none select-none hidden lg:block"
           >
             <svg width="70" height="100" viewBox="0 0 70 100" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary">
               <circle 
@@ -324,7 +324,7 @@ export default function Home() {
 
           {/* Element 4: Gable roof elevation */}
           <div 
-            className="absolute bottom-24 md:bottom-32 right-4 sm:right-16 md:right-56 opacity-[0.06] dark:opacity-[0.08] pointer-events-none select-none hidden sm:block"
+            className="absolute bottom-24 md:bottom-32 right-4 sm:right-16 md:right-56 opacity-[0.06] dark:opacity-[0.08] pointer-events-none select-none hidden lg:block"
           >
             <svg width="70" height="110" viewBox="0 0 70 110" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary">
               <g>
@@ -348,7 +348,7 @@ export default function Home() {
 
           {/* ─── Main Content ─── */}
           <div 
-            className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center mt-4 sm:mt-6 md:mt-8"
+            className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center mt-2 sm:mt-3 md:mt-4"
           >
             {/* Tagline Badge */}
             <span 
@@ -403,7 +403,7 @@ export default function Home() {
             
             {/* Tagline */}
             <p 
-              className="text-sm sm:text-base md:text-xl font-heading font-medium text-foreground mt-2 sm:mt-3 italic max-w-xl"
+              className="text-xs sm:text-sm md:text-lg font-heading font-medium text-foreground mt-1 sm:mt-2 italic max-w-xl"
             >
               <span className="relative inline-block">
                 &ldquo;Designing spaces that speak through emotion, experience &amp; purpose.&rdquo;
@@ -415,18 +415,18 @@ export default function Home() {
             
             {/* Short Bio Snippet */}
             <p 
-              className="text-[11px] sm:text-xs md:text-sm text-muted-foreground font-sans max-w-lg mt-2 sm:mt-3 leading-relaxed"
+              className="text-[10px] sm:text-[11px] md:text-sm text-muted-foreground font-sans max-w-lg mt-1 sm:mt-2 leading-relaxed"
             >
               Architect passionate about creating meaningful, human-centric, and inclusive spaces through intuitive storytelling, construction technologies, and vernacular sustainability.
             </p>
 
             {/* Quick CTAs */}
             <div 
-              className="flex gap-3 mt-4 sm:mt-5 flex-col sm:flex-row"
+              className="flex gap-2 mt-2 sm:mt-3 flex-col sm:flex-row"
             >
               <button 
                 onClick={() => handleScrollTo("projects-sec")}
-                className="group relative text-[10px] sm:text-xs uppercase tracking-wider bg-primary hover:bg-primary/95 text-primary-foreground font-sans font-bold px-6 py-2.5 sm:py-3 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
+                className="group relative text-[10px] sm:text-xs uppercase tracking-wider bg-primary hover:bg-primary/95 text-primary-foreground font-sans font-bold px-5 py-2 sm:py-2.5 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
               >
                 <span className="relative z-10">Explore Works</span>
                 <div
@@ -437,7 +437,7 @@ export default function Home() {
               </button>
               <button 
                 onClick={() => handleScrollTo("about-sec")}
-                className="group relative text-[10px] sm:text-xs uppercase tracking-wider border border-border bg-card/50 hover:bg-muted text-foreground font-sans font-semibold px-6 py-2.5 sm:py-3 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
+                className="group relative text-[10px] sm:text-xs uppercase tracking-wider border border-border bg-card/50 hover:bg-muted text-foreground font-sans font-semibold px-5 py-2 sm:py-2.5 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
               >
                 <span className="relative z-10">Read Profile</span>
               </button>
@@ -447,10 +447,9 @@ export default function Home() {
             <ThankotSlider />
           </div>
 
-          {/* ─── Scroll Indicator ─── */}
-          <button 
+          {/* ─── Scroll Indicator ─── */}            <button 
             onClick={() => handleScrollTo("projects-sec")}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 cursor-pointer group"
+            className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 cursor-pointer group"
             aria-label="Scroll down"
           >
             {/* Circular ring */}
