@@ -57,7 +57,7 @@ export function ThankotSlider() {
   }, []);
 
   return (
-    <div className="w-full max-w-[280px] sm:max-w-[340px] flex flex-col items-center mt-3 sm:mt-4 z-20">
+    <div className="w-full max-w-[340px] sm:max-w-[420px] flex flex-col items-center self-center mt-3 sm:mt-4 z-20">
       <div 
         ref={containerRef}
         className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-primary/20 bg-card select-none shadow-sm group cursor-ew-resize hover:shadow-md hover:border-primary/40 transition-all duration-300"

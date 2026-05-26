@@ -119,7 +119,7 @@ export default function Home() {
         {/* SECTION 1: HERO/LANDING — Immersive Architectural Observatory */}
         <section 
           id="hero-sec" 
-          className="snap-section flex flex-col lg:justify-start justify-center items-center relative px-6 pt-14 sm:pt-16 lg:pt-28 xl:pt-36 2xl:pt-44 overflow-x-hidden"
+          className="snap-section flex flex-col lg:justify-start justify-center items-center relative px-6 pt-12 sm:pt-14 lg:pt-20 xl:pt-24 2xl:pt-28 overflow-x-hidden"
         >
           {/* ─── Drafting Grid Overlay ─── */}
           <div
@@ -211,7 +211,7 @@ export default function Home() {
 
           {/* ─── Large Orbital Badge Behind Name ─── */}
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[400px] md:h-[400px]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[420px] md:h-[420px]"
           >
             <svg width="100%" height="100%" viewBox="0 0 520 520" fill="none" stroke="currentColor" className="text-primary/8 dark:text-primary/10">
               {/* Outermost seal ring */}
@@ -352,7 +352,7 @@ export default function Home() {
           >
             {/* Tagline Badge */}
             <span 
-              className="text-[10px] uppercase tracking-[0.15em] bg-primary/10 text-primary font-bold px-4 py-1.5 rounded-full mb-6 font-sans inline-flex items-center gap-2"
+              className="text-[10px] sm:text-xs uppercase tracking-[0.15em] bg-primary/10 text-primary font-bold px-4 py-1.5 rounded-full mb-6 sm:mb-8 font-sans inline-flex items-center gap-2"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
               Vernacular Modernism & Universal Design
@@ -374,7 +374,7 @@ export default function Home() {
 
               <span className="inline-flex flex-wrap justify-center items-center gap-x-[0.24em] relative z-10 text-foreground">
                 {/* Small circular logo inline with name */}
-                <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden border border-primary/20 shadow-sm flex items-center justify-center bg-card/50 backdrop-blur-sm group hover:scale-105 hover:border-primary/50 transition-all duration-500 mr-2 shrink-0">
+                <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-[72px] lg:h-[72px] rounded-full overflow-hidden border border-primary/20 shadow-sm flex items-center justify-center bg-card/50 backdrop-blur-sm group hover:scale-105 hover:border-primary/50 transition-all duration-500 mr-2 shrink-0">
                   <img
                     src="/logo.jpeg"
                     alt="Ar. Anushka Khatri Logo"
@@ -403,7 +403,7 @@ export default function Home() {
             
             {/* Tagline */}
             <p 
-              className="text-xs sm:text-sm md:text-lg font-heading font-medium text-foreground mt-1 sm:mt-2 italic max-w-xl"
+              className="text-sm sm:text-base md:text-xl font-heading font-medium text-foreground mt-2 sm:mt-3 italic max-w-2xl"
             >
               <span className="relative inline-block">
                 &ldquo;Designing spaces that speak through emotion, experience &amp; purpose.&rdquo;
@@ -415,18 +415,18 @@ export default function Home() {
             
             {/* Short Bio Snippet */}
             <p 
-              className="text-[10px] sm:text-[11px] md:text-sm text-muted-foreground font-sans max-w-lg mt-1 sm:mt-2 leading-relaxed"
+              className="text-xs sm:text-sm md:text-base text-muted-foreground font-sans max-w-xl mt-2 sm:mt-3 leading-relaxed"
             >
               Architect passionate about creating meaningful, human-centric, and inclusive spaces through intuitive storytelling, construction technologies, and vernacular sustainability.
             </p>
 
             {/* Quick CTAs */}
             <div 
-              className="flex gap-2 mt-2 sm:mt-3 flex-col sm:flex-row"
+              className="flex gap-3 mt-3 sm:mt-4 flex-col sm:flex-row"
             >
               <button 
                 onClick={() => handleScrollTo("projects-sec")}
-                className="group relative text-[10px] sm:text-xs uppercase tracking-wider bg-primary hover:bg-primary/95 text-primary-foreground font-sans font-bold px-5 py-2 sm:py-2.5 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
+                className="group relative text-xs sm:text-sm uppercase tracking-wider bg-primary hover:bg-primary/95 text-primary-foreground font-sans font-bold px-6 py-2.5 sm:py-3 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
               >
                 <span className="relative z-10">Explore Works</span>
                 <div
@@ -437,7 +437,7 @@ export default function Home() {
               </button>
               <button 
                 onClick={() => handleScrollTo("about-sec")}
-                className="group relative text-[10px] sm:text-xs uppercase tracking-wider border border-border bg-card/50 hover:bg-muted text-foreground font-sans font-semibold px-5 py-2 sm:py-2.5 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
+                className="group relative text-xs sm:text-sm uppercase tracking-wider border border-border bg-card/50 hover:bg-muted text-foreground font-sans font-semibold px-6 py-2.5 sm:py-3 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
               >
                 <span className="relative z-10">Read Profile</span>
               </button>
