@@ -16,6 +16,7 @@ const badgeTicks = Array.from({ length: 36 }, (_, i) => {
 import { Navigation } from "@/components/navigation";
 import { ProjectGallery } from "@/components/project-gallery";
 import { MaterialBoard } from "@/components/material-board";
+import { ThankotSlider } from "@/components/thankot-slider";
 import { 
   ArrowDown, 
   MapPin, 
@@ -442,6 +443,9 @@ export default function Home() {
                 <span className="relative z-10">Read Profile</span>
               </button>
             </div>
+
+            {/* Thankot House Before-After Minimal Slider */}
+            <ThankotSlider />
           </div>
 
           {/* ─── Scroll Indicator ─── */}

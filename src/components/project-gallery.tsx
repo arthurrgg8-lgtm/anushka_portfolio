@@ -543,26 +543,6 @@ const CATEGORIES: Category[] = [
           "ramesh-dangol-dd.jpg"
         ],
         categoryId: "residential"
-      },
-      {
-        id: "res-05",
-        title: "Thankot House",
-        location: "Thankot, Kathmandu, Nepal",
-        year: "2025",
-        description: "A hillside residence in Thankot designed to capture panoramic valley views while responding sensitively to its sloping site. The design balances contemporary form with vernacular warmth, creating layered indoor-outdoor living spaces that connect with the surrounding landscape.",
-        details: [
-          "Hillside site response",
-          "Panoramic valley views",
-          "Natural cross-ventilation",
-          "Indoor-outdoor connectivity",
-          "Contemporary vernacular detailing"
-        ],
-        gradient: "from-amber-800/25 to-yellow-700/15",
-        images: [
-          "thankot-house-1.jpeg",
-          "thankot-house-2.jpeg"
-        ],
-        categoryId: "residential"
       }
     ]
   },
