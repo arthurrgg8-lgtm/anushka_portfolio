@@ -118,9 +118,9 @@ export function MaterialBoard() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mt-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch mt-6">
         {/* Left Side: Flat-Lay Grid */}
-        <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-4 min-h-[300px] select-none">
+        <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 min-h-[300px] select-none">
           {MATERIALS.map((material) => {
             const MaterialIcon = material.icon;
             const isSelected = material.id === selectedId;
@@ -128,7 +128,7 @@ export function MaterialBoard() {
               <button
                 key={material.id}
                 onClick={() => setSelectedId(material.id)}
-                className={`relative rounded-xl p-5 border text-left flex flex-col justify-between transition-all duration-500 cursor-pointer group hover:-translate-y-1.5 ${
+                className={`relative rounded-xl p-3 sm:p-5 border text-left flex flex-col justify-between transition-all duration-500 cursor-pointer group hover:-translate-y-1.5 ${
                   isSelected 
                     ? "border-primary/80 shadow-md ring-2 ring-primary/20 scale-[1.02]" 
                     : "border-border/60 bg-card/40 hover:bg-card/90 hover:border-border hover:shadow-sm"
@@ -138,7 +138,7 @@ export function MaterialBoard() {
                 }}
               >
                 {/* Visual texture representation block */}
-                <div className={`w-full aspect-[4/3] rounded-lg mb-4 ${material.colorClass} opacity-90 flex items-center justify-center relative overflow-hidden transition-all duration-500 shadow-inner group-hover:scale-105`}>
+                <div className={`w-full aspect-[4/3] rounded-lg mb-2 sm:mb-4 ${material.colorClass} opacity-90 flex items-center justify-center relative overflow-hidden transition-all duration-500 shadow-inner group-hover:scale-105`}>
                   {/* Subtle vector lines for abstract material texture */}
                   <div className="absolute inset-0 opacity-10 pointer-events-none">
                     <svg width="100%" height="100%">
@@ -154,13 +154,13 @@ export function MaterialBoard() {
                 </div>
 
                 <div>
-                  <span className="text-[10px] uppercase tracking-wider font-semibold text-primary font-sans">
+                  <span className="text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold text-primary font-sans">
                     {material.category}
                   </span>
-                  <h4 className="text-sm font-semibold font-sans mt-0.5 text-foreground flex items-center justify-between">
+                  <h4 className="text-xs sm:text-sm font-semibold font-sans mt-0.5 text-foreground flex items-center justify-between">
                     {material.name}
                   </h4>
-                  <span className="block text-[10px] text-muted-foreground mt-0.5 font-mono truncate">
+                  <span className="block text-[8px] sm:text-[10px] text-muted-foreground mt-0.5 font-mono truncate">
                     {material.nepaliName.split(' ')[0]}
                   </span>
                 </div>

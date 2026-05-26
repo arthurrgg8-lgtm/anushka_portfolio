@@ -45,44 +45,44 @@ export default function RootLayout({
             <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--grid-line)_0.75px,transparent_0.75px),linear-gradient(to_bottom,var(--grid-line)_0.75px,transparent_0.75px)] bg-[size:120px_120px] bg-center opacity-[0.95] dark:opacity-[0.88]" />
 
             {/* Inset Technical Border / Drafting Sheet Margins */}
-            <div className="absolute inset-6 border border-primary/[0.55] dark:border-primary/[0.60] transition-colors duration-300">
+            <div className="absolute inset-2 md:inset-5 border border-primary/[0.55] dark:border-primary/[0.60] transition-colors duration-300">
               {/* Corner crosshairs */}
-              <div className="absolute -top-3 -left-3 w-6 h-6 flex items-center justify-center text-primary/[0.72] dark:text-primary/[0.80]">
-                <span className="absolute w-6 h-[0.5px] bg-current" />
-                <span className="absolute h-6 w-[0.5px] bg-current" />
+              <div className="absolute -top-2 md:-top-3 -left-2 md:-left-3 w-4 md:w-6 h-4 md:h-6 flex items-center justify-center text-primary/[0.72] dark:text-primary/[0.80]">
+                <span className="absolute w-4 md:w-6 h-[0.5px] bg-current" />
+                <span className="absolute h-4 md:h-6 w-[0.5px] bg-current" />
               </div>
-              <div className="absolute -top-3 -right-3 w-6 h-6 flex items-center justify-center text-primary/[0.72] dark:text-primary/[0.80]">
-                <span className="absolute w-6 h-[0.5px] bg-current" />
-                <span className="absolute h-6 w-[0.5px] bg-current" />
+              <div className="absolute -top-2 md:-top-3 -right-2 md:-right-3 w-4 md:w-6 h-4 md:h-6 flex items-center justify-center text-primary/[0.72] dark:text-primary/[0.80]">
+                <span className="absolute w-4 md:w-6 h-[0.5px] bg-current" />
+                <span className="absolute h-4 md:h-6 w-[0.5px] bg-current" />
               </div>
-              <div className="absolute -bottom-3 -left-3 w-6 h-6 flex items-center justify-center text-primary/[0.72] dark:text-primary/[0.80]">
-                <span className="absolute w-6 h-[0.5px] bg-current" />
-                <span className="absolute h-6 w-[0.5px] bg-current" />
+              <div className="absolute -bottom-2 md:-bottom-3 -left-2 md:-left-3 w-4 md:w-6 h-4 md:h-6 flex items-center justify-center text-primary/[0.72] dark:text-primary/[0.80]">
+                <span className="absolute w-4 md:w-6 h-[0.5px] bg-current" />
+                <span className="absolute h-4 md:h-6 w-[0.5px] bg-current" />
               </div>
-              <div className="absolute -bottom-3 -right-3 w-6 h-6 flex items-center justify-center text-primary/[0.72] dark:text-primary/[0.80]">
-                <span className="absolute w-6 h-[0.5px] bg-current" />
-                <span className="absolute h-6 w-[0.5px] bg-current" />
+              <div className="absolute -bottom-2 md:-bottom-3 -right-2 md:-right-3 w-4 md:w-6 h-4 md:h-6 flex items-center justify-center text-primary/[0.72] dark:text-primary/[0.80]">
+                <span className="absolute w-4 md:w-6 h-[0.5px] bg-current" />
+                <span className="absolute h-4 md:h-6 w-[0.5px] bg-current" />
               </div>
 
-              {/* Technical annotations running along the borders (faded but readable monospace details) */}
-              <div className="absolute top-2 left-4 text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none">
-                PROJECT: PORTFOLIO // AR. ANUSHKA KHATRI // KATHMANDU, NEPAL
+              {/* Technical annotations running along the borders */}
+              <div className="absolute top-1 md:top-2 left-2 md:left-4 text-[6px] md:text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none truncate max-w-[45vw] md:max-w-none">
+                PROJECT: PORTFOLIO // AR. ANUSHKA KHATRI
               </div>
-              <div className="absolute top-2 right-4 text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none">
-                SHEET REF: A-001 // REG: NEC-94879 // 27°42'N 85°19'E
+              <div className="absolute top-1 md:top-2 right-2 md:right-4 text-[6px] md:text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none truncate max-w-[40vw] md:max-w-none">
+                SHEET REF: A-001 // NEC-94879
               </div>
-              <div className="absolute bottom-2 left-4 text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none">
+              <div className="absolute bottom-1 md:bottom-2 left-2 md:left-4 text-[6px] md:text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none truncate max-w-[45vw] md:max-w-none hidden md:block">
                 SYSTEMS: EARTH + CONCRETE // VER. PREFAB TIMBER
               </div>
-              <div className="absolute bottom-2 right-4 text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none">
+              <div className="absolute bottom-1 md:bottom-2 right-2 md:right-4 text-[6px] md:text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none truncate max-w-[40vw] md:max-w-none hidden md:block">
                 STATUS: SCHEMATIC DESIGN // R-2026.05
               </div>
 
               {/* Centered ruler markings along the frame */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 flex gap-10 text-[7px] font-mono text-primary/88 dark:text-primary/82 select-none">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 gap-1 md:gap-10 text-[5px] md:text-[7px] font-mono text-primary/88 dark:text-primary/82 select-none hidden md:flex">
                 <span>-500</span><span>-400</span><span>-300</span><span>-200</span><span>-100</span><span>0</span><span>100</span><span>200</span><span>300</span><span>400</span><span>500</span>
               </div>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-10 text-[7px] font-mono text-primary/88 dark:text-primary/82 select-none">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 gap-1 md:gap-10 text-[5px] md:text-[7px] font-mono text-primary/88 dark:text-primary/82 select-none hidden md:flex">
                 <span>-500</span><span>-400</span><span>-300</span><span>-200</span><span>-100</span><span>0</span><span>100</span><span>200</span><span>300</span><span>400</span><span>500</span>
               </div>
             </div>

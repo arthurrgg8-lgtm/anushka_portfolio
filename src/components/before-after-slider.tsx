@@ -241,11 +241,11 @@ export function BeforeAfterSlider() {
         </div>
 
         {/* Labels for Blueprint vs Render */}
-        <div className="absolute top-4 left-4 pointer-events-none bg-[#1b2230]/80 backdrop-blur-sm text-[#4f9bfd] px-3 py-1 rounded text-xs font-mono border border-[#4f9bfd]/30 transition-opacity duration-300 opacity-80 group-hover:opacity-100 shadow-sm">
-          TECHNICAL BLUEPRINT
+        <div className="absolute top-2 sm:top-4 left-2 sm:left-4 pointer-events-none bg-[#1b2230]/80 backdrop-blur-sm text-[#4f9bfd] px-2 sm:px-3 py-0.5 sm:py-1 rounded text-[8px] sm:text-xs font-mono border border-[#4f9bfd]/30 transition-opacity duration-300 opacity-70 sm:opacity-80 group-hover:opacity-100 shadow-sm">
+          BLUEPRINT
         </div>
-        <div className="absolute top-4 right-4 pointer-events-none bg-card/85 backdrop-blur-sm text-foreground px-3 py-1 rounded text-xs font-sans border border-border/40 transition-opacity duration-300 opacity-80 group-hover:opacity-100 shadow-sm">
-          COMPLETED RENDER
+        <div className="absolute top-2 sm:top-4 right-2 sm:right-4 pointer-events-none bg-card/85 backdrop-blur-sm text-foreground px-2 sm:px-3 py-0.5 sm:py-1 rounded text-[8px] sm:text-xs font-sans border border-border/40 transition-opacity duration-300 opacity-70 sm:opacity-80 group-hover:opacity-100 shadow-sm">
+          RENDER
         </div>
 
         {/* Drag Handle Bar & Circle Toggle */}

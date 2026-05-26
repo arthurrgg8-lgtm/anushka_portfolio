@@ -77,10 +77,10 @@ export function Navigation() {
             AR.
           </div>
           <div className="flex flex-col">
-            <span className="font-heading font-bold text-sm tracking-wider uppercase text-foreground leading-none group-hover:text-primary transition-colors duration-300">
+            <span className="font-heading font-bold text-xs sm:text-sm tracking-wider uppercase text-foreground leading-none group-hover:text-primary transition-colors duration-300">
               Anushka Khatri
             </span>
-            <span className="text-[9px] uppercase tracking-widest text-muted-foreground leading-none mt-0.5">
+            <span className="text-[8px] sm:text-[9px] uppercase tracking-widest text-muted-foreground leading-none mt-0.5">
               Architect / Designer
             </span>
           </div>
@@ -140,12 +140,12 @@ export function Navigation() {
 
       {/* Mobile Drawer Overlay */}
       <div 
-        className={`fixed inset-0 top-[60px] z-40 bg-background/95 backdrop-blur-md md:hidden transition-all duration-500 ${
+        className={`fixed inset-0 top-[56px] sm:top-[64px] z-40 bg-background/95 backdrop-blur-md md:hidden transition-all duration-500 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <nav className="h-full flex flex-col justify-between px-8 py-12">
-          <ul className="flex flex-col gap-6">
+        <nav className="h-full flex flex-col justify-between px-6 sm:px-8 py-8 sm:py-12">
+          <ul className="flex flex-col gap-5 sm:gap-6">
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.targetId;
               return (
@@ -153,7 +153,7 @@ export function Navigation() {
                   <a
                     href={`#${link.targetId}`}
                     onClick={(e) => handleLinkClick(e, link.targetId)}
-                    className={`text-lg uppercase tracking-widest font-heading font-semibold block transition-colors duration-300 ${
+                    className={`text-base sm:text-lg uppercase tracking-widest font-heading font-semibold block transition-colors duration-300 ${
                       isActive ? "text-primary pl-2 border-l-2 border-primary" : "text-foreground/80"
                     }`}
                   >
@@ -164,8 +164,8 @@ export function Navigation() {
             })}
           </ul>
 
-          <div className="border-t border-border/60 pt-8 flex flex-col gap-4">
-            <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
+          <div className="border-t border-border/60 pt-6 sm:pt-8 flex flex-col gap-4">
+            <div className="flex items-center justify-between text-[10px] sm:text-xs text-muted-foreground font-mono">
               <span>NEC LICENSE</span>
               <span className="text-foreground font-semibold">AR. LICENSE REGISTERED</span>
             </div>

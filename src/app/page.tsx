@@ -204,9 +204,9 @@ export default function Home() {
 
           {/* ─── Large Orbital Badge Behind Name ─── */}
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[520px] md:h-[520px]"
           >
-            <svg width="520" height="520" viewBox="0 0 520 520" fill="none" stroke="currentColor" className="text-primary/8 dark:text-primary/10">
+            <svg width="100%" height="100%" viewBox="0 0 520 520" fill="none" stroke="currentColor" className="text-primary/8 dark:text-primary/10">
               {/* Outermost seal ring */}
               <circle 
                 cx="260" cy="260" r="250"
@@ -246,7 +246,7 @@ export default function Home() {
           {/* ─── Floating Architectural Elements ─── */}
           {/* Element 1: Section elevation fragment */}
           <div 
-            className="absolute top-16 left-12 md:left-32 opacity-[0.08] dark:opacity-[0.1] pointer-events-none select-none"
+            className="absolute top-12 md:top-16 left-4 sm:left-12 md:left-32 opacity-[0.08] dark:opacity-[0.1] pointer-events-none select-none hidden sm:block"
           >
             <svg width="80" height="130" viewBox="0 0 80 130" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary">
               <polygon 
@@ -268,7 +268,7 @@ export default function Home() {
 
           {/* Element 2: Multi-story facade */}
           <div 
-            className="absolute top-24 right-12 md:right-36 opacity-[0.07] dark:opacity-[0.09] pointer-events-none select-none"
+            className="absolute top-20 md:top-24 right-4 sm:right-12 md:right-36 opacity-[0.07] dark:opacity-[0.09] pointer-events-none select-none hidden sm:block"
           >
             <svg width="100" height="90" viewBox="0 0 100 90" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary">
               <rect 
@@ -295,7 +295,7 @@ export default function Home() {
 
           {/* Element 3: Column detail / structural */}
           <div 
-            className="absolute bottom-28 left-16 md:left-48 opacity-[0.07] dark:opacity-[0.09] pointer-events-none select-none"
+            className="absolute bottom-20 md:bottom-28 left-4 sm:left-16 md:left-48 opacity-[0.07] dark:opacity-[0.09] pointer-events-none select-none hidden sm:block"
           >
             <svg width="70" height="100" viewBox="0 0 70 100" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary">
               <circle 
@@ -317,7 +317,7 @@ export default function Home() {
 
           {/* Element 4: Gable roof elevation */}
           <div 
-            className="absolute bottom-32 right-16 md:right-56 opacity-[0.06] dark:opacity-[0.08] pointer-events-none select-none"
+            className="absolute bottom-24 md:bottom-32 right-4 sm:right-16 md:right-56 opacity-[0.06] dark:opacity-[0.08] pointer-events-none select-none hidden sm:block"
           >
             <svg width="70" height="110" viewBox="0 0 70 110" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary">
               <g>
@@ -353,7 +353,7 @@ export default function Home() {
             
             {/* Name */}
             <h1 
-              className="text-5xl md:text-8xl font-heading font-semibold tracking-tight leading-tight select-all relative"
+              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-semibold tracking-tight leading-tight select-all relative"
             >
               {/* Glow layer behind text */}
               <div
@@ -389,7 +389,7 @@ export default function Home() {
             
             {/* Tagline */}
             <p 
-              className="text-lg md:text-2xl font-heading font-medium text-foreground mt-4 italic max-w-2xl"
+              className="text-base sm:text-lg md:text-2xl font-heading font-medium text-foreground mt-4 italic max-w-2xl"
             >
               <span className="relative inline-block">
                 "Designing spaces that speak through emotion, experience & purpose."
@@ -401,7 +401,7 @@ export default function Home() {
             
             {/* Short Bio Snippet */}
             <p 
-              className="text-sm md:text-base text-muted-foreground font-sans max-w-xl mt-6 leading-relaxed"
+              className="text-xs sm:text-sm md:text-base text-muted-foreground font-sans max-w-xl mt-4 sm:mt-6 leading-relaxed"
             >
               Architect passionate about creating meaningful, human-centric, and inclusive spaces through intuitive storytelling, construction technologies, and vernacular sustainability.
             </p>
@@ -605,8 +605,8 @@ export default function Home() {
             {/* Right Side: Digital License Seal and Info Box */}
             <div className="md:col-span-5 flex flex-col items-center justify-center">
               {/* Custom SVG NEC License Digital Badge */}
-              <div className="relative w-64 h-64 bg-card rounded-2xl border border-border/80 shadow-md p-6 flex flex-col items-center justify-between text-center select-none group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                <div className="w-20 h-20 rounded-full border-2 border-primary/20 flex items-center justify-center relative bg-muted/30">
+              <div className="relative w-full max-w-[260px] sm:w-64 sm:h-64 bg-card rounded-2xl border border-border/80 shadow-md p-4 sm:p-6 flex flex-col items-center justify-between text-center select-none group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-primary/20 flex items-center justify-center relative bg-muted/30">
                   {/* Rotating seal border */}
                   <svg className="absolute inset-0 w-full h-full text-primary opacity-60 animate-[spin_20s_linear_infinite]" viewBox="0 0 100 100">
                     <path d="M 50 10 A 40 40 0 1 1 49.9 10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3,3" />
@@ -614,21 +614,21 @@ export default function Home() {
                   <Compass className="w-8 h-8 text-primary" />
                 </div>
 
-                <div className="mt-4">
-                  <span className="text-[9px] uppercase tracking-widest text-primary font-bold font-mono">
+                <div className="mt-3 sm:mt-4">
+                  <span className="text-[8px] sm:text-[9px] uppercase tracking-widest text-primary font-bold font-mono">
                     Official Certification
                   </span>
-                  <h4 className="text-base font-heading font-bold text-foreground mt-1 leading-tight">
+                  <h4 className="text-sm sm:text-base font-heading font-bold text-foreground mt-1 leading-tight">
                     AR. REGISTERED LICENSE
                   </h4>
-                  <p className="text-[10px] text-muted-foreground font-mono mt-1 uppercase tracking-wider">
+                  <p className="text-[9px] sm:text-[10px] text-muted-foreground font-mono mt-1 uppercase tracking-wider">
                     Nepal Engineering Council (NEC)
                   </p>
                 </div>
 
-                <div className="w-full bg-background border border-border/60 py-2.5 rounded-lg text-[10px] sm:text-xs font-mono font-semibold text-primary mt-2 flex flex-col gap-0.5">
-                  <div>STATUS: REGISTERED ARCHITECT</div>
-                  <div className="text-[8px] sm:text-[9px] opacity-75">NEC REG NO: 94879</div>
+                <div className="w-full bg-background border border-border/60 py-2 sm:py-2.5 rounded-lg text-[9px] sm:text-xs font-mono font-semibold text-primary mt-2 flex flex-col gap-0.5">
+                  <div className="text-[9px] sm:text-xs">STATUS: REGISTERED ARCHITECT</div>
+                  <div className="text-[7px] sm:text-[9px] opacity-75">NEC REG NO: 94879</div>
                 </div>
               </div>
             </div>

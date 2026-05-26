@@ -201,7 +201,7 @@ function ImageLightbox({
             <button
               key={idx}
               onClick={() => {}}  // controlled by parent via keyboard
-              className={`shrink-0 w-14 h-10 rounded-md overflow-hidden border-2 transition-all duration-200 cursor-pointer ${
+              className={`shrink-0 w-10 sm:w-14 h-8 sm:h-10 rounded-md overflow-hidden border-2 transition-all duration-200 cursor-pointer ${
                 idx === currentIndex
                   ? "border-white opacity-100 scale-110"
                   : "border-transparent opacity-50 hover:opacity-80"
@@ -388,7 +388,7 @@ function ProjectImageGallery({
               onClick={() => { setLightboxOpen(true); setCurrentIndex(idx); }}
               whileHover={{ scale: 1.03, y: -3 }}
               whileTap={{ scale: 0.97 }}
-              className="snap-start shrink-0 w-56 sm:w-64 aspect-[4/3] rounded-xl overflow-hidden border border-border/40 bg-muted/30 relative group cursor-pointer"
+              className="snap-start shrink-0 w-40 sm:w-56 md:w-64 aspect-[4/3] rounded-xl overflow-hidden border border-border/40 bg-muted/30 relative group cursor-pointer"
             >
               <img
                 src={src}
@@ -942,7 +942,7 @@ function CategoryCard({ category, index, onHover }: { category: Category; index:
       <motion.div
         whileHover={{ scale: 1.04 }}
         className={`group relative rounded-full cursor-pointer ${
-          isMain ? "w-48 h-48 sm:w-60 sm:h-60" : "w-44 h-44 sm:w-52 sm:h-52"
+          isMain ? "w-32 h-32 sm:w-48 sm:h-48 md:w-60 md:h-60" : "w-28 h-28 sm:w-44 sm:h-44 md:w-52 md:h-52"
         }`}
       >
         <div
@@ -1098,7 +1098,7 @@ function ProjectDetail({ project }: {
       >
         {/* Header banner with first image as hero */}
         <motion.div
-          className={`h-48 bg-gradient-to-br ${project.gradient} flex items-end p-6 relative overflow-hidden`}
+          className={`h-32 sm:h-48 bg-gradient-to-br ${project.gradient} flex items-end p-3 sm:p-6 relative overflow-hidden`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -1119,7 +1119,7 @@ function ProjectDetail({ project }: {
           />
           <div className="relative z-10">
             <motion.h3
-              className="text-2xl font-heading font-bold text-foreground drop-shadow-sm"
+              className="text-lg sm:text-2xl font-heading font-bold text-foreground drop-shadow-sm"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, type: "spring", stiffness: 100, damping: 15 }}
@@ -1146,7 +1146,7 @@ function ProjectDetail({ project }: {
 
         {/* Content */}
         <motion.div
-          className="p-6 space-y-5"
+          className="p-4 sm:p-6 space-y-5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
@@ -1235,12 +1235,11 @@ export function ProjectGallery() {
   if (project && selectedProject) {
     return (
       <>
-        {/* Back button — outside AnimatePresence so fixed positioning isn't broken by CSS transforms */}
-        <motion.button
+        {/* Back button — outside AnimatePresence so fixed positioning isn't broken by CSS transforms */}            <motion.button
           onClick={handleBackToCategories}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
-          className="fixed top-4 left-4 z-50 w-10 h-10 rounded-full bg-background/85 backdrop-blur-md border border-border/60 shadow-md flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 cursor-pointer group"
+          className="fixed top-3 left-3 sm:top-4 sm:left-4 z-[70] w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-background/85 backdrop-blur-md border border-border/60 shadow-md flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 cursor-pointer group"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.15, type: "spring", stiffness: 120, damping: 16 }}
@@ -1325,7 +1324,7 @@ export function ProjectGallery() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0.15 } }}
-                className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 py-4"
+                className="flex flex-col items-center gap-4 sm:gap-8 lg:flex-row lg:items-start lg:gap-12 py-4"
               >
                 {/* Expanded circle */}
                 <div
@@ -1336,11 +1335,11 @@ export function ProjectGallery() {
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1.15, opacity: 1 }}
                     transition={{ type: "spring", stiffness: 180, damping: 22 }}
-                    className="w-48 h-48 sm:w-60 sm:h-60 rounded-full relative flex items-center justify-center"
-                    style={{
-                      border: `1.5px solid ${CATEGORY_COLORS[hoveredCat.id] || CATEGORY_COLORS.residential}35`,
-                      boxShadow: `0 0 40px -8px ${CATEGORY_COLORS[hoveredCat.id] || CATEGORY_COLORS.residential}25`,
-                    }}
+                className="w-36 h-36 sm:w-48 sm:h-48 md:w-60 md:h-60 rounded-full relative flex items-center justify-center"
+                style={{
+                  border: `1.5px solid ${CATEGORY_COLORS[hoveredCat.id] || CATEGORY_COLORS.residential}35`,
+                  boxShadow: `0 0 40px -8px ${CATEGORY_COLORS[hoveredCat.id] || CATEGORY_COLORS.residential}25`,
+                }}
                   >
                     <div className="w-full h-full rounded-full flex flex-col items-center justify-center gap-2 relative overflow-hidden">
                       <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.5]">
@@ -1354,10 +1353,10 @@ export function ProjectGallery() {
                       >
                         {hoveredCat.icon}
                       </div>
-                      <h3 className="relative z-10 font-heading font-semibold text-foreground text-center text-sm sm:text-base leading-tight max-w-[100px] sm:max-w-[120px]">
+                      <h3 className="relative z-10 font-heading font-semibold text-foreground text-center text-[10px] sm:text-sm md:text-base leading-tight max-w-[80px] sm:max-w-[120px]">
                         {hoveredCat.title}
                       </h3>
-                      <span className="relative z-10 text-[9px] font-mono text-muted-foreground/60">
+                      <span className="relative z-10 text-[7px] sm:text-[9px] font-mono text-muted-foreground/60">
                         {hoveredCat.projects.length} {hoveredCat.projects.length === 1 ? "project" : "projects"}
                       </span>
                     </div>
@@ -1396,7 +1395,7 @@ export function ProjectGallery() {
                 initial="hidden"
                 animate="visible"
                 exit={{ opacity: 0, transition: { duration: 0.15 } }}
-                className="relative flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-14 py-4"
+                className="relative flex flex-wrap justify-center items-center gap-3 sm:gap-6 md:gap-8 lg:gap-14 py-4"
               >
                 {CATEGORIES.map((cat, i) => (
                   <CategoryCard
