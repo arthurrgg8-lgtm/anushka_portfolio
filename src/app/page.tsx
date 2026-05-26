@@ -119,7 +119,7 @@ export default function Home() {
         {/* SECTION 1: HERO/LANDING — Immersive Architectural Observatory */}
         <section 
           id="hero-sec" 
-          className="snap-section flex flex-col justify-center items-center relative px-6 pt-16 sm:pt-20 md:pt-24 overflow-x-hidden"
+          className="snap-section flex flex-col lg:justify-start justify-center items-center relative px-6 pt-14 sm:pt-16 lg:pt-28 xl:pt-36 2xl:pt-44 overflow-x-hidden"
         >
           {/* ─── Drafting Grid Overlay ─── */}
           <div
@@ -348,7 +348,7 @@ export default function Home() {
 
           {/* ─── Main Content ─── */}
           <div 
-            className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center mt-2 sm:mt-3 md:mt-4"
+            className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center"
           >
             {/* Tagline Badge */}
             <span 
