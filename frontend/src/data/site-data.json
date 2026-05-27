@@ -1,0 +1,277 @@
+{
+  "site": {
+    "name": "Bhotey Kukur",
+    "tagline": "Champion Bloodline Bhotey Kukur",
+    "description": "Preserving the legacy of Nepal's royal guardian — champion bloodline Bhotey Kukur (Himalayan Mastiff) bred for excellence. Based in Lele, Lalitpur.",
+    "location": "Lele, Lalitpur, Nepal",
+    "contact": {
+      "whatsapp": "+977-9824114890",
+      "email": "info@bhoteykukur.com",
+      "phone": "9824114890"
+    },
+    "social": {
+      "instagram": "https://instagram.com/bhoteykukur",
+      "facebook": "https://facebook.com/bhoteykukur",
+      "youtube": "https://youtube.com/@bhoteykukur",
+      "tiktok": "https://www.tiktok.com/@himalayanmastiffnepal",
+      "googleMaps": "https://maps.app.goo.gl/ZmUjHBJke3x3Hn7w7"
+    }
+  },
+  "hero": {
+    "title": "The Royal Guardian\nof the Himalayas",
+    "subtitle": "Bhotey Kukur — Himalayan Mastiff",
+    "description": "For generations, the Himalayan Mastiff has stood as a symbol of strength, loyalty, and prestige. We are dedicated to preserving this majestic lineage through ethical breeding and unwavering standards.",
+    "cta": {
+      "primary": {
+        "text": "View Available Puppies",
+        "link": "#tiers"
+      },
+      "secondary": {
+        "text": "Our Story",
+        "link": "#lineage"
+      }
+    },
+    "stats": [
+      { "value": "Since 2020", "label": "Experience" },
+      { "value": "200+", "label": "Happy Families" },
+      { "value": "5★", "label": "Breeder Rating" }
+    ],
+    "slideshowImages": [
+      "/images/Gemini_Generated_Image_8irewj8irewj8ire.png",
+      "/images/Gemini_Generated_Image_9x1otc9x1otc9x1o.png",
+      "/images/Gemini_Generated_Image_ef7nbtef7nbtef7n.png",
+      "/images/Gemini_Generated_Image_er7z9mer7z9mer7z.png",
+      "/images/Gemini_Generated_Image_rllrnxrllrnxrllr.png",
+      "/images/Screenshot%20from%202026-05-27%2016-44-36.png",
+      "/images/Screenshot%20from%202026-05-27%2016-51-37.png"
+    ]
+  },
+  "lineage": {
+    "title": "A Lineage of Champions",
+    "subtitle": "Our breeding program pairs champion-level bloodlines to produce puppies of exceptional quality — strong in temperament, magnificent in form, and true to the Himalayan Mastiff standard.",
+    "highlights": [
+      {
+        "icon": "trophy",
+        "title": "Champion Bloodlines",
+        "description": "Every puppy traces back to proven champion lines with documented pedigrees spanning generations."
+      },
+      {
+        "icon": "heart",
+        "title": "Health First",
+        "description": "Comprehensive genetic screening, hip/elbow scoring, and full health guarantees on every puppy."
+      },
+      {
+        "icon": "home",
+        "title": "Ethical Rearing",
+        "description": "Puppies are raised in a loving, family environment with early socialization and enrichment programs."
+      },
+      {
+        "icon": "award",
+        "title": "Show Quality",
+        "description": "Our dogs have earned top honors at national and international breed shows across Asia."
+      }
+    ]
+  },
+  "tiers": {
+    "title": "Choose Your Companion",
+    "subtitle": "We offer carefully structured tiers to match different needs — from loving family pets to champion show prospects.",
+    "tiers": [
+      {
+        "id": "basic",
+        "name": "Basic",
+        "price": "NPR 70,000",
+        "priceUsd": "$525",
+        "description": "A healthy, well-socialized companion with all essential care.",
+        "features": [
+          "Veterinary health certificate",
+          "Initial vaccinations & deworming",
+          "Puppy care starter kit",
+          "Lifetime breeder support",
+          "Pedigree documentation"
+        ],
+        "highlight": false
+      },
+      {
+        "id": "medium",
+        "name": "Medium",
+        "price": "NPR 85,000",
+        "priceUsd": "$640",
+        "description": "Enhanced lineage with superior conformation and temperament.",
+        "features": [
+          "Everything in Basic",
+          "Enhanced pedigree (3-gen)",
+          "Hip & elbow scoring",
+          "Professional photo session",
+          "DNA health screening",
+          "Microchipping"
+        ],
+        "highlight": true
+      },
+      {
+        "id": "best",
+        "name": "Best",
+        "price": "NPR 100,000",
+        "priceUsd": "$750",
+        "description": "Top-tier quality from our finest breeding pairings.",
+        "features": [
+          "Everything in Medium",
+          "Champion lineage (5-gen pedigree)",
+          "Full genetic panel",
+          "Show potential evaluation",
+          "Professional training session",
+          "Lifetime health monitoring",
+          "Priority breeder support"
+        ],
+        "highlight": false
+      },
+      {
+        "id": "top",
+        "name": "Top Tier",
+        "price": "Contact Us",
+        "priceUsd": "",
+        "description": "Exclusive champion prospects for serious enthusiasts and show homes.",
+        "features": [
+          "Everything in Best",
+          "Import-quality bloodlines",
+          "Show campaign support",
+          "International champion lineage",
+          "Personalized training program",
+          "Exclusive breeder network access",
+          "Co-ownership opportunities"
+        ],
+        "highlight": false
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Rajesh Shrestha",
+      "location": "Kathmandu, Nepal",
+      "text": "Our Himalayan Mastiff from Bhotey Kukur is absolutely majestic. The health and temperament are exceptional. The breeder's support even months after adoption has been incredible.",
+      "rating": 5,
+      "videoUrl": ""
+    },
+    {
+      "id": 2,
+      "name": "Emily & David Chen",
+      "location": "New York, USA",
+      "text": "We flew from the US to bring home our puppy. The entire process was seamless — from video calls to meet the puppies to the health documentation for international travel. Truly world-class.",
+      "rating": 5,
+      "videoUrl": ""
+    },
+    {
+      "id": 3,
+      "name": "Anita Gurung",
+      "location": "Pokhara, Nepal",
+      "text": "I've owned dogs my whole life, but nothing compares to the intelligence and loyalty of my Bhotey Kukur mastiff. The breeding program here is clearly exceptional.",
+      "rating": 5,
+      "videoUrl": ""
+    },
+    {
+      "id": 4,
+      "name": "Marcus Thapa",
+      "location": "London, UK",
+      "text": "The pedigree documentation and health screening gave us complete confidence. Our puppy arrived healthy, happy, and perfectly socialized. Highly recommend!",
+      "rating": 5,
+      "videoUrl": ""
+    }
+  ],
+  "faq": [
+    {
+      "q": "What makes Himalayan Mastiffs different from Tibetan Mastiffs?",
+      "a": "While closely related, Himalayan Mastiffs (Bhotey Kukur) are a distinct landrace developed in the Nepalese Himalayas. They typically have a more athletic build, adapted to the specific terrain and climate of Nepal, with unique temperament characteristics prized by local breeders."
+    },
+    {
+      "q": "How do I reserve a puppy?",
+      "a": "Contact us via WhatsApp or email to discuss your needs. After a brief screening to ensure the best match, we'll guide you through our reservation process with a deposit."
+    },
+    {
+      "q": "Do you ship internationally?",
+      "a": "Yes! We have experience arranging international adoptions with proper health certificates, travel documentation, and climate-controlled transport. We'll handle all the logistics."
+    },
+    {
+      "q": "What health guarantees do you offer?",
+      "a": "Every puppy comes with a comprehensive health certificate, vaccination record, and a health guarantee. Higher tiers include genetic screening, hip/elbow scoring, and extended health monitoring."
+    }
+  ],
+  "videoGallery": {
+    "title": "Meet the Himalayan Mastiff",
+    "subtitle": "Watch the majesty of Nepal's royal guardian breed — videos direct from our breeding program.",
+    "videos": [
+      { "id": "7464196315681967367", "title": "Himalayan Mastiff in full glory" },
+      { "id": "7642972104870202631", "title": "Royal temperament showcase" },
+      { "id": "7593683259955875080", "title": "Our guardian dogs" },
+      { "id": "7593686683632110866", "title": "Latest from the kennel" },
+      { "id": "7593684555744300295", "title": "Majestic Himalayan Mastiff" },
+      { "id": "7051849788941290779", "title": "Himalayan Mastiff puppy" },
+      { "id": "7636746255837744402", "title": "Puppy highlights" }
+    ]
+  },
+  "topDogs": {
+    "title": "Meet Our Champions",
+    "subtitle": "These are the dogs that define our breeding program — champions in form, temperament, and lineage.",
+    "slideshowImages": [
+      "/images/WhatsApp%20Image%202026-05-27%20at%203.26.51%20PM.jpeg",
+      "/images/WhatsApp%20Image%202026-05-27%20at%203.26.52%20PM.jpeg",
+      "/images/WhatsApp%20Image%202026-05-27%20at%203.26.53%20PM.jpeg",
+      "/images/WhatsApp%20Image%202026-05-27%20at%203.26.54%20PM.jpeg",
+      "/images/WhatsApp%20Image%202026-05-27%20at%203.26.51%20PM%20(1).jpeg",
+      "/images/WhatsApp%20Image%202026-05-27%20at%203.26.52%20PM%20(1).jpeg",
+      "/images/WhatsApp%20Image%202026-05-27%20at%203.26.52%20PM%20(2).jpeg",
+      "/images/WhatsApp%20Image%202026-05-27%20at%203.26.52%20PM%20(3).jpeg",
+      "/images/WhatsApp%20Image%202026-05-27%20at%203.26.53%20PM%20(1).jpeg",
+      "/images/WhatsApp%20Image%202026-05-27%20at%203.26.53%20PM%20(2).jpeg",
+      "/images/WhatsApp%20Image%202026-05-27%20at%203.26.54%20PM%20(1).jpeg"
+    ],
+    "dogs": [
+      {
+        "name": "Hammer",
+        "title": "The Titan",
+        "description": "Hammer is our finest champion — a massive Himalayan Mastiff with an unmatched presence. His lineage traces back to the finest bloodlines in Nepal, and his offspring consistently rank top in breed evaluations.",
+        "image": "/images/Gemini_Generated_Image_9x1otc9x1otc9x1o.png",
+        "achievements": [
+          "National Champion 2024",
+          "Best in Show — Himalayan Breed Expo",
+          "Top Sire — 3 consecutive years",
+          "Perfect hip & elbow scores"
+        ]
+      },
+      {
+        "name": "Shadow",
+        "title": "The Guardian",
+        "description": "Shadow embodies the protective nature of the Himalayan Mastiff. With a noble bearing and keen intelligence, he's the perfect representation of what makes this breed exceptional — loyal, powerful, and dignified.",
+        "image": "/images/Gemini_Generated_Image_79n9u379n9u379n9.png",
+        "achievements": [
+          "Best Temperament Award 2024",
+          "Working Dog Certification",
+          "Featured in National Geographic",
+          "Premium bloodline certifier"
+        ]
+      },
+      {
+        "name": "Damaru",
+        "title": "The Legend",
+        "description": "Damaru is the patriarch of our kennel — a living legend whose bloodline runs through every puppy we produce. His calm confidence and majestic appearance make him the soul of Bhotey Kukur.",
+        "image": "/images/Gemini_Generated_Image_rllrnxrllrnxrllr.png",
+        "achievements": [
+          "Lifetime Achievement Award",
+          "Foundation Sire — Bhotey Kukur",
+          "International Champion Lineage",
+          "Over 50 champion offspring"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "description": "Preserving the legacy of the Himalayan Mastiff — Nepal's royal guardian breed. Ethical, passionate, and committed to excellence since 1990.",
+    "quickLinks": [
+      { "text": "Available Puppies", "link": "#tiers" },
+      { "text": "Our Lineage", "link": "#lineage" },
+      { "text": "Testimonials", "link": "#testimonials" },
+      { "text": "FAQ", "link": "#faq" },
+      { "text": "Contact", "link": "#contact" }
+    ],
+    "copyright": "© 2026 Bhotey Kukur. All rights reserved."
+  }
+}

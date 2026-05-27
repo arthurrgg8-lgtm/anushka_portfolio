@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bhoteykukur.com/sitemap.xml
