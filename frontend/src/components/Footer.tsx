@@ -160,11 +160,23 @@ export default function Footer({
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-border">
-          <p className="text-center text-xs text-text-muted">
+        {/* Copyright & Attribution */}
+        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-center sm:text-left text-xs text-text-muted">
             {data.copyright}
           </p>
+          <div className="flex items-center gap-2 text-xs font-medium">
+            <span className="text-text-muted">Developed by</span>
+            <a 
+              href="https://anuditk.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group relative px-2 py-1 text-secondary transition-colors duration-300 hover:text-secondary-light"
+            >
+              LazZy
+              <span className="absolute bottom-0 left-0 h-px w-0 bg-secondary-light transition-all duration-300 group-hover:w-full" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -77,85 +77,92 @@ export default function TierPreview({ data }: { data: TiersData }) {
           </p>
         </div>
 
-        {/* Tier Cards */}
-        <div className="grid gap-6 lg:grid-cols-4 md:grid-cols-2 px-4 sm:px-0">
+        {/* Tier Cards — side-by-side on mobile (grid-cols-2) */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 px-3 sm:px-0">
           {data.tiers.map((tier) => (
             <div
               key={tier.id}
-              className={`tier-card group relative flex flex-col rounded-[2rem] border p-6 sm:p-8 opacity-0 translate-y-8 transition-all duration-700 ease-out ${
+              className={`tier-card group relative flex flex-col rounded-[1.5rem] sm:rounded-[2rem] border p-4 sm:p-8 opacity-0 translate-y-8 transition-all duration-700 ease-out ${
                 tier.highlight
-                  ? "border-secondary/40 bg-gradient-to-b from-secondary/10 to-primary/40 shadow-2xl shadow-secondary/10 scale-[1.02] sm:scale-105 lg:scale-110 hover:-translate-y-2"
+                  ? "border-secondary/40 bg-gradient-to-b from-secondary/10 to-primary/40 shadow-2xl shadow-secondary/10 hover:-translate-y-2"
                   : "border-border bg-primary/40 hover:border-secondary/20 hover:bg-primary/60 hover:-translate-y-1 shadow-lg shadow-black/10"
               }`}
             >
               {/* Highlight badge */}
               {tier.highlight && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-secondary px-4 py-1 text-[10px] font-bold tracking-wider text-primary uppercase">
-                  Popular Choice
+                <div className="absolute -top-2 sm:-top-3 left-1/2 -translate-x-1/2 rounded-full bg-secondary px-2 sm:px-4 py-0.5 sm:py-1 text-[7px] sm:text-[10px] font-bold tracking-wider text-primary uppercase whitespace-nowrap">
+                  Popular
                 </div>
               )}
 
               {/* Tier Name */}
-              <h3 className={`text-lg font-semibold mb-2 ${tier.highlight ? "text-secondary" : "text-text-primary"}`}>
+              <h3 className={`text-sm sm:text-lg font-bold mb-1 sm:mb-2 ${tier.highlight ? "text-secondary" : "text-text-primary"}`}>
                 {tier.name}
               </h3>
 
               {/* Price */}
-              <div className="mb-4">
-                <p className={`text-3xl font-bold ${tier.highlight ? "text-secondary" : "text-text-primary"}`}>
-                  {tier.price}
+              <div className="mb-2 sm:mb-4">
+                <p className={`text-xl sm:text-3xl font-bold ${tier.highlight ? "text-secondary" : "text-text-primary"}`}>
+                  {tier.price.replace("NPR ", "")}
+                  <span className="text-[8px] sm:text-sm ml-1 opacity-60">NPR</span>
                 </p>
                 {tier.priceUsd && (
-                  <p className="text-sm text-text-muted">~{tier.priceUsd}</p>
+                  <p className="text-[8px] sm:text-sm text-text-muted">~{tier.priceUsd}</p>
                 )}
               </div>
 
-              {/* Description */}
-              <p className="text-sm leading-relaxed text-text-secondary mb-6">
+              {/* Description — hidden on very small screens to save space if needed, or kept brief */}
+              <p className="text-[10px] sm:text-sm leading-relaxed text-text-secondary mb-4 sm:mb-6 line-clamp-2 sm:line-clamp-none">
                 {tier.description}
               </p>
 
-              {/* Features */}
-              <ul className="space-y-3 mb-8 flex-1">
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm text-text-secondary">
-                    <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              {/* Features — simplified icons on mobile */}
+              <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8 flex-1">
+                {tier.features.slice(0, 4).map((feature) => (
+                  <li key={feature} className="flex items-start gap-1.5 sm:gap-3 text-[9px] sm:text-sm text-text-secondary">
+                    <svg className="mt-0.5 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                       <path d="M5 13l4 4L19 7" />
                     </svg>
-                    {feature}
+                    <span className="line-clamp-1">{feature}</span>
                   </li>
                 ))}
+                {tier.features.length > 4 && (
+                  <li className="text-[8px] sm:text-xs text-secondary/60 font-medium pl-4.5 sm:pl-7">
+                    +{tier.features.length - 4} more features
+                  </li>
+                )}
               </ul>
 
               {/* CTAs */}
-              <Link
-                href="#contact"
-                className={`group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 ${
-                  tier.highlight
-                    ? "bg-secondary text-primary hover:bg-secondary-light shadow-lg shadow-secondary/20"
-                    : "border border-border text-text-primary hover:border-secondary/50 hover:text-secondary"
-                }`}
-              >
-                {tier.id === "top" ? "Contact Us" : "Inquire"}
-                <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </Link>
+              <div className="flex flex-col gap-2 mt-auto">
+                <Link
+                  href="#contact"
+                  className={`group inline-flex items-center justify-center gap-1.5 rounded-full px-4 py-2 sm:py-3 text-[10px] sm:text-sm font-bold transition-all duration-300 ${
+                    tier.highlight
+                      ? "bg-secondary text-primary hover:bg-secondary-light shadow-lg shadow-secondary/20"
+                      : "border border-border text-text-primary hover:border-secondary/50 hover:text-secondary"
+                  }`}
+                >
+                  {tier.id === "top" ? "Contact" : "Inquire"}
+                  <svg className="h-3 w-3 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
 
-              {/* Book Now — opens eSewa QR */}
-              <button
-                onClick={() => setQrOpen(true)}
-                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#60B246] bg-[#60B246]/10 px-6 py-2.5 text-xs font-semibold text-[#60B246] transition-all duration-300 hover:bg-[#60B246]/20 hover:shadow-lg hover:shadow-[#60B246]/10"
-              >
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h3m5-2.12V5a1 1 0 00-1-1H5a1 1 0 00-1 1v6a1 1 0 001 1h2m7 2h2a1 1 0 001-1V9a1 1 0 00-1-1h-2a1 1 0 00-1 1v4a1 1 0 001 1z" />
-                </svg>
-                Book Now — eSewa
-              </button>
+                <button
+                  onClick={() => setQrOpen(true)}
+                  className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-[#60B246]/30 bg-[#60B246]/5 px-4 py-2 text-[9px] sm:text-xs font-bold text-[#60B246] transition-all duration-300 hover:bg-[#60B246]/10"
+                >
+                  <svg className="h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h3m5-2.12V5a1 1 0 00-1-1H5a1 1 0 00-1 1v6a1 1 0 001 1h2m7 2h2a1 1 0 001-1V9a1 1 0 00-1-1h-2a1 1 0 00-1 1v4a1 1 0 001 1z" />
+                  </svg>
+                  eSewa
+                </button>
+              </div>
 
               {/* Corner glow for highlight */}
               {tier.highlight && (
-                <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-secondary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute -inset-px rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-b from-secondary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               )}
             </div>
           ))}
