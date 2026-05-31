@@ -937,6 +937,7 @@ function CategoryCard({ category, index, onHover }: { category: Category; index:
         delay: index * 1.2,
       }}
       onMouseEnter={onHover}
+      onClick={onHover} // Mobile support: tap to show projects
     >
       <motion.div
         whileHover={{ scale: 1.04 }}
@@ -1324,8 +1325,18 @@ export function ProjectGallery() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0.15 } }}
-                className="flex flex-col items-center gap-4 sm:gap-8 lg:flex-row lg:items-start lg:gap-12 py-4"
+                className="flex flex-col items-center gap-4 sm:gap-8 lg:flex-row lg:items-start lg:gap-12 py-4 relative"
               >
+                {/* Mobile Back Button — specifically for returning to category grid */}
+                <motion.button
+                  onClick={() => setHoveredCategory(null)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="lg:hidden absolute -top-4 right-0 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md border border-border/60 text-[10px] font-mono font-bold uppercase tracking-widest text-primary shadow-sm cursor-pointer"
+                >
+                  <ArrowLeft className="w-3 h-3" />
+                  All Categories
+                </motion.button>
                 {/* Expanded circle */}
                 <div
                   onMouseEnter={() => setHoveredCategory(hoveredCat.id)}
