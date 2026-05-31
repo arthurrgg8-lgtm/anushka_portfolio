@@ -972,7 +972,7 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
           <div className="text-center text-[10px] font-mono text-muted-foreground/65 flex flex-col items-center justify-center gap-1 pt-8 pb-4">
             <span>© {new Date().getFullYear()} AR. ANUSHKA KHATRI. ALL RIGHTS REGISTERED (NEC).</span>
             <span>
-              Developed by <a href="https://anuditk.com.np" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold tracking-wide hover:underline transition-all">LazZy</a>
+              Developed by <a href="https://anuditk.vercel.app" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold tracking-wide hover:underline transition-all">LazZy</a>
             </span>
           </div>
         </section>
