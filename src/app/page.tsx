@@ -74,7 +74,20 @@ export default function Home() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email && formData.message) {
+      const briefMessage = `*ARCHITECTURAL DESIGN BRIEF*
+---------------------------------------
+*Sender / Studio:* ${formData.name}
+*Email Address:* ${formData.email}
+*Specialization Interest:* ${formData.sector.toUpperCase()}
+*Inquiry Brief:*
+${formData.message}`;
+
+      const encodedText = encodeURIComponent(briefMessage);
+      const whatsappUrl = `https://wa.me/9779861288860?text=${encodedText}`;
+
       setFormSubmitted(true);
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
       setTimeout(() => {
         setFormSubmitted(false);
         setFormData({ name: "", email: "", message: "", sector: "residential" });
