@@ -148,12 +148,12 @@ export function Navigation() {
 
       {/* Mobile Drawer Overlay */}
       <div 
-        className={`fixed inset-0 top-[56px] sm:top-[64px] z-40 bg-background/95 backdrop-blur-md md:hidden transition-all duration-500 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 top-[60px] sm:top-[72px] z-40 bg-background/98 backdrop-blur-xl md:hidden transition-all duration-500 ${
+          isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <nav className="h-full flex flex-col justify-between px-6 sm:px-8 py-8 sm:py-12">
-          <ul className="flex flex-col gap-5 sm:gap-6">
+        <nav className="h-full flex flex-col justify-between px-6 py-10">
+          <ul className="flex flex-col gap-6">
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.targetId;
               return (

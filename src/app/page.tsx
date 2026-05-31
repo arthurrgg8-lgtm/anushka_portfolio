@@ -135,7 +135,7 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
         {/* SECTION 1: HERO/LANDING — Immersive Architectural Observatory */}
         <section 
           id="hero-sec" 
-          className="snap-section flex flex-col lg:justify-start justify-center items-center relative px-6 pt-12 sm:pt-14 lg:pt-20 xl:pt-24 2xl:pt-28 overflow-x-hidden"
+          className="snap-section flex flex-col lg:justify-start justify-center items-center relative px-6 pt-24 sm:pt-32 lg:pt-20 xl:pt-24 2xl:pt-28 overflow-x-hidden"
         >
           {/* ─── Drafting Grid Overlay ─── */}
           <div

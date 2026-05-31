@@ -65,25 +65,25 @@ export default function RootLayout({
               </div>
 
               {/* Technical annotations running along the borders */}
-              <div className="absolute top-1 md:top-2 left-2 md:left-4 text-[6px] md:text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none truncate max-w-[45vw] md:max-w-none">
+              <div className="absolute top-1 md:top-2 left-2 md:left-4 text-[5px] sm:text-[6px] md:text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none truncate max-w-[48vw] md:max-w-none">
                 PROJECT: PORTFOLIO // AR. ANUSHKA KHATRI
               </div>
-              <div className="absolute top-1 md:top-2 right-2 md:right-4 text-[6px] md:text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none truncate max-w-[40vw] md:max-w-none">
+              <div className="absolute top-1 md:top-2 right-2 md:right-4 text-[5px] sm:text-[6px] md:text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none truncate max-w-[42vw] md:max-w-none text-right">
                 SHEET REF: A-001 // NEC-94879
               </div>
-              <div className="absolute bottom-1 md:bottom-2 left-2 md:left-4 text-[6px] md:text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none truncate max-w-[45vw] md:max-w-none hidden md:block">
+              <div className="absolute bottom-1 md:bottom-2 left-2 md:left-4 text-[5px] sm:text-[6px] md:text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none truncate max-w-[48vw] md:max-w-none">
                 SYSTEMS: EARTH + CONCRETE // VER. PREFAB TIMBER
               </div>
-              <div className="absolute bottom-1 md:bottom-2 right-2 md:right-4 text-[6px] md:text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none truncate max-w-[40vw] md:max-w-none hidden md:block">
+              <div className="absolute bottom-1 md:bottom-2 right-2 md:right-4 text-[5px] sm:text-[6px] md:text-[8px] font-mono tracking-widest text-primary/95 dark:text-primary/90 uppercase select-none truncate max-w-[42vw] md:max-w-none text-right">
                 STATUS: SCHEMATIC DESIGN // R-2026.05
               </div>
 
               {/* Centered ruler markings along the frame */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 gap-1 md:gap-10 text-[5px] md:text-[7px] font-mono text-primary/88 dark:text-primary/82 select-none hidden md:flex">
-                <span>-500</span><span>-400</span><span>-300</span><span>-200</span><span>-100</span><span>0</span><span>100</span><span>200</span><span>300</span><span>400</span><span>500</span>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 gap-3 sm:gap-6 md:gap-10 text-[4px] sm:text-[5px] md:text-[7px] font-mono text-primary/88 dark:text-primary/82 select-none flex">
+                <span className="hidden sm:inline">-400</span><span>-200</span><span>0</span><span>200</span><span className="hidden sm:inline">400</span>
               </div>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 gap-1 md:gap-10 text-[5px] md:text-[7px] font-mono text-primary/88 dark:text-primary/82 select-none hidden md:flex">
-                <span>-500</span><span>-400</span><span>-300</span><span>-200</span><span>-100</span><span>0</span><span>100</span><span>200</span><span>300</span><span>400</span><span>500</span>
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 gap-3 sm:gap-6 md:gap-10 text-[4px] sm:text-[5px] md:text-[7px] font-mono text-primary/88 dark:text-primary/82 select-none flex">
+                <span className="hidden sm:inline">-400</span><span>-200</span><span>0</span><span>200</span><span className="hidden sm:inline">400</span>
               </div>
             </div>
 
