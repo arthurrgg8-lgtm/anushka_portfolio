@@ -1233,17 +1233,18 @@ export function ProjectGallery() {
   if (project && selectedProject) {
     return (
       <>
-        {/* Back button — outside AnimatePresence so fixed positioning isn't broken by CSS transforms */}            <motion.button
+        {/* Back button — outside AnimatePresence so fixed positioning isn't broken by CSS transforms */}
+        <motion.button
           onClick={handleBackToCategories}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
-          className="fixed top-3 left-3 sm:top-4 sm:left-4 z-[70] w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-background/85 backdrop-blur-md border border-border/60 shadow-md flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 cursor-pointer group"
+          className="fixed top-20 left-4 sm:top-24 sm:left-8 z-[70] w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-background/90 backdrop-blur-xl border border-primary/20 shadow-lg flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 cursor-pointer group"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.15, type: "spring", stiffness: 120, damping: 16 }}
+          transition={{ delay: 0.2, type: "spring", stiffness: 120, damping: 16 }}
           aria-label="Back to all categories"
         >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform duration-200" />
+          <ArrowLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform duration-200" />
         </motion.button>
 
         <AnimatePresence mode="wait">
@@ -1312,6 +1313,7 @@ export function ProjectGallery() {
         </svg>
 
         <div
+          onMouseEnter={() => {}} // dummy to trigger event bubbling check
           onMouseLeave={() => setHoveredCategory(null)}
           className="relative min-h-[320px]"
         >
