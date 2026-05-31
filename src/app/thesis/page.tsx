@@ -1,7 +1,7 @@
 "use client";
 
 import { Navigation } from "@/components/navigation";
-import { ArrowLeft, FileDown, BookOpen, Layers, Compass, Award, ExternalLink } from "lucide-react";
+import { ArrowLeft, FileDown, Award } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 

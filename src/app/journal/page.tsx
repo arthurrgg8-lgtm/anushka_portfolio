@@ -1,7 +1,7 @@
 "use client";
 
 import { Navigation } from "@/components/navigation";
-import { ArrowLeft, BookOpen, Clock, Tag } from "lucide-react";
+import { ArrowLeft, Clock, Tag } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 

@@ -74,13 +74,16 @@ export default function Home() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email && formData.message) {
-      const briefMessage = `*ARCHITECTURAL DESIGN BRIEF*
+      const briefMessage = `*🏛️ ARCHITECTURAL DESIGN BRIEF*
 ---------------------------------------
-*Sender / Studio:* ${formData.name}
-*Email Address:* ${formData.email}
-*Specialization Interest:* ${formData.sector.toUpperCase()}
-*Inquiry Brief:*
-${formData.message}`;
+*👤 Client / Studio:* ${formData.name}
+*📧 Email Address:* ${formData.email}
+*🏗️ Specialization:* ${formData.sector.toUpperCase()}
+---------------------------------------
+*📝 Inquiry Narrative:*
+${formData.message}
+---------------------------------------
+_Sent via Ar. Anushka Khatri's Portfolio_`;
 
       const encodedText = encodeURIComponent(briefMessage);
       const whatsappUrl = `https://wa.me/9779861288860?text=${encodedText}`;
@@ -394,8 +397,7 @@ ${formData.message}`;
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                {"AR. ANUSHKA KHATRI".split(" ").map((word, wordIdx, words) => {
-                  const baseOffset = words.slice(0, wordIdx).reduce((sum, w) => sum + w.length, 0) + wordIdx;
+                {"AR. ANUSHKA KHATRI".split(" ").map((word, wordIdx) => {
                   return (
                     <span key={wordIdx} className="inline-flex items-baseline">
                       {word.split("").map((char, charIdx) => {
@@ -970,7 +972,7 @@ ${formData.message}`;
           <div className="text-center text-[10px] font-mono text-muted-foreground/65 flex flex-col items-center justify-center gap-1 pt-8 pb-4">
             <span>© {new Date().getFullYear()} AR. ANUSHKA KHATRI. ALL RIGHTS REGISTERED (NEC).</span>
             <span>
-              Developed by <a href="https://anuditk.vercel.app" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold tracking-wide hover:underline transition-all">LazZy</a>
+              Developed by <a href="https://anuditk.com.np" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold tracking-wide hover:underline transition-all">LazZy</a>
             </span>
           </div>
         </section>

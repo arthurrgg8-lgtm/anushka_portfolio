@@ -1223,7 +1223,6 @@ export function ProjectGallery() {
 
   const hoveredCat = CATEGORIES.find((c) => c.id === hoveredCategory);
   const project = CATEGORIES.flatMap(c => c.projects).find((p) => p.id === selectedProject);
-  const projectCategory = CATEGORIES.find(c => c.projects.some(p => p.id === selectedProject));
 
   const handleBackToCategories = () => {
     setHoveredCategory(null);
