@@ -366,14 +366,6 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
           <div 
             className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center"
           >
-            {/* Tagline Badge */}
-            <span 
-              className="text-[10px] sm:text-xs uppercase tracking-[0.15em] bg-primary/10 text-primary font-bold px-4 py-1.5 rounded-full mb-6 sm:mb-8 font-sans inline-flex items-center gap-2"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              Vernacular Modernism & Universal Design
-            </span>
-            
             {/* Name */}
             <h1 
               className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-semibold tracking-tight leading-tight select-all relative"
