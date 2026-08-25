@@ -543,6 +543,31 @@ const CATEGORIES: Category[] = [
           "ramesh-dangol-dd.jpg"
         ],
         categoryId: "residential"
+      },
+      {
+        id: "res-05",
+        title: "3 BHK Residential House | 1,200 sq.ft Plot",
+        location: "Kathmandu Valley, Nepal",
+        year: "2025",
+        description: "A contemporary two-storey 3 BHK residence designed on a 1,200 sq.ft plot with 50% ground coverage and approximately 670 sq.ft built-up area. The façade combines wood-textured cladding, warm earthy tones, large windows, balconies, and modern metal railings. The design incorporates a terrace water tank, spiral staircase, landscaped surroundings, and secure compound wall, creating a modern yet warm residential character.",
+        details: [
+          "1,200 sq.ft plot with 50% ground coverage",
+          "Approx. 670 sq.ft built-up area",
+          "Contemporary two-storey 3 BHK configuration",
+          "Wood-textured cladding with warm earthy tones",
+          "Balconies with modern metal railings & spiral staircase",
+          "Day & night architectural illumination design"
+        ],
+        gradient: "from-amber-900/30 to-orange-800/20",
+        images: [
+          "contemporary-3bhk-house-1.jpeg",
+          "contemporary-3bhk-house-2.jpeg",
+          "contemporary-3bhk-house-3.jpeg",
+          "contemporary-3bhk-house-4.jpeg",
+          "contemporary-3bhk-house-5.jpeg",
+          "contemporary-3bhk-house-6.jpeg"
+        ],
+        categoryId: "residential"
       }
     ]
   },
@@ -824,6 +849,30 @@ const CATEGORIES: Category[] = [
         ],
         categoryId: "prefab-steel",
         embedUrl: "_Sxpne-WsJU"
+      },
+      {
+        id: "ps-03",
+        title: "Portable Modular Unit | BELA Eco Panels",
+        location: "Nepal",
+        year: "2025",
+        description: "A compact portable residential 2 BHK unit designed using BELA Eco Panels (75 mm × 610 mm × 2700 mm) with 92 × 92 mm hollow pipes and 75 mm Z-channels, elevated on a metal deck. Exploring efficient panel construction, compact planning, and modern modular living.",
+        details: [
+          "BELA Eco Panels (75 mm × 610 mm × 2700 mm)",
+          "92 × 92 mm hollow pipes & 75 mm Z-channels",
+          "Elevated metal deck structural base",
+          "Built-up area: 470 sq.ft",
+          "Compact 2 BHK modular residential layout",
+          "Software: SketchUp, V-Ray"
+        ],
+        gradient: "from-violet-900/30 to-purple-800/20",
+        images: [
+          "bela-modular-unit-1.jpeg",
+          "bela-modular-unit-2.jpeg",
+          "bela-modular-unit-3.jpeg",
+          "bela-modular-unit-4.jpeg",
+          "bela-modular-unit-5.jpeg"
+        ],
+        categoryId: "prefab-steel"
       }
     ]
   }
