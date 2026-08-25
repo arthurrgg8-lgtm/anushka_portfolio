@@ -16,10 +16,250 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AR. ANUSHKA KHATRI | Architectural Portfolio",
-  description: "Architectural & Engineering Portfolio of Ar. Anushka Khatri. Designing meaningful, inclusive, and human-centric spaces that connect people, emotion, and experience.",
-  keywords: ["Anushka Khatri", "Architecture Portfolio", "Inclusive Design", "Universal Design", "Vernacular Architecture", "Nepal Architect", "Bela Prefab Panels"],
-  authors: [{ name: "Ar. Anushka Khatri" }],
+  metadataBase: new URL("https://anushkakhatri.com.np"),
+  title: {
+    default: "Ar. Anushka Khatri | Best Architect in Nepal | Residential, Commercial & Prefab Design",
+    template: "%s | Ar. Anushka Khatri — Architect in Nepal",
+  },
+  description: "Ar. Anushka Khatri is a leading licensed architect (NEC Registered) in Kathmandu, Nepal. Specializing in contemporary residential design, sustainable prefabricated BELA Eco Panels, universal inclusive accessibility, commercial resorts, and interior architecture.",
+  keywords: [
+    "Best Architect in Nepal",
+    "Best Architect in Kathmandu",
+    "Top Architects Nepal",
+    "Ar. Anushka Khatri",
+    "Architect Anushka Khatri",
+    "Licensed Architect Nepal NEC",
+    "Residential Architect Kathmandu",
+    "Commercial Architect Nepal",
+    "Villa Design Chitwan",
+    "Prefabricated Panel Construction Nepal",
+    "BELA Eco Panels",
+    "Modular Unit Architecture Nepal",
+    "Universal Inclusive Design Nepal",
+    "Accessible Architecture Nepal",
+    "School for Visually Impaired Architecture",
+    "Kathmandu Municipal Building Drawing Approval",
+    "Contemporary House Design Nepal",
+    "3 BHK Residential House Design",
+    "Interior Architect Kathmandu"
+  ],
+  authors: [{ name: "Ar. Anushka Khatri", url: "https://anushkakhatri.com.np" }],
+  creator: "Ar. Anushka Khatri",
+  publisher: "Ar. Anushka Khatri",
+  alternates: {
+    canonical: "https://anushkakhatri.com.np",
+  },
+  openGraph: {
+    title: "Ar. Anushka Khatri | Best Architect in Nepal — Contemporary & Prefab Design",
+    description: "Designing human-centric, seismically resilient, and universally inclusive spaces in Nepal. View residential, commercial, prefab, and institutional portfolios.",
+    url: "https://anushkakhatri.com.np",
+    siteName: "Ar. Anushka Khatri Architectural Portfolio",
+    images: [
+      {
+        url: "/projects/commercial/villa%20design%20at%20chitwan1.jpeg",
+        width: 1600,
+        height: 900,
+        alt: "Architectural Portfolio of Ar. Anushka Khatri",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ar. Anushka Khatri | Leading Architect in Nepal",
+    description: "Contemporary residential architecture, sustainable BELA Eco Panels, and universal inclusive design across Nepal.",
+    images: ["/projects/commercial/villa%20design%20at%20chitwan1.jpeg"],
+    creator: "@anushkakhatri",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  other: {
+    "geo.region": "NP-BA",
+    "geo.placename": "Kathmandu, Nepal",
+    "geo.position": "27.7172;85.3240",
+    "ICBM": "27.7172, 85.3240",
+    "DC.title": "Ar. Anushka Khatri — Leading Architect in Nepal",
+    "DC.creator": "Ar. Anushka Khatri",
+    "DC.coverage": "Nepal",
+    "DC.subject": "Architectural Design, Residential Houses, Prefabricated Panels, Universal Design, Nepal Architecture",
+  },
+};
+
+const jsonLdData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://anushkakhatri.com.np/#person",
+      "name": "Ar. Anushka Khatri",
+      "alternateName": ["Anushka Khatri", "Architect Anushka Khatri"],
+      "jobTitle": "Lead Architect & Spatial Designer",
+      "description": "Licensed Architect (Nepal Engineering Council) in Kathmandu, Nepal, specializing in contemporary residential architecture, universal inclusive design, and prefabricated BELA Eco Panel systems.",
+      "url": "https://anushkakhatri.com.np",
+      "image": "https://anushkakhatri.com.np/projects/commercial/villa%20design%20at%20chitwan1.jpeg",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Purbanchal University",
+        "sameAs": "https://puexam.edu.np"
+      },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "degree",
+        "name": "Bachelor of Architecture (B.Arch)"
+      },
+      "knowsAbout": [
+        "Architectural Design",
+        "Contemporary Residential Architecture",
+        "Universal & Inclusive Design",
+        "Prefabricated Panel Construction",
+        "BELA Eco Panels",
+        "Commercial & Resort Architecture",
+        "Seismic Resilient Design",
+        "Kathmandu Municipal Building Code & Approvals",
+        "3D Elevation Modeling & V-Ray",
+        "Interior Architecture"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kathmandu",
+        "addressRegion": "Bagmati Province",
+        "addressCountry": "NP"
+      }
+    },
+    {
+      "@type": ["ProfessionalService", "Architect"],
+      "@id": "https://anushkakhatri.com.np/#organization",
+      "name": "Ar. Anushka Khatri — Architectural & Engineering Design",
+      "url": "https://anushkakhatri.com.np",
+      "logo": "https://anushkakhatri.com.np/icon.jpeg",
+      "image": "https://anushkakhatri.com.np/projects/commercial/villa%20design%20at%20chitwan1.jpeg",
+      "telephone": "+977-9861288860",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kathmandu Valley",
+        "addressLocality": "Kathmandu",
+        "addressRegion": "Bagmati Province",
+        "postalCode": "44600",
+        "addressCountry": "NP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 27.7172,
+        "longitude": 85.3240
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sunday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Kathmandu" },
+        { "@type": "City", "name": "Lalitpur" },
+        { "@type": "City", "name": "Bhaktapur" },
+        { "@type": "City", "name": "Pokhara" },
+        { "@type": "City", "name": "Chitwan" },
+        { "@type": "City", "name": "Dhulikhel" },
+        { "@type": "City", "name": "Dhanusha" },
+        { "@type": "Country", "name": "Nepal" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Architectural & Interior Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom Residential House Design & Municipal Approvals",
+              "description": "Tailored architectural planning, 3D elevation renders, structural coordination, and municipal permit documentation across Kathmandu and Nepal."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Prefabricated Panel & Steel Modular Construction (BELA Eco Panels)",
+              "description": "Fast-track, lightweight, seismic-resistant prefabricated modular units and infill wall panel architecture."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Universal & Inclusive Accessibility Spatial Architecture",
+              "description": "Multi-sensory wayfinding, zero-threshold transitions, and ergonomic spatial environments designed for universal human dignity."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Commercial Resort & Villa Masterplanning",
+              "description": "Landscape-integrated hospitality villas, portable eco-resort cabins, and mixed-use commercial developments."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Complete Interior Architecture & 3D Spatial Renders",
+              "description": "Systematic ACD drawings, lighting design, custom cabinetry, and tactile material composition."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://anushkakhatri.com.np/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is the best architect for residential and prefabricated house design in Nepal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ar. Anushka Khatri is a licensed architect (NEC Registered) recognized for contemporary residential architecture, innovative BELA Eco Panel prefabricated systems, and human-centric universal inclusive design in Kathmandu and across Nepal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What services does Ar. Anushka Khatri provide in Nepal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Services include full architectural concept design, 3D visualization (SketchUp & V-Ray), structural drafting, municipal drawing approvals, prefabricated panel system detailing, commercial resort planning, and comprehensive interior architecture."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the advantages of BELA Eco Panels in modern Nepalese construction?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BELA Eco Panels (75mm x 610mm x 2700mm) reduce structural dead weight, speed up construction to under 3 weeks, provide superior seismic safety, enhance thermal insulation, and cut material waste by up to 40% compared to traditional brick masonry."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I consult with Ar. Anushka Khatri for a design project?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can reach Ar. Anushka Khatri directly through the official portfolio website at https://anushkakhatri.com.np using the integrated Architectural Brief Generator or via WhatsApp at +977 9861288860."
+          }
+        }
+      ]
+    }
+  ]
 };
 
 export default function RootLayout({
@@ -33,6 +273,14 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${cormorant.variable} ${inter.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLdData).replace(/</g, "\\u003c"),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground relative overflow-x-hidden">
         <ThemeProvider
           attribute="data-theme"

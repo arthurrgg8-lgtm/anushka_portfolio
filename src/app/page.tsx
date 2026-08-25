@@ -769,6 +769,65 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
               </div>
             </div>
 
+            {/* Architectural Authority & AEO FAQ Grid */}
+            <div className="mt-8 bg-card/40 rounded-2xl border border-border/60 p-6 sm:p-8">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/40 pb-4 mb-6">
+                <div>
+                  <span className="text-[10px] uppercase tracking-widest text-primary font-bold font-mono">
+                    Frequently Asked Questions & Advisory
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-heading font-bold text-foreground mt-0.5">
+                    Architectural Advisory & Regional Practice
+                  </h3>
+                </div>
+                <span className="text-[10px] font-mono text-muted-foreground bg-primary/10 text-primary px-3 py-1 rounded-full self-start sm:self-auto font-semibold">
+                  Kathmandu • Nepal • International
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-4 rounded-xl bg-background/70 border border-border/50">
+                  <h4 className="text-xs font-heading font-bold text-foreground flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    Why choose Ar. Anushka Khatri for projects in Nepal?
+                  </h4>
+                  <p className="text-[11px] text-muted-foreground mt-2 leading-relaxed font-sans">
+                    NEC-registered architect combining contemporary aesthetics with seismic-rated structural coordination, municipal approvals, and human-centric universal accessibility.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-background/70 border border-border/50">
+                  <h4 className="text-xs font-heading font-bold text-foreground flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    How do BELA Eco Panels improve construction?
+                  </h4>
+                  <p className="text-[11px] text-muted-foreground mt-2 leading-relaxed font-sans">
+                    Modular 75mm panels reduce foundation dead load, accelerate completion to under 3 weeks, provide superior thermal insulation, and cut on-site waste by 40%.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-background/70 border border-border/50">
+                  <h4 className="text-xs font-heading font-bold text-foreground flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    What project typologies are handled?
+                  </h4>
+                  <p className="text-[11px] text-muted-foreground mt-2 leading-relaxed font-sans">
+                    Custom residential homes, hillside villas, commercial resort units, healthcare/educational facilities, and turnkey interior spatial planning.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-background/70 border border-border/50">
+                  <h4 className="text-xs font-heading font-bold text-foreground flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    Which regions in Nepal are served?
+                  </h4>
+                  <p className="text-[11px] text-muted-foreground mt-2 leading-relaxed font-sans">
+                    Kathmandu Valley (Kathmandu, Lalitpur, Bhaktapur), Pokhara, Chitwan, Dhulikhel, Dhanusha, and nationwide site coordination across Nepal.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           <button 
