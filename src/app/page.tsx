@@ -73,15 +73,38 @@ export default function Home() {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.message) {
+    
+    // Strict input sanitization and length limits (OWASP Input Validation)
+    const sanitizedName = formData.name.trim().slice(0, 100).replace(/[^\p{L}\p{N}\s.,'-]/gu, "");
+    const trimmedEmail = formData.email.trim().slice(0, 100);
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
+    if (!emailRegex.test(trimmedEmail)) {
+      alert("Please provide a valid email address.");
+      return;
+    }
+
+    const allowedSectors: Record<string, string> = {
+      residential: "RESIDENTIAL",
+      commercial: "COMMERCIAL & HOSPITALITY",
+      institutional: "INSTITUTIONAL",
+      interior: "INTERIOR",
+      "prefab-steel": "PREFAB PANEL & STEEL STRUCTURE",
+    };
+    const validSector = allowedSectors[formData.sector] || "RESIDENTIAL";
+
+    // Strip non-printable/control chars and limit length
+    const sanitizedMessage = formData.message.trim().replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, "").slice(0, 2000);
+
+    if (sanitizedName && trimmedEmail && sanitizedMessage) {
       const briefMessage = `*🏛️ ARCHITECTURAL DESIGN BRIEF*
 ---------------------------------------
-*👤 Client / Studio:* ${formData.name}
-*📧 Email Address:* ${formData.email}
-*🏗️ Specialization:* ${formData.sector.toUpperCase()}
+*👤 Client / Studio:* ${sanitizedName}
+*📧 Email Address:* ${trimmedEmail}
+*🏗️ Specialization:* ${validSector}
 ---------------------------------------
 *📝 Inquiry Narrative:*
-${formData.message}
+${sanitizedMessage}
 ---------------------------------------
 _Sent via Ar. Anushka Khatri's Portfolio_`;
 
