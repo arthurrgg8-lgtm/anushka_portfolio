@@ -443,46 +443,27 @@ const CATEGORIES: Category[] = [
     gradient: "from-amber-600/20 to-orange-600/10",
     projects: [
       {
-        id: "res-01",
-        title: "Gaushala Box Design Architecture",
-        location: "Kathmandu, Nepal",
+        id: "res-05",
+        title: "3 BHK Residential House | 1,200 sq.ft Plot",
+        location: "Kathmandu Valley, Nepal",
         year: "2025",
-        description: "A modular box-design residence featuring contemporary architectural forms with traditional Nepalese spatial sensibilities. The design integrates open courtyards, green rooftop spaces, and responsive facade treatment that negotiates privacy with natural ventilation.",
+        description: "A contemporary two-storey 3 BHK residence designed on a 1,200 sq.ft plot with 50% ground coverage and approximately 670 sq.ft built-up area. The façade combines wood-textured cladding, warm earthy tones, large windows, balconies, and modern metal railings. The design incorporates a terrace water tank, spiral staircase, landscaped surroundings, and secure compound wall, creating a modern yet warm residential character.",
         details: [
-          "5 distinct spatial volumes",
-          "Green roof with greenhouse top",
-          "Courtyard-centric layout",
-          "Passive solar orientation",
-          "Terracotta + concrete material palette"
+          "1,200 sq.ft plot with 50% ground coverage",
+          "Approx. 670 sq.ft built-up area",
+          "Contemporary two-storey 3 BHK configuration",
+          "Wood-textured cladding with warm earthy tones",
+          "Balconies with modern metal railings & spiral staircase",
+          "Day & night architectural illumination design"
         ],
         gradient: "from-amber-900/30 to-orange-800/20",
         images: [
-          "gaushala-1.jpeg",
-          "gaushala-2.jpeg",
-          "gaushala-3.jpeg"
-        ],
-        categoryId: "residential",
-      },
-      {
-        id: "res-02",
-        title: "Rabibhawan Residence",
-        location: "Rabibhawan, Lalitpur",
-        year: "2024",
-        description: "A thoughtfully planned multi-unit residence in Rabibhawan featuring five distinct living spaces arranged across multiple levels. Each unit benefits from careful cross-ventilation, abundant natural light, and private outdoor connections.",
-        details: [
-          "5 residential units",
-          "Multi-level configuration",
-          "Cross-ventilated layouts",
-          "Private terrace per unit",
-          "Universal access corridors"
-        ],
-        gradient: "from-amber-800/25 to-yellow-700/15",
-        images: [
-          "rabibhawanresidential1.jpeg",
-          "rabibhawanresidential2.jpeg",
-          "rabibhawanresidential3.jpeg",
-          "rabibhawanresidential4.jpeg",
-          "rabibhawanresidential5.jpeg"
+          "contemporary-3bhk-house-1.jpeg",
+          "contemporary-3bhk-house-2.jpeg",
+          "contemporary-3bhk-house-3.jpeg",
+          "contemporary-3bhk-house-4.jpeg",
+          "contemporary-3bhk-house-5.jpeg",
+          "contemporary-3bhk-house-6.jpeg"
         ],
         categoryId: "residential"
       },
@@ -545,27 +526,46 @@ const CATEGORIES: Category[] = [
         categoryId: "residential"
       },
       {
-        id: "res-05",
-        title: "3 BHK Residential House | 1,200 sq.ft Plot",
-        location: "Kathmandu Valley, Nepal",
+        id: "res-01",
+        title: "Gaushala Box Design Architecture",
+        location: "Kathmandu, Nepal",
         year: "2025",
-        description: "A contemporary two-storey 3 BHK residence designed on a 1,200 sq.ft plot with 50% ground coverage and approximately 670 sq.ft built-up area. The façade combines wood-textured cladding, warm earthy tones, large windows, balconies, and modern metal railings. The design incorporates a terrace water tank, spiral staircase, landscaped surroundings, and secure compound wall, creating a modern yet warm residential character.",
+        description: "A modular box-design residence featuring contemporary architectural forms with traditional Nepalese spatial sensibilities. The design integrates open courtyards, green rooftop spaces, and responsive facade treatment that negotiates privacy with natural ventilation.",
         details: [
-          "1,200 sq.ft plot with 50% ground coverage",
-          "Approx. 670 sq.ft built-up area",
-          "Contemporary two-storey 3 BHK configuration",
-          "Wood-textured cladding with warm earthy tones",
-          "Balconies with modern metal railings & spiral staircase",
-          "Day & night architectural illumination design"
+          "5 distinct spatial volumes",
+          "Green roof with greenhouse top",
+          "Courtyard-centric layout",
+          "Passive solar orientation",
+          "Terracotta + concrete material palette"
         ],
         gradient: "from-amber-900/30 to-orange-800/20",
         images: [
-          "contemporary-3bhk-house-1.jpeg",
-          "contemporary-3bhk-house-2.jpeg",
-          "contemporary-3bhk-house-3.jpeg",
-          "contemporary-3bhk-house-4.jpeg",
-          "contemporary-3bhk-house-5.jpeg",
-          "contemporary-3bhk-house-6.jpeg"
+          "gaushala-1.jpeg",
+          "gaushala-2.jpeg",
+          "gaushala-3.jpeg"
+        ],
+        categoryId: "residential",
+      },
+      {
+        id: "res-02",
+        title: "Rabibhawan Residence",
+        location: "Rabibhawan, Lalitpur",
+        year: "2024",
+        description: "A thoughtfully planned multi-unit residence in Rabibhawan featuring five distinct living spaces arranged across multiple levels. Each unit benefits from careful cross-ventilation, abundant natural light, and private outdoor connections.",
+        details: [
+          "5 residential units",
+          "Multi-level configuration",
+          "Cross-ventilated layouts",
+          "Private terrace per unit",
+          "Universal access corridors"
+        ],
+        gradient: "from-amber-800/25 to-yellow-700/15",
+        images: [
+          "rabibhawanresidential1.jpeg",
+          "rabibhawanresidential2.jpeg",
+          "rabibhawanresidential3.jpeg",
+          "rabibhawanresidential4.jpeg",
+          "rabibhawanresidential5.jpeg"
         ],
         categoryId: "residential"
       }
@@ -672,6 +672,40 @@ const CATEGORIES: Category[] = [
     gradient: "from-emerald-600/20 to-teal-600/10",
     projects: [
       {
+        id: "int-05",
+        title: "3 BHK Villa Interior & Pool Deck",
+        location: "Chitwan, Nepal",
+        year: "2025",
+        description: "A luxury 3 BHK villa interior and outdoor living concept in Chitwan featuring a seamless transition between organic indoor textures and tropical outdoor leisure. The spatial design integrates an open-plan sunken lounge, bespoke kitchen island with woven pendant lighting, master suite with sculpted arched headboard niches, spa-inspired ensuite bathrooms with skylights, and a private pergola-covered swimming pool deck with lush vertical green walls.",
+        details: [
+          "3 BHK luxury villa layout with seamless spatial flow",
+          "Sunken living lounge with full-height glazing & tropical garden view",
+          "Custom kitchen with natural timber millwork & integrated breakfast bar",
+          "Master bedroom suite with sculptural arched niches & light wood paneling",
+          "Spa ensuite bathroom with freestanding tub, stone accent wall & skylight",
+          "Private swimming pool deck with glass pergola canopy & ambient lantern terraces",
+          "Biophilic living green wall & integrated architectural illumination"
+        ],
+        gradient: "from-emerald-900/30 to-teal-800/20",
+        images: [
+          "chitwan-villa-3bhk-pool-1.jpeg",
+          "chitwan-villa-3bhk-lounge-2.jpeg",
+          "chitwan-villa-3bhk-living-3.jpeg",
+          "chitwan-villa-3bhk-kitchen-4.jpeg",
+          "chitwan-villa-3bhk-kitchen-5.jpeg",
+          "chitwan-villa-3bhk-kitchen-6.jpeg",
+          "chitwan-villa-3bhk-bedroom-7.jpeg",
+          "chitwan-villa-3bhk-bedroom-8.jpeg",
+          "chitwan-villa-3bhk-bedroom-9.jpeg",
+          "chitwan-villa-3bhk-bedroom-10.jpeg",
+          "chitwan-villa-3bhk-bathroom-11.jpeg",
+          "chitwan-villa-3bhk-bathroom-12.jpeg",
+          "chitwan-villa-3bhk-terrace-13.jpeg",
+          "chitwan-villa-3bhk-terrace-14.jpeg"
+        ],
+        categoryId: "interior"
+      },
+      {
         id: "int-01",
         title: "Foreign Quarters Interior",
         location: "Nepal",
@@ -741,27 +775,6 @@ const CATEGORIES: Category[] = [
         categoryId: "interior"
       },
       {
-        id: "int-03",
-        title: "Rudra Kitchen Interior",
-        location: "Nepal",
-        year: "2025",
-        description: "A focused kitchen interior design featuring a functional yet warm culinary space. The layout integrates efficient storage, ergonomic work zones, and a seamless dining connection, combining practicality with refined detailing.",
-        details: [
-          "Custom cabinetry and storage",
-          "Ergonomic kitchen work triangle",
-          "Integrated dining space",
-          "Warm material finishes",
-          "Efficient space utilisation"
-        ],
-        gradient: "from-emerald-800/25 to-green-700/15",
-        images: [
-          "rudra-kitchen-cupboard-view-2.png",
-          "rudra-kitchen-dining-view.png",
-          "rudra-kitchen-stove-counter-view-1.png"
-        ],
-        categoryId: "interior"
-      },
-      {
         id: "int-04",
         title: "Sabitri Pandey Residence Interior",
         location: "Nepal",
@@ -790,6 +803,27 @@ const CATEGORIES: Category[] = [
           "sabitri-gf-mb2.png"
         ],
         categoryId: "interior"
+      },
+      {
+        id: "int-03",
+        title: "Rudra Kitchen Interior",
+        location: "Nepal",
+        year: "2025",
+        description: "A focused kitchen interior design featuring a functional yet warm culinary space. The layout integrates efficient storage, ergonomic work zones, and a seamless dining connection, combining practicality with refined detailing.",
+        details: [
+          "Custom cabinetry and storage",
+          "Ergonomic kitchen work triangle",
+          "Integrated dining space",
+          "Warm material finishes",
+          "Efficient space utilisation"
+        ],
+        gradient: "from-emerald-800/25 to-green-700/15",
+        images: [
+          "rudra-kitchen-cupboard-view-2.png",
+          "rudra-kitchen-dining-view.png",
+          "rudra-kitchen-stove-counter-view-1.png"
+        ],
+        categoryId: "interior"
       }
     ]
   },
@@ -805,6 +839,30 @@ const CATEGORIES: Category[] = [
     description: "Panelized rapid-assembly construction and structural steel solutions for long-span, fast-track, and high-seismic-resistance projects across Nepal.",
     gradient: "from-violet-600/20 to-rose-600/10",
     projects: [
+      {
+        id: "ps-03",
+        title: "Portable Modular Unit | BELA Eco Panels",
+        location: "Nepal",
+        year: "2025",
+        description: "A compact portable residential 2 BHK unit designed using BELA Eco Panels (75 mm × 610 mm × 2700 mm) with 92 × 92 mm hollow pipes and 75 mm Z-channels, elevated on a metal deck. Exploring efficient panel construction, compact planning, and modern modular living.",
+        details: [
+          "BELA Eco Panels (75 mm × 610 mm × 2700 mm)",
+          "92 × 92 mm hollow pipes & 75 mm Z-channels",
+          "Elevated metal deck structural base",
+          "Built-up area: 470 sq.ft",
+          "Compact 2 BHK modular residential layout",
+          "Software: SketchUp, V-Ray"
+        ],
+        gradient: "from-violet-900/30 to-purple-800/20",
+        images: [
+          "bela-modular-unit-1.jpeg",
+          "bela-modular-unit-2.jpeg",
+          "bela-modular-unit-3.jpeg",
+          "bela-modular-unit-4.jpeg",
+          "bela-modular-unit-5.jpeg"
+        ],
+        categoryId: "prefab-steel"
+      },
       {
         id: "ps-01",
         title: "Affordable Housing — Dhanusha 3BHK Unit",
@@ -849,30 +907,6 @@ const CATEGORIES: Category[] = [
         ],
         categoryId: "prefab-steel",
         embedUrl: "_Sxpne-WsJU"
-      },
-      {
-        id: "ps-03",
-        title: "Portable Modular Unit | BELA Eco Panels",
-        location: "Nepal",
-        year: "2025",
-        description: "A compact portable residential 2 BHK unit designed using BELA Eco Panels (75 mm × 610 mm × 2700 mm) with 92 × 92 mm hollow pipes and 75 mm Z-channels, elevated on a metal deck. Exploring efficient panel construction, compact planning, and modern modular living.",
-        details: [
-          "BELA Eco Panels (75 mm × 610 mm × 2700 mm)",
-          "92 × 92 mm hollow pipes & 75 mm Z-channels",
-          "Elevated metal deck structural base",
-          "Built-up area: 470 sq.ft",
-          "Compact 2 BHK modular residential layout",
-          "Software: SketchUp, V-Ray"
-        ],
-        gradient: "from-violet-900/30 to-purple-800/20",
-        images: [
-          "bela-modular-unit-1.jpeg",
-          "bela-modular-unit-2.jpeg",
-          "bela-modular-unit-3.jpeg",
-          "bela-modular-unit-4.jpeg",
-          "bela-modular-unit-5.jpeg"
-        ],
-        categoryId: "prefab-steel"
       }
     ]
   }

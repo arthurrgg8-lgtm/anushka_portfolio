@@ -41,6 +41,8 @@ export const metadata: Metadata = {
     "Kathmandu Municipal Building Drawing Approval",
     "Contemporary House Design Nepal",
     "3 BHK Residential House Design",
+    "Chitwan Villa Interior Design",
+    "Luxury Pool Villa Architecture Nepal",
     "Interior Architect Kathmandu"
   ],
   authors: [{ name: "Ar. Anushka Khatri", url: "https://anushkakhatri.com.np" }],
