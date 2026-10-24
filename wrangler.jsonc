@@ -33,5 +33,6 @@
 			"pattern": "www.anushkakhatri.com.np",
 			"custom_domain": true
 		}
-	]
+	],
+	"workers_dev": true
 }
