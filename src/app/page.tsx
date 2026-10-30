@@ -66,7 +66,9 @@ export default function Home() {
     if (el) {
       const main = document.querySelector("main.snap-container");
       if (main) {
-        main.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+        main.scrollTo({ top: el.offsetTop, behavior: "smooth" });
+      } else {
+        el.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
@@ -158,7 +160,7 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
         {/* SECTION 1: HERO/LANDING — Immersive Architectural Observatory */}
         <section 
           id="hero-sec" 
-          className="snap-section flex flex-col lg:justify-start justify-center items-center relative px-6 pt-24 sm:pt-32 lg:pt-20 xl:pt-24 2xl:pt-28 overflow-x-hidden"
+          className="snap-section min-h-[100dvh] flex flex-col justify-center items-center relative px-4 sm:px-6 pt-20 pb-8 sm:pt-24 sm:pb-10 overflow-x-hidden"
         >
           {/* ─── Drafting Grid Overlay ─── */}
           <div
@@ -387,9 +389,9 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
 
           {/* ─── Main Content ─── */}
           <div 
-            className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center"
+            className="w-full max-w-4xl mx-auto text-center z-10 flex flex-col items-center my-auto"
           >
-            {/* Name */}
+            {/* Name & Logo */}
             <h1 
               className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-semibold tracking-tight leading-tight select-all relative"
             >
@@ -403,37 +405,39 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
                 }}
               />
 
-              <span className="inline-flex flex-wrap justify-center items-center gap-x-[0.24em] relative z-10 text-foreground">
-                {/* Small circular logo inline with name */}
-                <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-[72px] lg:h-[72px] rounded-full overflow-hidden border border-primary/20 shadow-sm flex items-center justify-center bg-card/50 backdrop-blur-sm group hover:scale-105 hover:border-primary/50 transition-all duration-500 mr-2 shrink-0">
+              <span className="flex flex-col sm:inline-flex sm:flex-row flex-wrap justify-center items-center gap-y-2.5 sm:gap-y-0 sm:gap-x-[0.24em] relative z-10 text-foreground">
+                {/* Circular logo centered above name on mobile, inline on tablet/desktop */}
+                <div className="w-12 h-12 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-[68px] lg:h-[68px] rounded-full overflow-hidden border border-primary/25 shadow-sm flex items-center justify-center bg-card/50 backdrop-blur-sm group hover:scale-105 hover:border-primary/50 transition-all duration-500 sm:mr-2 shrink-0">
                   <img
                     src="/logo.jpeg"
                     alt="Ar. Anushka Khatri Logo"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                {"AR. ANUSHKA KHATRI".split(" ").map((word, wordIdx) => {
-                  return (
-                    <span key={wordIdx} className="inline-flex items-baseline">
-                      {word.split("").map((char, charIdx) => {
-                        return (
-                          <span
-                            key={charIdx}
-                            className="inline-block relative"
-                          >
-                            {char}
-                          </span>
-                        );
-                      })}
-                    </span>
-                  );
-                })}
+                <span className="inline-flex flex-wrap justify-center items-baseline gap-x-[0.24em]">
+                  {"AR. ANUSHKA KHATRI".split(" ").map((word, wordIdx) => {
+                    return (
+                      <span key={wordIdx} className="inline-flex items-baseline">
+                        {word.split("").map((char, charIdx) => {
+                          return (
+                            <span
+                              key={charIdx}
+                              className="inline-block relative"
+                            >
+                              {char}
+                            </span>
+                          );
+                        })}
+                      </span>
+                    );
+                  })}
+                </span>
               </span>
             </h1>
             
             {/* Tagline */}
             <p 
-              className="text-sm sm:text-base md:text-xl font-heading font-medium text-foreground mt-2 sm:mt-3 italic max-w-2xl"
+              className="text-sm sm:text-base md:text-xl font-heading font-medium text-foreground mt-2.5 sm:mt-3 italic max-w-2xl px-2"
             >
               <span className="relative inline-block">
                 &ldquo;Designing spaces that speak through emotion, experience &amp; purpose.&rdquo;
@@ -445,18 +449,18 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
             
             {/* Short Bio Snippet */}
             <p 
-              className="text-xs sm:text-sm md:text-base text-muted-foreground font-sans max-w-xl mt-2 sm:mt-3 leading-relaxed"
+              className="text-xs sm:text-sm md:text-base text-muted-foreground font-sans max-w-xl mt-2.5 sm:mt-3 leading-relaxed px-2"
             >
               Architect passionate about creating meaningful, human-centric, and inclusive spaces through intuitive storytelling, construction technologies, and vernacular sustainability.
             </p>
 
             {/* Quick CTAs */}
             <div 
-              className="flex gap-3 mt-3 sm:mt-4 flex-col sm:flex-row"
+              className="flex flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-3 mt-4 w-full sm:w-auto"
             >
               <button 
                 onClick={() => handleScrollTo("projects-sec")}
-                className="group relative text-xs sm:text-sm uppercase tracking-wider bg-primary hover:bg-primary/95 text-primary-foreground font-sans font-bold px-6 py-2.5 sm:py-3 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
+                className="group relative text-xs sm:text-sm uppercase tracking-wider bg-primary hover:bg-primary/95 text-primary-foreground font-sans font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden shadow-sm"
               >
                 <span className="relative z-10">Explore Works</span>
                 <div
@@ -467,7 +471,7 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
               </button>
               <button 
                 onClick={() => handleScrollTo("about-sec")}
-                className="group relative text-xs sm:text-sm uppercase tracking-wider border border-border bg-card/50 hover:bg-muted text-foreground font-sans font-semibold px-6 py-2.5 sm:py-3 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
+                className="group relative text-xs sm:text-sm uppercase tracking-wider border border-border bg-card/60 hover:bg-muted text-foreground font-sans font-semibold px-5 sm:px-6 py-2.5 sm:py-3 rounded-full cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
               >
                 <span className="relative z-10">Read Profile</span>
               </button>
@@ -475,44 +479,45 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
 
             {/* Thankot House Before-After Minimal Slider */}
             <ThankotSlider />
-          </div>
 
-          {/* ─── Scroll Indicator ─── */}            <button 
-            onClick={() => handleScrollTo("projects-sec")}
-            className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 cursor-pointer group"
-            aria-label="Scroll down"
-          >
-            {/* Circular ring */}
-            <div className="relative w-8 h-8 flex items-center justify-center mb-1">
-              <svg 
-                width="32" height="32" viewBox="0 0 32 32"
-                fill="none" 
-                stroke="currentColor"
-                className="text-muted-foreground/40 group-hover:text-primary/60 transition-colors duration-500"
-              >
-                <circle cx="16" cy="16" r="14" strokeWidth="0.8" strokeDasharray="2 4" />
-              </svg>
-              <div
-                className="absolute w-1.5 h-1.5 rounded-full bg-primary/60 top-1 left-1"
-              />
-            </div>
-            <span 
-              className="text-[8px] uppercase tracking-[0.2em] font-mono text-muted-foreground/50 group-hover:text-primary transition-colors duration-500"
+            {/* ─── Scroll Indicator ─── */}
+            <button 
+              onClick={() => handleScrollTo("projects-sec")}
+              className="mt-4 sm:mt-5 z-10 flex flex-col items-center gap-1 cursor-pointer group"
+              aria-label="Scroll down"
             >
-              Scroll
-            </span>
-          </button>
+              {/* Circular ring */}
+              <div className="relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center">
+                <svg 
+                  width="32" height="32" viewBox="0 0 32 32"
+                  fill="none" 
+                  stroke="currentColor"
+                  className="w-full h-full text-muted-foreground/40 group-hover:text-primary/60 transition-colors duration-500"
+                >
+                  <circle cx="16" cy="16" r="14" strokeWidth="0.8" strokeDasharray="2 4" />
+                </svg>
+                <div
+                  className="absolute w-1.5 h-1.5 rounded-full bg-primary/60 top-1 left-1"
+                />
+              </div>
+              <span 
+                className="text-[8px] uppercase tracking-[0.2em] font-mono text-muted-foreground/60 group-hover:text-primary transition-colors duration-500"
+              >
+                Scroll
+              </span>
+            </button>
+          </div>
         </section>
 
         {/* SECTION 2: PROJECTS ZONE (CATEGORY GALLERY) */}
-        <section id="projects-sec" className="snap-section flex flex-col justify-center items-center relative px-4 sm:px-6 bg-muted/20 overflow-y-auto">
-          <div className="w-full max-w-5xl my-auto pt-8 sm:pt-12 pb-16 sm:pb-12">
+        <section id="projects-sec" className="snap-section flex flex-col justify-center items-center relative px-4 sm:px-6 py-14 sm:py-20 bg-muted/20">
+          <div className="w-full max-w-5xl my-auto">
             <ProjectGallery />
           </div>
           
           <button 
             onClick={() => handleScrollTo("about-sec")}
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-300"
+            className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-1 cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-300"
             aria-label="Scroll down"
           >
             <ChevronDown className="w-4 h-4" />
@@ -520,19 +525,19 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
         </section>
 
         {/* SECTION 3: ABOUT & CREDENTIALS */}
-        <section id="about-sec" className="snap-section flex flex-col justify-center items-center relative px-6 overflow-y-auto">
-          <div className="max-w-4xl mx-auto my-auto w-full grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center pt-8 sm:pt-12 pb-20 sm:pb-12">
+        <section id="about-sec" className="snap-section flex flex-col justify-center items-center relative px-4 sm:px-6 py-14 sm:py-20">
+          <div className="max-w-4xl mx-auto my-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
             {/* Left Side: Text Details */}
-            <div className="md:col-span-7 flex flex-col justify-center">
+            <div className="md:col-span-7 flex flex-col justify-center text-center md:text-left">
               <span className="text-xs uppercase tracking-widest text-primary font-semibold font-sans">
                 Identity & Philosophy
               </span>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mt-1 mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mt-1 mb-4">
                 Designing Narratives & Spatial Experiences
               </h2>
               
-              <div className="space-y-4 text-sm text-muted-foreground font-sans leading-relaxed">
+              <div className="space-y-4 text-xs sm:text-sm text-muted-foreground font-sans leading-relaxed text-left">
                 <p>
                   As a working architect, I believe architecture should go far beyond plain aesthetics. Built forms are stories waiting to be told — they shape the way people feel, move, and connect within a space.
                 </p>
@@ -545,19 +550,20 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
               </div>
 
               {/* CV Download Trigger */}
-              <div className="mt-6 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">                  <a
-                    href="/portfolio/Latest CV as of bela.pdf"
-                    download="Anushka_s_CV.pdf"
-                    className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider bg-card border border-border hover:bg-muted text-foreground font-sans font-semibold px-5 py-3 rounded-full cursor-pointer hover:scale-102 active:scale-98 transition-all duration-300 shadow-sm"
-                  >
-                    <FileDown className="w-4 h-4 text-primary" />
-                    <span>Download Curriculum Vitae</span>
-                  </a>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-center md:justify-start">
+                <a
+                  href="/portfolio/Latest CV as of bela.pdf"
+                  download="Anushka_s_CV.pdf"
+                  className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider bg-card border border-border hover:bg-muted text-foreground font-sans font-semibold px-5 py-3 rounded-full cursor-pointer hover:scale-102 active:scale-98 transition-all duration-300 shadow-sm"
+                >
+                  <FileDown className="w-4 h-4 text-primary" />
+                  <span>Download Curriculum Vitae</span>
+                </a>
               </div>
 
               {/* Portfolio Downloads */}
-              <div className="mt-8 border-t border-border/40 pt-6">
-                <span className="block text-[10px] font-bold uppercase tracking-widest text-primary font-sans mb-4">
+              <div className="mt-8 border-t border-border/40 pt-6 text-left">
+                <span className="block text-[10px] font-bold uppercase tracking-widest text-primary font-sans mb-4 text-center md:text-left">
                   Portfolio &amp; Report Downloads
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -651,7 +657,7 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
             {/* Right Side: Digital License Seal and Info Box */}
             <div className="md:col-span-5 flex flex-col items-center justify-center">
               {/* Custom SVG NEC License Digital Badge */}
-              <div className="relative w-full max-w-[260px] sm:w-64 sm:h-64 bg-card rounded-2xl border border-border/80 shadow-md p-4 sm:p-6 flex flex-col items-center justify-between text-center select-none group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+              <div className="relative w-full max-w-[280px] sm:max-w-[300px] bg-card rounded-2xl border border-border/80 shadow-md p-6 flex flex-col items-center justify-between text-center select-none group hover:shadow-lg hover:-translate-y-1 transition-all duration-300 gap-4">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-primary/20 flex items-center justify-center relative bg-muted/30">
                   {/* Rotating seal border */}
                   <svg className="absolute inset-0 w-full h-full text-primary opacity-60 animate-[spin_20s_linear_infinite]" viewBox="0 0 100 100">
@@ -660,21 +666,21 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
                   <Compass className="w-8 h-8 text-primary" />
                 </div>
 
-                <div className="mt-3 sm:mt-4">
-                  <span className="text-[8px] sm:text-[9px] uppercase tracking-widest text-primary font-bold font-mono">
+                <div>
+                  <span className="text-[9px] uppercase tracking-widest text-primary font-bold font-mono">
                     Official Certification
                   </span>
-                  <h4 className="text-sm sm:text-base font-heading font-bold text-foreground mt-1 leading-tight">
+                  <h4 className="text-base font-heading font-bold text-foreground mt-1 leading-tight">
                     REGISTERED ARCHITECT
                   </h4>
-                  <p className="text-[9px] sm:text-[10px] text-muted-foreground font-mono mt-1 uppercase tracking-wider">
+                  <p className="text-[10px] text-muted-foreground font-mono mt-1 uppercase tracking-wider">
                     Nepal Engineering Council (NEC)
                   </p>
                 </div>
 
-                <div className="w-full bg-background border border-border/60 py-2 sm:py-2.5 rounded-lg text-[9px] sm:text-xs font-mono font-semibold text-primary mt-2 flex flex-col gap-0.5">
-                  <div className="text-[9px] sm:text-xs">STATUS: REGISTERED ARCHITECT</div>
-                  <div className="text-[7px] sm:text-[9px] opacity-75">NEC REG NO: 94879</div>
+                <div className="w-full bg-background border border-border/60 py-2.5 px-3 rounded-lg text-[10px] sm:text-xs font-mono font-semibold text-primary flex flex-col gap-0.5">
+                  <div>STATUS: REGISTERED ARCHITECT</div>
+                  <div className="text-[9px] opacity-80">NEC REG NO: 94879</div>
                 </div>
               </div>
             </div>
@@ -683,7 +689,7 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
 
           <button 
             onClick={() => handleScrollTo("capabilities-sec")}
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-300"
+            className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-1 cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-300"
             aria-label="Scroll down"
           >
             <ChevronDown className="w-4 h-4" />
@@ -691,19 +697,19 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
         </section>
 
         {/* SECTION 4: CAPABILITIES & TOOLBOX */}
-        <section id="capabilities-sec" className="snap-section flex flex-col justify-center items-center relative px-6 bg-muted/10 overflow-y-auto">
-          <div className="max-w-4xl mx-auto my-auto w-full pt-8 sm:pt-12 pb-16 sm:pb-12">
+        <section id="capabilities-sec" className="snap-section flex flex-col justify-center items-center relative px-4 sm:px-6 py-14 sm:py-20 bg-muted/10">
+          <div className="max-w-4xl mx-auto my-auto w-full">
             
-            <div className="text-center mb-8">
+            <div className="text-center mb-6 sm:mb-8">
               <span className="text-xs uppercase tracking-widest text-primary font-semibold font-sans">
                 Core Specializations
               </span>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mt-1">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mt-1">
                 Technical Strengths & Capabilities
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 items-stretch">
               
               {/* Sector 1 */}
               <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border/60 shadow-sm flex flex-col justify-between group hover:border-primary/50 transition-colors duration-300">
@@ -855,7 +861,7 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
 
           <button 
             onClick={() => handleScrollTo("materials-sec")}
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-300"
+            className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-1 cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-300"
             aria-label="Scroll down"
           >
             <ChevronDown className="w-4 h-4" />
@@ -863,14 +869,14 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
         </section>
 
         {/* SECTION 5: MATERIAL BOARD (EASTER EGG) */}
-        <section id="materials-sec" className="snap-section flex flex-col justify-center items-center relative px-6 overflow-y-auto">
-          <div className="w-full max-w-5xl my-auto pt-8 sm:pt-12 pb-16 sm:pb-12">
+        <section id="materials-sec" className="snap-section flex flex-col justify-center items-center relative px-4 sm:px-6 py-14 sm:py-20">
+          <div className="w-full max-w-5xl my-auto">
             <MaterialBoard />
           </div>
           
           <button 
             onClick={() => handleScrollTo("contact-sec")}
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-300"
+            className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-1 cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-300"
             aria-label="Scroll down"
           >
             <ChevronDown className="w-4 h-4" />
@@ -878,12 +884,12 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
         </section>
 
         {/* SECTION 6: CONTACT & INQUIRY FORM */}
-        <section id="contact-sec" className="snap-section flex flex-col justify-center items-center relative px-6 bg-muted/20 overflow-y-auto">
+        <section id="contact-sec" className="snap-section flex flex-col justify-center items-center relative px-4 sm:px-6 py-14 sm:py-20 bg-muted/20">
           
-          <div className="max-w-4xl mx-auto my-auto w-full grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 py-8 sm:py-12 items-stretch">
+          <div className="max-w-4xl mx-auto my-auto w-full grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-stretch">
             
             {/* Left side info channels */}
-            <div className="md:col-span-5 flex flex-col justify-between bg-card/50 rounded-2xl border border-border/80 p-6 sm:p-8 shadow-sm">
+            <div className="md:col-span-5 flex flex-col justify-between bg-card/50 rounded-2xl border border-border/80 p-5 sm:p-8 shadow-sm">
               <div>
                 <span className="text-xs uppercase tracking-widest text-primary font-semibold font-sans">
                   Collaboration Hub
@@ -895,29 +901,29 @@ _Sent via Ar. Anushka Khatri's Portfolio_`;
                   Seeking design consults, professional collaboration, universal accessibility audits, or prefabricated panel implementation details? Reach out directly.
                 </p>
 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <a 
                     href="mailto:Anushkakhatri004@gmail.com"
-                    className="flex items-center gap-3 p-3 rounded-lg bg-background border border-border/60 text-xs font-sans font-medium text-foreground hover:border-primary/40 transition-colors duration-300"
+                    className="flex items-center gap-3 p-3 rounded-lg bg-background border border-border/60 text-xs font-sans font-medium text-foreground hover:border-primary/40 transition-colors duration-300 min-w-0"
                   >
-                    <Mail className="w-4 h-4 text-primary" />
-                    <span>Anushkakhatri004@gmail.com</span>
+                    <Mail className="w-4 h-4 text-primary shrink-0" />
+                    <span className="truncate">Anushkakhatri004@gmail.com</span>
                   </a>
                   <a 
                     href="tel:+9779861288860"
-                    className="flex items-center gap-3 p-3 rounded-lg bg-background border border-border/60 text-xs font-sans font-medium text-foreground hover:border-primary/40 transition-colors duration-300"
+                    className="flex items-center gap-3 p-3 rounded-lg bg-background border border-border/60 text-xs font-sans font-medium text-foreground hover:border-primary/40 transition-colors duration-300 min-w-0"
                   >
-                    <Phone className="w-4 h-4 text-primary" />
-                    <span>+977 9861288860</span>
+                    <Phone className="w-4 h-4 text-primary shrink-0" />
+                    <span className="truncate">+977 9861288860</span>
                   </a>
                   <a 
                     href="https://wa.me/9779861288860"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-3 rounded-lg bg-background border border-border/60 text-xs font-sans font-medium text-foreground hover:border-green-500/50 hover:bg-green-500/5 transition-all duration-300"
+                    className="flex items-center gap-3 p-3 rounded-lg bg-background border border-border/60 text-xs font-sans font-medium text-foreground hover:border-green-500/50 hover:bg-green-500/5 transition-all duration-300 min-w-0"
                   >
-                    <MessageCircle className="w-4 h-4 text-green-500" />
-                    <span>WhatsApp: +977 986-1288860</span>
+                    <MessageCircle className="w-4 h-4 text-green-500 shrink-0" />
+                    <span className="truncate">WhatsApp: +977 986-1288860</span>
                   </a>
                 </div>
               </div>

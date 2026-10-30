@@ -98,32 +98,35 @@ export function MaterialBoard() {
   const IconComponent = activeMaterial.icon;
 
   return (
-    <div className="w-full max-w-5xl px-2">
+    <div className="w-full max-w-5xl mx-auto">
       <div className="text-center mb-6">
         <span className="text-xs uppercase tracking-widest text-primary font-semibold font-sans">
           Easter Egg & Material Philosophy
         </span>
-        <h3 className="text-3xl font-heading font-bold mt-1">
+        <h3 className="text-2xl sm:text-3xl font-heading font-bold mt-1">
           Interactive Material Board
         </h3>
-        <p className="text-sm text-muted-foreground max-w-lg mx-auto mt-2 font-sans">
-          Click any material block in this architectural flat-lay to reveal its vernacular roots, technical properties, and placement in Anushka&apos;s spatial layouts.
+        <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto mt-2 font-sans leading-relaxed">
+          Tap or click any material block in this architectural flat-lay to reveal its vernacular roots, technical properties, and placement in Anushka&apos;s spatial layouts.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch mt-6">
         {/* Left Side: Flat-Lay Grid */}
-        <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 min-h-[300px] select-none">
-          {MATERIALS.map((material) => {
+        <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 min-h-[280px] select-none">
+          {MATERIALS.map((material, idx) => {
             const MaterialIcon = material.icon;
             const isSelected = material.id === selectedId;
+            const isLastOdd = idx === MATERIALS.length - 1 && MATERIALS.length % 2 === 1;
             return (
               <button
                 key={material.id}
                 onClick={() => setSelectedId(material.id)}
-                className={`relative rounded-xl p-3 sm:p-5 border text-left flex flex-col justify-between transition-all duration-500 cursor-pointer group hover:-translate-y-1.5 ${
+                className={`relative rounded-xl p-3 sm:p-5 border text-left flex flex-col justify-between transition-all duration-500 cursor-pointer group hover:-translate-y-1 ${
+                  isLastOdd ? "col-span-2 sm:col-span-1" : ""
+                } ${
                   isSelected 
-                    ? "border-primary/80 shadow-md ring-2 ring-primary/20 scale-[1.02]" 
+                    ? "border-primary/80 shadow-md ring-2 ring-primary/20 scale-[1.01]" 
                     : "border-border/60 bg-card/40 hover:bg-card/90 hover:border-border hover:shadow-sm"
                 }`}
                 style={{
@@ -131,7 +134,7 @@ export function MaterialBoard() {
                 }}
               >
                 {/* Visual texture representation block */}
-                <div className={`w-full aspect-[4/3] rounded-lg mb-2 sm:mb-4 ${material.colorClass} opacity-90 flex items-center justify-center relative overflow-hidden transition-all duration-500 shadow-inner group-hover:scale-105`}>
+                <div className={`${isLastOdd ? "aspect-[16/7] sm:aspect-[4/3]" : "aspect-[4/3]"} w-full rounded-lg mb-2 sm:mb-4 ${material.colorClass} opacity-90 flex items-center justify-center relative overflow-hidden transition-all duration-500 shadow-inner group-hover:scale-105`}>
                   {/* Material image or abstract texture */}
                   {material.image ? (
                     <img
@@ -196,9 +199,9 @@ export function MaterialBoard() {
               </div>
             </div>
 
-            <p className="text-[11px] font-mono text-muted-foreground mt-2 border-b border-border/40 pb-3 flex justify-between items-center">
+            <p className="text-[11px] font-mono text-muted-foreground mt-2 border-b border-border/40 pb-3 flex flex-wrap justify-between items-center gap-2">
               <span>{activeMaterial.nepaliName}</span>
-              <span className="bg-primary/10 text-primary px-1.5 py-0.5 rounded uppercase tracking-wider text-[9px]">
+              <span className="bg-primary/10 text-primary px-1.5 py-0.5 rounded uppercase tracking-wider text-[9px] shrink-0">
                 {activeMaterial.subtitle}
               </span>
             </p>

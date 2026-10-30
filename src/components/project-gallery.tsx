@@ -107,13 +107,15 @@ function ImageLightbox({
   currentIndex,
   onClose,
   onPrev,
-  onNext
+  onNext,
+  onSelectIndex
 }: {
   images: string[];
   currentIndex: number;
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
+  onSelectIndex: (idx: number) => void;
 }) {
   // Keyboard navigation
   useEffect(() => {
@@ -200,7 +202,7 @@ function ImageLightbox({
           {images.map((img, idx) => (
             <button
               key={idx}
-              onClick={() => {}}  // controlled by parent via keyboard
+              onClick={() => onSelectIndex(idx)}
               className={`shrink-0 w-10 sm:w-14 h-8 sm:h-10 rounded-md overflow-hidden border-2 transition-all duration-200 cursor-pointer ${
                 idx === currentIndex
                   ? "border-white opacity-100 scale-110"
@@ -416,6 +418,7 @@ function ProjectImageGallery({
             onClose={() => setLightboxOpen(false)}
             onPrev={onPrev}
             onNext={onNext}
+            onSelectIndex={(idx) => setCurrentIndex(idx)}
           />
         )}
       </AnimatePresence>
@@ -993,75 +996,62 @@ const CATEGORY_COLORS: Record<string, string> = {
   "prefab-steel": "#7c3aed"
 };
 
-/* ─── Orbital drift keyframes ─── */
-const orbitalPaths = [
-  { x: [0, 10, 0, -10, 0], y: [10, 0, -10, 0, 10] },
-  { x: [0, -8, 0, 8, 0], y: [12, 0, -12, 0, 12] },
-  { x: [0, 12, 0, -12, 0], y: [8, 0, -8, 0, 8] },
-  { x: [0, 14, 0, -14, 0], y: [6, 0, -6, 0, 6] },
-  { x: [0, 6, 0, -6, 0], y: [14, 0, -14, 0, 14] },
-];
-
 /* ─── Category Card ─── */
 function CategoryCard({ category, index, onHover }: { category: Category; index: number; onHover: () => void }) {
   const accent = CATEGORY_COLORS[category.id] || CATEGORY_COLORS.residential;
-  const isMain = index === 0;
-  const orbit = orbitalPaths[index % orbitalPaths.length];
+  const isLastOdd = index === CATEGORIES.length - 1 && CATEGORIES.length % 2 === 1;
 
   return (
     <motion.div
       variants={fadeInUp}
-      className="inline-flex flex-col items-center"
-      animate={{ x: orbit.x, y: orbit.y }}
+      className={`inline-flex flex-col items-center justify-center ${
+        isLastOdd ? "col-span-2 sm:col-span-1" : ""
+      }`}
+      animate={{ y: [0, -5, 0] }}
       transition={{
         repeat: Infinity,
-        duration: 10 + index * 1.5,
+        duration: 6 + index * 0.8,
         ease: "easeInOut",
-        delay: index * 1.2,
+        delay: index * 0.4,
       }}
       onMouseEnter={onHover}
       onClick={onHover} // Mobile support: tap to show projects
     >
       <motion.div
         whileHover={{ scale: 1.04 }}
-        className={`group relative rounded-full cursor-pointer ${
-          isMain ? "w-32 h-32 sm:w-48 sm:h-48 md:w-60 md:h-60" : "w-28 h-28 sm:w-44 sm:h-44 md:w-52 md:h-52"
-        }`}
+        whileTap={{ scale: 0.97 }}
+        className="group relative rounded-full cursor-pointer w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52"
       >
         <div
           className="absolute inset-0 rounded-full"
           style={{
-            border: `1.5px solid ${accent}25`,
+            border: `1.5px solid ${accent}35`,
             transition: "border-color 0.4s ease, box-shadow 0.4s ease",
           }}
         />
         <div
           className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500"
           style={{
-            border: `1.5px solid ${accent}60`,
-            boxShadow: `0 0 24px -4px ${accent}20, inset 0 0 24px -8px ${accent}10`,
+            border: `1.5px solid ${accent}70`,
+            boxShadow: `0 0 24px -4px ${accent}25, inset 0 0 24px -8px ${accent}15`,
           }}
         />
-        <div className="w-full h-full rounded-full flex flex-col items-center justify-center gap-1.5 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.5]">
+        <div className="w-full h-full rounded-full flex flex-col items-center justify-center gap-1.5 px-4 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.35] dark:opacity-[0.45]">
             <CategoryArt categoryId={category.id} />
           </div>
-          <div className="absolute inset-3 rounded-full border border-foreground/[0.12]" />
-          <div className="absolute inset-6 rounded-full border border-dashed border-foreground/[0.07]" />
+          <div className="absolute inset-2.5 sm:inset-3 rounded-full border border-foreground/[0.12]" />
+          <div className="absolute inset-5 sm:inset-6 rounded-full border border-dashed border-foreground/[0.07]" />
           <div
-            className={`relative z-10 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-all duration-400 ${
-              isMain ? "scale-125" : "scale-110"
-            }`}
+            className="relative z-10 flex items-center justify-center opacity-85 group-hover:opacity-100 transition-all duration-300 scale-105 sm:scale-110"
             style={{ color: accent }}
           >
             {category.icon}
           </div>
-          <h3 className={`relative z-10 font-heading font-semibold text-foreground/80 group-hover:text-foreground text-center leading-tight transition-colors duration-400 ${
-            isMain ? "text-xs sm:text-sm" : "text-[11px] sm:text-xs"
-          }`}>
+          <h3 className="relative z-10 font-heading font-semibold text-foreground/90 group-hover:text-foreground text-center leading-tight transition-colors duration-300 text-xs sm:text-sm max-w-[110px] sm:max-w-[135px]">
             {category.title}
           </h3>
-          <span className="relative z-10 text-[8px] font-mono text-muted-foreground/0 group-hover:text-muted-foreground/60 transition-colors duration-400">
+          <span className="relative z-10 text-[9px] font-mono text-muted-foreground/75 group-hover:text-muted-foreground transition-colors duration-300">
             {category.projects.length} {category.projects.length === 1 ? "project" : "projects"}
           </span>
         </div>
@@ -1315,26 +1305,31 @@ export function ProjectGallery() {
 
   // Project detail view
   if (project && selectedProject) {
+    const parentCategory = CATEGORIES.find((c) => c.id === project.categoryId);
     return (
-      <>
-        {/* Back button — outside AnimatePresence so fixed positioning isn't broken by CSS transforms */}
-        <motion.button
-          onClick={handleBackToCategories}
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.95 }}
-          className="fixed top-20 left-4 sm:top-24 sm:left-8 z-[70] w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-background/90 backdrop-blur-xl border border-primary/20 shadow-lg flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 cursor-pointer group"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, type: "spring", stiffness: 120, damping: 16 }}
-          aria-label="Back to all categories"
-        >
-          <ArrowLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform duration-200" />
-        </motion.button>
+      <div className="w-full max-w-4xl mx-auto">
+        {/* Clean inline navigation bar above project detail so it never overlaps on mobile */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <button
+            onClick={() => setSelectedProject(null)}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/90 border border-border/80 hover:border-primary/50 text-xs font-mono font-semibold text-foreground hover:text-primary shadow-sm transition-all duration-300 cursor-pointer"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Back to {parentCategory?.title || "Category"}</span>
+          </button>
+
+          <button
+            onClick={handleBackToCategories}
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-background/80 border border-border/60 hover:border-primary/40 text-[10px] font-mono uppercase tracking-wider text-muted-foreground hover:text-primary transition-all duration-300 cursor-pointer"
+          >
+            <span>All Categories</span>
+          </button>
+        </div>
 
         <AnimatePresence mode="wait">
           <motion.div
             key="project-detail"
-            className="w-full max-w-4xl mx-auto"
+            className="w-full"
             variants={slideInRight}
             initial="hidden"
             animate="visible"
@@ -1345,7 +1340,7 @@ export function ProjectGallery() {
             />
           </motion.div>
         </AnimatePresence>
-      </>
+      </div>
     );
   }
 
@@ -1353,7 +1348,7 @@ export function ProjectGallery() {
   return (
     <div className="w-full max-w-5xl mx-auto">
       <motion.div
-        className="text-center mb-8"
+        className="text-center mb-6 sm:mb-8"
         initial={{ opacity: 0, y: -15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -1366,23 +1361,23 @@ export function ProjectGallery() {
         >
           Portfolio Archive
         </motion.span>
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mt-1">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mt-1">
           Explore by Category
         </h2>
         <motion.p
-          className="text-sm text-muted-foreground mt-2 max-w-lg mx-auto font-sans leading-relaxed"
+          className="text-xs sm:text-sm text-muted-foreground mt-2 max-w-lg mx-auto font-sans leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.5 }}
         >
-          Hover a discipline to preview projects, then click any project to explore its full details and gallery.
+          Select or hover a discipline to preview projects, then tap any project to explore its full specifications and gallery.
         </motion.p>
       </motion.div>
 
       {/* Orbital gallery */}
       <div className="relative">
         <svg
-          className="absolute inset-0 w-full h-full pointer-events-none select-none text-foreground"
+          className="absolute inset-0 w-full h-full pointer-events-none select-none text-foreground hidden sm:block"
           viewBox="0 0 1000 500"
           preserveAspectRatio="xMidYMid meet"
         >
@@ -1397,9 +1392,12 @@ export function ProjectGallery() {
         </svg>
 
         <div
-          onMouseEnter={() => {}} // dummy to trigger event bubbling check
-          onMouseLeave={() => setHoveredCategory(null)}
-          className="relative min-h-[320px]"
+          onMouseLeave={() => {
+            if (typeof window !== "undefined" && window.innerWidth >= 1024) {
+              setHoveredCategory(null);
+            }
+          }}
+          className="relative min-h-[300px]"
         >
           <AnimatePresence mode="wait">
             {hoveredCategory && hoveredCat ? (
@@ -1408,49 +1406,53 @@ export function ProjectGallery() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0.15 } }}
-                className="flex flex-col items-center gap-4 sm:gap-8 lg:flex-row lg:items-start lg:gap-12 py-4 relative"
+                className="flex flex-col items-center gap-5 sm:gap-6 lg:flex-row lg:items-start lg:gap-10 py-2 sm:py-4 relative"
               >
-                {/* Mobile Back Button — specifically for returning to category grid */}
-                <motion.button
-                  onClick={() => setHoveredCategory(null)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="lg:hidden absolute -top-4 right-0 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md border border-border/60 text-[10px] font-mono font-bold uppercase tracking-widest text-primary shadow-sm cursor-pointer"
-                >
-                  <ArrowLeft className="w-3 h-3" />
-                  All Categories
-                </motion.button>
+                {/* Mobile / Tablet Top Bar for returning to all categories */}
+                <div className="w-full flex items-center justify-between lg:hidden">
+                  <button
+                    onClick={() => setHoveredCategory(null)}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-card/90 backdrop-blur-md border border-border/80 text-[11px] font-mono font-bold uppercase tracking-wider text-primary shadow-sm cursor-pointer"
+                  >
+                    <ArrowLeft className="w-3.5 h-3.5" />
+                    <span>All Categories</span>
+                  </button>
+                  <span className="text-[11px] font-mono text-muted-foreground">
+                    {hoveredCat.projects.length} {hoveredCat.projects.length === 1 ? "Project" : "Projects"}
+                  </span>
+                </div>
+
                 {/* Expanded circle */}
                 <div
                   onMouseEnter={() => setHoveredCategory(hoveredCat.id)}
                   className="shrink-0"
                 >
                   <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1.15, opacity: 1 }}
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
                     transition={{ type: "spring", stiffness: 180, damping: 22 }}
-                className="w-36 h-36 sm:w-48 sm:h-48 md:w-60 md:h-60 rounded-full relative flex items-center justify-center"
-                style={{
-                  border: `1.5px solid ${CATEGORY_COLORS[hoveredCat.id] || CATEGORY_COLORS.residential}35`,
-                  boxShadow: `0 0 40px -8px ${CATEGORY_COLORS[hoveredCat.id] || CATEGORY_COLORS.residential}25`,
-                }}
+                    className="w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56 rounded-full relative flex items-center justify-center"
+                    style={{
+                      border: `1.5px solid ${CATEGORY_COLORS[hoveredCat.id] || CATEGORY_COLORS.residential}45`,
+                      boxShadow: `0 0 36px -8px ${CATEGORY_COLORS[hoveredCat.id] || CATEGORY_COLORS.residential}25`,
+                    }}
                   >
-                    <div className="w-full h-full rounded-full flex flex-col items-center justify-center gap-2 relative overflow-hidden">
+                    <div className="w-full h-full rounded-full flex flex-col items-center justify-center gap-1.5 px-4 relative overflow-hidden">
                       <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.5]">
                         <CategoryArt categoryId={hoveredCat.id} />
                       </div>
                       <div className="absolute inset-3 rounded-full border border-foreground/[0.12]" />
                       <div className="absolute inset-6 rounded-full border border-dashed border-foreground/[0.07]" />
                       <div
-                        className="relative z-10 flex items-center justify-center scale-125"
+                        className="relative z-10 flex items-center justify-center scale-110"
                         style={{ color: CATEGORY_COLORS[hoveredCat.id] || CATEGORY_COLORS.residential }}
                       >
                         {hoveredCat.icon}
                       </div>
-                      <h3 className="relative z-10 font-heading font-semibold text-foreground text-center text-[10px] sm:text-sm md:text-base leading-tight max-w-[80px] sm:max-w-[120px]">
+                      <h3 className="relative z-10 font-heading font-semibold text-foreground text-center text-xs sm:text-sm md:text-base leading-tight max-w-[110px] sm:max-w-[135px]">
                         {hoveredCat.title}
                       </h3>
-                      <span className="relative z-10 text-[7px] sm:text-[9px] font-mono text-muted-foreground/60">
+                      <span className="relative z-10 text-[9px] font-mono text-muted-foreground/75">
                         {hoveredCat.projects.length} {hoveredCat.projects.length === 1 ? "project" : "projects"}
                       </span>
                     </div>
@@ -1459,9 +1461,9 @@ export function ProjectGallery() {
 
                 {/* Project preview panel */}
                 <motion.div
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.08 }}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.05 }}
                   className="flex-1 w-full"
                   onMouseEnter={() => setHoveredCategory(hoveredCat.id)}
                 >
@@ -1489,7 +1491,7 @@ export function ProjectGallery() {
                 initial="hidden"
                 animate="visible"
                 exit={{ opacity: 0, transition: { duration: 0.15 } }}
-                className="relative flex flex-wrap justify-center items-center gap-3 sm:gap-6 md:gap-8 lg:gap-14 py-4"
+                className="relative grid grid-cols-2 sm:flex sm:flex-wrap justify-items-center justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 py-2 sm:py-4"
               >
                 {CATEGORIES.map((cat, i) => (
                   <CategoryCard
@@ -1503,6 +1505,28 @@ export function ProjectGallery() {
             )}
           </AnimatePresence>
         </div>
+      </div>
+
+      {/* Crawlable SSR Archive Index of All Architectural Works for Search Engines & AI Crawlers */}
+      <div className="sr-only" aria-label="Complete Architectural Project Archive by Ar. Anushka Khatri">
+        {CATEGORIES.map((cat) => (
+          <section key={cat.id}>
+            <h3>{cat.title} Architecture in Nepal — {cat.description}</h3>
+            <ul>
+              {cat.projects.map((proj) => (
+                <li key={proj.id}>
+                  <h4>{proj.title} ({proj.location}, {proj.year})</h4>
+                  <p>{proj.description}</p>
+                  <ul>
+                    {proj.details.map((spec, idx) => (
+                      <li key={idx}>{spec}</li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
       </div>
     </div>
   );
